@@ -1,0 +1,10 @@
+.form {
+  width: 520px;
+  margin: 0 auto;
+}
+
+.form-error {
+  font-size: 14px;
+  color: var(--red);
+  margin-top: 8px;
+}
