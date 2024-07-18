@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Loading from "../loading/loading"
+import { Loading } from "../loading"
 import { ButtonProps } from "./button.type"
 import classes from "./button.module.css"
 
