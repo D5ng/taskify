@@ -1,7 +1,7 @@
-import classes from "./form-control.module.css"
 import { createContext, useContext } from "react"
 import { FormControlContextValues, FormControlContextProps } from "./form-control.type"
 import * as FormComponents from "./components"
+import classes from "./form-control.module.css"
 
 const formControlContextInitialState: FormControlContextProps = {
   id: "",
