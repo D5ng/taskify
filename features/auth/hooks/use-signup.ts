@@ -1,8 +1,7 @@
 import { FormEventHandler, useState } from "react"
 import { AxiosError } from "axios"
-
-import { AuthApiInstance } from "@/shared/common/services"
-import { InputStates } from "@/shared/common/components/ui/form-control-compound/form-control.type"
+import { AuthApiInstance } from "@common/services"
+import { InputStates } from "@common/components/ui/form-control-compound/form-control.type"
 
 interface SignUpProps {
   emailState: InputStates
