@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 import "@/styles/colors.css"
+import "@/styles/skeleton.css"
 
 import type { AppProps } from "next/app"
 
