@@ -1,5 +1,5 @@
 import { usePaginationContext } from ".."
-import classes from "../pagination.module.css"
+import classes from "../index.module.css"
 
 export default function Prev() {
   const paginationContext = usePaginationContext()
