@@ -1,4 +1,4 @@
-import { DashboardHeader } from "@/shared/@dashboard/dashboard-header"
+import { DashboardHeader } from "@dashboard/dashboard-header"
 
 export default function MyDashboard() {
   return (
