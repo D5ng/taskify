@@ -1,5 +1,5 @@
 import { Member } from "@/shared/@common/types"
-import Avatar from "@/shared/@common/components/ui/avatar-compound/avatar"
+import Avatar from "@common/components/ui/avatar"
 import classes from "./dashboard-header-members.module.css"
 
 interface Props {

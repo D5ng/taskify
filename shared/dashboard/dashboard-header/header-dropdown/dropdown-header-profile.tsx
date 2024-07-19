@@ -1,5 +1,5 @@
 import React from "react"
-import Dropdown from "@/shared/common/components/ui/dropdown-compound/dropdown"
+import Dropdown from "@common/components/ui/dropdown"
 import classes from "./dropdown-header-profile.module.css"
 
 interface Props {

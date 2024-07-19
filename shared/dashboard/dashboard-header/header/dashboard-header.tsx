@@ -3,8 +3,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useToggle, useAuthStore } from "@common/hooks"
 import { Member } from "@common/types"
-
-import Avatar from "@common/components/ui/avatar-compound/avatar"
+import Avatar from "@common/components/ui/avatar"
 import { DashboardHeaderDetail, DropdownHeaderProfile } from "@/shared/dashboard/dashboard-header"
 import classes from "./dashboard-header.module.css"
 

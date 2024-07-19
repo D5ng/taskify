@@ -1,5 +1,5 @@
-import FormControl from "@common/components/ui/form-control-compound/form-control"
-import { FormControlStates } from "@common/components/ui/form-control-compound/form-control.type"
+import FormControl from "@common/components/ui/form-control"
+import type { FormControlStates } from "@common/components/ui/form-control"
 
 export default function FormControlNickname(props: FormControlStates) {
   return (
