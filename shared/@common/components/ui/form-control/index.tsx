@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react"
-import { FormControlContextValues, FormControlContextProps } from "./form-control.type"
 import * as FormComponents from "./components"
-import classes from "./form-control.module.css"
+import type { FormControlContextValues, FormControlContextProps } from "./index.type"
+import classes from "./index.module.css"
 
 const formControlContextInitialState: FormControlContextProps = {
   id: "",
@@ -39,8 +39,5 @@ export default function FormControl(props: FormControlContextValues) {
 FormControl.Input = FormComponents.Input
 FormControl.Label = FormComponents.Label
 FormControl.ErrorMessage = FormComponents.ErrorMessage
-// FormControl.Select = FormComponents.Select
-// FormControl.Options = FormComponents.Options
-// FormControl.TextArea = FormComponents.TextArea
-// FormControl.Upload = FormComponents.Upload
-// FormControl.Hashtag = FormComponents.Hashtag
+
+export * from "./index.type"

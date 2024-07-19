@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from "react"
-import { useFormControlContext } from "../form-control"
+import { useFormControlContext } from ".."
 import classes from "../form-control.module.css"
 
 export default function Input(props: InputHTMLAttributes<HTMLInputElement>) {

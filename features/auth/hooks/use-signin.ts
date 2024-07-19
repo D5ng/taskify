@@ -3,8 +3,8 @@ import { AxiosError } from "axios"
 import { useRouter } from "next/router"
 import { setCookie } from "cookies-next"
 import { AuthApiInstance } from "@common/services"
-import { InputStates } from "@common/components/ui/form-control-compound/form-control.type"
 import { useAuthStore } from "@common/hooks"
+import type { InputStates } from "@common/components/ui/form-control/index.type"
 
 interface SignInProps {
   emailState: InputStates

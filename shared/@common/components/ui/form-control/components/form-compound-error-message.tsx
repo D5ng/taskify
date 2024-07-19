@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react"
-import { useFormControlContext } from "../form-control"
+import { useFormControlContext } from ".."
 import classes from "../form-control.module.css"
 
 export default function ErrorMessage(props: PropsWithChildren) {
