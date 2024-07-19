@@ -4,7 +4,7 @@ import {
   DashboardHeaderMembers,
 } from "@dashboard/dashboard-header"
 import { useRouterQuery } from "@common/hooks"
-import type { Member } from "@/shared/@common/types"
+import type { Member } from "@common/types"
 
 interface Props {
   members: Member[]
