@@ -1,0 +1,48 @@
+.avatar-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 12px;
+}
+
+/**==============================================
+ *             		Avatar Image   
+ *=============================================**/
+.avatar-image {
+  border-radius: 50%;
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: var(--black-30);
+}
+
+.avatar-initial {
+  background-color: var(--black-30);
+}
+
+.avatar-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.avatar-image.task {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.avatar-image.header {
+  width: 38px;
+  height: 38px;
+}
+
+/**==============================================
+ *             		Avatar Name   
+ *=============================================**/
+
+.avatar-name {
+  font-weight: 500;
+}

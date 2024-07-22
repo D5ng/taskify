@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, createContext, useContext } from "react"
 import { AvatarName, AvatarImage } from "./components"
 import { AvatarContextType } from "./index.type"
+import classes from "./index.module.css"
 
 export const AvatarContext = createContext<AvatarContextType>({
   nickname: "",
@@ -14,7 +15,11 @@ export function useAvatarContext() {
 }
 
 export default function Avatar(props: PropsWithChildren<AvatarContextType>) {
-  return <AvatarContext.Provider value={{ ...props }}>{props.children}</AvatarContext.Provider>
+  return (
+    <AvatarContext.Provider value={{ ...props }}>
+      <div className={classes["avatar-layout"]}>{props.children}</div>
+    </AvatarContext.Provider>
+  )
 }
 
 Avatar.Name = AvatarName

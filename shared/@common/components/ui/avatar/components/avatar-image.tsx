@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "next/image"
-import classes from "./avatar-image.module.css"
+import classes from "../index.module.css"
 import { useAvatarContext } from ".."
 
 interface AvatarImageProps {
@@ -9,8 +9,8 @@ interface AvatarImageProps {
 
 export default function AvatarImage(props: AvatarImageProps) {
   const avatarContext = useAvatarContext()
-  const className = `${classes[props.type || "header"]} ${classes["profile-image"]} ${
-    !avatarContext.image ? classes["profile-initial"] : ""
+  const className = `${classes[props.type || "header"]} ${classes["avatar-image"]} ${
+    !avatarContext.image ? classes["avatar-initial"] : ""
   }`
 
   return (
