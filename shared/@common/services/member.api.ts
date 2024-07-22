@@ -1,4 +1,4 @@
-import { axiosInstance } from "@/config"
+import { axiosInstance } from "@config/index"
 import { MemberResponse } from "@common/types"
 
 class MemberAPI {

@@ -2,11 +2,11 @@ import { useDashboardPageStore } from "@common/hooks"
 import { useFetchDashboards } from "@common/hooks/queries"
 import type { Dashboard } from "@common/types"
 
-interface DashboardListFetcherLayoutProps {
+interface Props {
   renderComponents: (dashboardsQuery: Dashboard) => JSX.Element
 }
 
-export default function DashboardListFetcherLayout(props: DashboardListFetcherLayoutProps) {
+export default function DashboardListFetcherLayout(props: Props) {
   const currentPage = useDashboardPageStore.use.currentPage()
   const dashboardsQuery = useFetchDashboards(currentPage)
 

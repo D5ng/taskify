@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react"
 import * as Components from "./components"
 import { useOutside } from "@common/hooks"
 import { DropdownContextType, DropdownType } from "./index.type"
-import classes from "./dropdown.module.css"
+import classes from "./index.module.css"
 
 export const DropdownContext = createContext<DropdownContextType>({
   isToggle: false,

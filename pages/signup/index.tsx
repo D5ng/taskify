@@ -1,6 +1,6 @@
 import Link from "next/link"
-import AuthHeader from "@/features/auth/components/header/auth-header"
-import SignUpForm from "@/features/auth/components/form/auth-signup-form"
+import AuthHeader from "@features/auth/components/header/auth-header"
+import SignUpForm from "@features/auth/components/form/auth-signup-form"
 import classes from "./index.module.css"
 
 export default function SignUpPage() {
