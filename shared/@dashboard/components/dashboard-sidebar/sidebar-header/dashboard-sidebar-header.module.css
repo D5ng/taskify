@@ -1,0 +1,12 @@
+.side-header {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.side-header-title {
+  color: var(--black-60);
+  font-size: 12px;
+  font-weight: bold;
+}

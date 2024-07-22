@@ -1,4 +1,4 @@
-import { axiosInstance } from "@/config"
+import { axiosInstance } from "@config/index"
 import type { DashboardData, Dashboard, DashboardResponse, InviteData, InviteResponse } from "@common/types"
 
 class DashboardAPI {

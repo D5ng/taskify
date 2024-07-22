@@ -2,7 +2,7 @@ import {
   DashboardHeaderSettingButton,
   DashboardHeaderInviteButton,
   DashboardHeaderMembers,
-} from "@dashboard/dashboard-header"
+} from "@dashboard/components/dashboard-header"
 import { useRouterQuery } from "@common/hooks"
 import type { Member } from "@common/types"
 

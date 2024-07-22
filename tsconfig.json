@@ -12,11 +12,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
       "@common/*": ["./shared/@common/*"],
       "@dashboard/*": ["./shared/@dashboard/*"],
-      "@features/*": ["./features/*"]
+      "@features/*": ["./features/*"],
+      "@config/*": ["./config/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

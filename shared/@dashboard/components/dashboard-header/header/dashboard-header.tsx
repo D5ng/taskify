@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useAuthStore, useToggle } from "@/shared/@common/hooks"
-import { DashboardHeaderDetail, DropdownHeaderProfile } from "@dashboard/dashboard-header"
-import Avatar from "@/shared/@common/components/ui/avatar"
-import type { Member } from "@/shared/@common/types"
+import { useAuthStore, useToggle } from "@common/hooks"
+import { DashboardHeaderDetail, DropdownHeaderProfile } from "@dashboard/components/dashboard-header"
+import Avatar from "@common/components/ui/avatar"
+import type { Member } from "@common/types"
 import classes from "./dashboard-header.module.css"
 
 interface DashboardHeaderProps extends PropsWithChildren {
