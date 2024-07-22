@@ -4,7 +4,7 @@ import { useColorChipSelect, useCreateDashboardForm } from "@dashboard/hooks"
 import { ColorChipColor } from "@common/types"
 import { isNotEmptyValidation } from "@common/utils/validation"
 import { ColorChipList } from "@common/components/ui/chips"
-import { FormControlDashboardName } from "@dashboard/form-control"
+import { FormControlDashboardName } from "@dashboard/components/form-control"
 
 interface Props {
   isToggle: boolean

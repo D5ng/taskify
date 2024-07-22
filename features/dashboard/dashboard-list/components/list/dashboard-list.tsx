@@ -1,4 +1,4 @@
-import { DashboardListFetcherLayout } from "@dashboard/dashboard-layout"
+import { DashboardListFetcherLayout } from "@dashboard/components/dashboard-layout"
 import {
   DashboardListAddButton,
   DashboardListSkeleton,

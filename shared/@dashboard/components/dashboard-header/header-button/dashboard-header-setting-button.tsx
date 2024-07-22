@@ -1,4 +1,3 @@
-import SettingIcon from "@/public/images/icons/setting-icon.svg"
 import { ButtonLink } from "@common/components/ui/button"
 
 interface LinkWithIconProps {
@@ -11,7 +10,7 @@ export default function DashboardHeaderSettingButton(props: LinkWithIconProps) {
     <ButtonLink
       href={`/dashboard/${props.dashboardId}/edit`}
       buttonStyle="outline"
-      iconUrl={SettingIcon}
+      iconUrl="/images/icons/setting-icon.svg"
       customStyle={style}
     >
       관리
