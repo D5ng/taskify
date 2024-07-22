@@ -6,9 +6,5 @@ interface DropdownTriggerType {
 
 export default function DropdownTrigger(props: DropdownTriggerType) {
   const dropdownContext = useDropdownContext()
-  return (
-    <>
-      <button onClick={dropdownContext.onOpenToggle}>{props.children}</button>
-    </>
-  )
+  return <button onClick={dropdownContext.onOpenToggle}>{props.children}</button>
 }
