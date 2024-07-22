@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react"
 import { useFormControlContext } from ".."
-import classes from "../form-control.module.css"
+import classes from "../index.module.css"
 
 export default function Label(props: PropsWithChildren<{ isRequired?: boolean }>) {
   const formControlContext = useFormControlContext()
