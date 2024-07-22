@@ -1,9 +1,8 @@
 import { PropsWithChildren } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useAuthStore, useToggle } from "@common/hooks"
-import { DashboardHeaderDetail, DropdownHeaderProfile } from "@dashboard/components/dashboard-header"
-import Avatar from "@common/components/ui/avatar"
+import { useToggle } from "@common/hooks"
+import { DashboardHeaderDetail, DashboardHeaderProfile } from "@dashboard/components/dashboard-header"
 import type { Member } from "@common/types"
 import classes from "./dashboard-header.module.css"
 
@@ -15,8 +14,6 @@ interface DashboardHeaderProps extends PropsWithChildren {
 export default function DashboardHeader(props: DashboardHeaderProps) {
   const router = useRouter()
   const id = router.query.id
-  const nickname = useAuthStore.use.nickname()
-  const profileImage = useAuthStore.use.profileImageUrl()
   const { isToggle, handleOpenToggle, handleCloseToggle } = useToggle()
 
   return (
@@ -28,13 +25,7 @@ export default function DashboardHeader(props: DashboardHeaderProps) {
         <div className={classes["flex-layout"]}>
           {id && <DashboardHeaderDetail members={props.members!} className={classes["button-layout"]} />}
           <div className={classes["profile-wrapper"]}>
-            <button className={classes["profile-layout"]} onClick={handleOpenToggle}>
-              <Avatar image={profileImage} nickname={nickname}>
-                <Avatar.Image />
-                <Avatar.Name />
-              </Avatar>
-            </button>
-            <DropdownHeaderProfile
+            <DashboardHeaderProfile
               isToggle={isToggle}
               onOpenToggle={handleOpenToggle}
               onCloseToggle={handleCloseToggle}
