@@ -1,0 +1,13 @@
+.sidebar {
+  width: 300px;
+  padding: 20px 12px;
+  border-right: 1px solid var(--black-40);
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-wrapper {
+  padding: 0 12px;
+}
