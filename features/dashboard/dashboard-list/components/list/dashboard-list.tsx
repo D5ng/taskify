@@ -4,7 +4,7 @@ import {
   DashboardListSkeleton,
   DashboardListItem,
   DashboardListPagination,
-} from "@/features/dashboard/dashboard-list/components"
+} from "@features/dashboard/dashboard-list/components"
 import Suspensive from "@common/components/suspensive"
 import { useFetchDashboards } from "@common/hooks/queries"
 import { useDashboardPageStore } from "@common/hooks"
