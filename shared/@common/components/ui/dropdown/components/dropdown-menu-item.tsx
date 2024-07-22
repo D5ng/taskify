@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, PropsWithChildren } from "react"
 import { useDropdownContext } from "@common/components/ui/dropdown"
-import classes from "../dropdown.module.css"
+import classes from "../index.module.css"
 
 interface Props extends PropsWithChildren, HTMLAttributes<HTMLLIElement> {
   onClick?: () => void
