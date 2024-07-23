@@ -4,5 +4,4 @@ import useRouterQuery from "./use-router-query"
 import useOutside from "./use-outside"
 
 export * from "./store"
-
 export { useInput, useToggle, useRouterQuery, useOutside }

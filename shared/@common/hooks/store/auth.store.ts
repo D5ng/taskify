@@ -1,6 +1,6 @@
-import { AuthStore } from "@common/types"
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import { AuthStore } from "@common/types"
 import { createSelectors } from "@common/utils/store"
 
 export const useAuthStoreBase = create<AuthStore>()(

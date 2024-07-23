@@ -2,9 +2,9 @@ import { FormEventHandler, useState } from "react"
 import { AxiosError } from "axios"
 import { useRouter } from "next/router"
 import { setCookie } from "cookies-next"
-import { AuthApiInstance } from "@common/services"
-import { useAuthStore } from "@common/hooks"
 import type { InputStates } from "@common/components/ui/form-control/index.type"
+import { AuthApiInstance } from "@common/services"
+import { useAuthStore } from "@common/hooks/store"
 
 interface SignInProps {
   emailState: InputStates

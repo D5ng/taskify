@@ -1,4 +1,4 @@
-import { DashboardListFetcherLayout } from "@dashboard/components/dashboard-layout"
+import { DashboardListFetcherLayout } from "@shared/dashboard/components"
 import {
   DashboardListAddButton,
   DashboardListSkeleton,
@@ -6,8 +6,7 @@ import {
   DashboardListPagination,
 } from "@features/dashboard/dashboard-list/components"
 import Suspensive from "@common/components/suspensive"
-import { useFetchDashboards } from "@common/hooks/queries"
-import { useDashboardPageStore } from "@common/hooks"
+import { useFetchDashboards, useDashboardPageStore } from "@shared/dashboard/hooks"
 import classes from "./dashboard-list.module.css"
 
 export default function DashboardList() {

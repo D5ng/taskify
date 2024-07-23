@@ -14,10 +14,10 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./*"],
+      "@shared/*": ["./shared/*"],
       "@common/*": ["./shared/@common/*"],
-      "@dashboard/*": ["./shared/@dashboard/*"],
-      "@features/*": ["./features/*"],
-      "@config/*": ["./config/*"]
+      "@features/*": ["./features/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

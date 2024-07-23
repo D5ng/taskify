@@ -1,6 +1,4 @@
-import { DashboardLayout } from "@dashboard/components/dashboard-layout"
-import { DashboardHeader } from "@dashboard/components/dashboard-header"
-import { DashboardSideBar } from "@dashboard/components/dashboard-sidebar"
+import { DashboardLayout, DashboardHeader, DashboardSideBar } from "@shared/dashboard/components"
 import { DashboardList } from "@features/dashboard/dashboard-list/components"
 
 export default function MyDashboard() {

@@ -1,5 +1,5 @@
+import { axiosInstance } from "@/config"
 import { SignupResponse, SingupPostData, SigninPostData, AuthResposne, User, UpdatePassword } from "@common/types"
-import { axiosInstance } from "@config/index"
 
 class AuthAPI {
   async signup(data: SingupPostData) {

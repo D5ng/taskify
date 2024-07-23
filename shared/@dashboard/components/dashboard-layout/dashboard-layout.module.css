@@ -1,8 +1,0 @@
-.dashboard-layout {
-  margin-left: 300px;
-  width: calc(100% - 300px);
-  background-color: var(--black-20);
-  min-height: 100vh;
-  padding-left: 40px;
-  padding-bottom: 60px;
-}
