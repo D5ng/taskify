@@ -4,12 +4,12 @@ import { CreateDashboardModal } from "@shared/dashboard/components"
 import classes from "./dashboard-sidebar-add-button.module.css"
 
 export default function DashboardSidebarAddButton() {
-  const { isToggle, handleOpenToggle, handleCloseToggle } = useToggle()
+  const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
 
   return (
     <>
-      <CreateDashboardModal onCloseModal={handleCloseToggle} isToggle={isToggle} />
-      <button onClick={handleOpenToggle} className={classes["sidebar-add-button"]}>
+      <CreateDashboardModal onCloseModal={onCloseToggle} isToggle={isToggle} />
+      <button onClick={onOpenToggle} className={classes["sidebar-add-button"]}>
         <Image src="/images/icons/add-icon.svg" alt="대시보드 추가하기" fill />
       </button>
     </>
