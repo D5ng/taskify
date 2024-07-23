@@ -1,0 +1,9 @@
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0 24px;
+}
+
+.contents-wrapper {
+  width: 450px;
+}
