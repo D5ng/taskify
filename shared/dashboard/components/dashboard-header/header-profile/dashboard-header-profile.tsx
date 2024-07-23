@@ -2,7 +2,7 @@ import React from "react"
 import { useAuthStore } from "@common/hooks"
 import Dropdown from "@common/components/ui/dropdown"
 import Avatar from "@common/components/ui/avatar"
-import classes from "./dropdown-header-profile.module.css"
+import classes from "./dashboard-header-profile.module.css"
 
 interface Props {
   isToggle: boolean
@@ -24,12 +24,10 @@ export default function DashboardHeaderProfile(props: Props) {
       className={classes["header-profile"]}
     >
       <Dropdown.Trigger>
-        <button className={classes["profile-layout"]} onClick={props.onOpenToggle}>
-          <Avatar image={profileImage} nickname={nickname}>
-            <Avatar.Image />
-            <Avatar.Name />
-          </Avatar>
-        </button>
+        <Avatar image={profileImage} nickname={nickname}>
+          <Avatar.Image />
+          <Avatar.Name />
+        </Avatar>
       </Dropdown.Trigger>
       <Dropdown.Menu>
         <Dropdown.MenuItem>관리</Dropdown.MenuItem>
