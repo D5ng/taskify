@@ -39,5 +39,7 @@ export default function FormControl(props: FormControlContextValues) {
 FormControl.Input = FormComponents.Input
 FormControl.Label = FormComponents.Label
 FormControl.ErrorMessage = FormComponents.ErrorMessage
+FormControl.TextArea = FormComponents.TextArea
+FormControl.Upload = FormComponents.Upload
 
 export * from "./index.type"

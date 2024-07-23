@@ -22,5 +22,7 @@ export default function Avatar(props: PropsWithChildren<AvatarContextType>) {
   )
 }
 
+export * from "./components"
+
 Avatar.Name = AvatarName
 Avatar.Image = AvatarImage

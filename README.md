@@ -30,3 +30,10 @@ shared // 공유 폴더
     	- types // 대시보드 모든 타입.
 
 API 랜딩 페이지를 제외한 대시보드 내에서 사용.
+
+features
+
+    - my-dashboard
+    - dashboard-detail
+    - dashboard-setting
+    - mypage
