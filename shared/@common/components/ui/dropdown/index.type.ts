@@ -1,13 +1,15 @@
-import { HTMLAttributes, PropsWithChildren } from "react"
+import { HTMLAttributes, PropsWithChildren, ReactNode } from "react"
 
 export type DropdownListItem = { title: string; type: string }
 
 export interface DropdownContextType {
-  className?: string
   isToggle: boolean
   onCloseToggle: () => void
   onOpenToggle: () => void
-  callback?: (target: Element) => boolean
 }
 
-export type DropdownType = PropsWithChildren<DropdownContextType> & HTMLAttributes<HTMLDivElement>
+export interface DropdownProvider extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode
+  className?: string
+  callback?: (target: Element) => boolean
+}

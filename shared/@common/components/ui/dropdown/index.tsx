@@ -1,13 +1,13 @@
 import React, { createContext, useContext } from "react"
 import * as Components from "./components"
-import { useOutside } from "@common/hooks"
-import { DropdownContextType, DropdownType } from "./index.type"
+import { useOutside, useToggle } from "@common/hooks"
+import { DropdownContextType, DropdownProvider } from "./index.type"
 import classes from "./index.module.css"
 
 export const DropdownContext = createContext<DropdownContextType>({
   isToggle: false,
-  onCloseToggle: () => {},
   onOpenToggle: () => {},
+  onCloseToggle: () => {},
 })
 
 export function useDropdownContext() {
@@ -16,10 +16,11 @@ export function useDropdownContext() {
   return dropdownContext
 }
 
-export default function Dropdown(props: DropdownType) {
-  const ref = useOutside<HTMLDivElement>({ onCloseToggle: props.onCloseToggle, callback: props.callback })
+export default function Dropdown(props: DropdownProvider) {
+  const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
+  const ref = useOutside<HTMLDivElement>({ onCloseToggle: onCloseToggle, callback: props.callback })
   return (
-    <DropdownContext.Provider value={{ ...props }}>
+    <DropdownContext.Provider value={{ isToggle, onOpenToggle, onCloseToggle }}>
       <div className={`${classes["dropdown-root"]} ${props.className ? props.className : ""}`} ref={ref}>
         {props.children}
       </div>

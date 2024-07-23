@@ -2,15 +2,15 @@ import { useState } from "react"
 
 const useToggle = () => {
   const [isToggle, setIsToggle] = useState(false)
-  const handleOpenToggle = () => setIsToggle(true)
-  const handleCloseToggle = () => setIsToggle(false)
-  const handleToggle = () => setIsToggle((prev) => !prev)
+  const onOpenToggle = () => setIsToggle(true)
+  const onCloseToggle = () => setIsToggle(false)
+  const onToggle = () => setIsToggle((prev) => !prev)
 
   return {
     isToggle,
-    handleOpenToggle,
-    handleCloseToggle,
-    handleToggle,
+    onOpenToggle,
+    onCloseToggle,
+    onToggle,
   }
 }
 

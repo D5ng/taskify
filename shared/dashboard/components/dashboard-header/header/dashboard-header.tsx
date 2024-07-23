@@ -1,7 +1,6 @@
 import { PropsWithChildren } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useToggle } from "@common/hooks"
 import { DashboardHeaderDetail, DashboardHeaderProfile } from "@shared/dashboard/components"
 import type { Member } from "@shared/dashboard/types"
 import classes from "./dashboard-header.module.css"
@@ -14,7 +13,6 @@ interface DashboardHeaderProps extends PropsWithChildren {
 export default function DashboardHeader(props: DashboardHeaderProps) {
   const router = useRouter()
   const id = router.query.id
-  const { isToggle, handleOpenToggle, handleCloseToggle } = useToggle()
 
   return (
     <header className={classes.header}>
@@ -25,11 +23,7 @@ export default function DashboardHeader(props: DashboardHeaderProps) {
         <div className={classes["flex-layout"]}>
           {id && <DashboardHeaderDetail members={props.members!} className={classes["button-layout"]} />}
           <div className={classes["profile-wrapper"]}>
-            <DashboardHeaderProfile
-              isToggle={isToggle}
-              onOpenToggle={handleOpenToggle}
-              onCloseToggle={handleCloseToggle}
-            />
+            <DashboardHeaderProfile />
           </div>
         </div>
       </div>
