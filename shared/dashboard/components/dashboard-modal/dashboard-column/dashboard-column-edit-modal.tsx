@@ -1,10 +1,9 @@
-import React from "react"
+import React, { FormEventHandler } from "react"
 import Modal from "@common/components/ui/modal"
 import { isNotEmptyValidation } from "@common/utils/validation"
 import { useInput } from "@common/hooks"
 import { DashboardColumn } from "@shared/dashboard/types"
 import { useUpdateDashboardColumn } from "@shared/dashboard/hooks"
-import { useEditDashboardColumnForm } from "@features/dashboard/dashboard-column/hooks"
 import FormControl from "@/shared/@common/components/ui/form-control"
 
 interface Props extends Pick<DashboardColumn, "id" | "title"> {
@@ -14,7 +13,6 @@ interface Props extends Pick<DashboardColumn, "id" | "title"> {
 
 export default function DashboardColumnEditModal({ onNextModal, onCloseModal, id, title }: Props) {
   const inputStates = useInput(isNotEmptyValidation, title)
-
   const updateColumnMutation = useUpdateDashboardColumn(id)
 
   const handleDeleteClick = () => {
@@ -22,14 +20,16 @@ export default function DashboardColumnEditModal({ onNextModal, onCloseModal, id
     onNextModal()
   }
 
-  const formStates = useEditDashboardColumnForm({
-    value: inputStates.inputValue,
-    mutation: updateColumnMutation,
-    onCloseModal,
-  })
+  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault()
+    if (!inputStates.isValid) return
+    await updateColumnMutation.trigger({ title: inputStates.inputValue })
+    onCloseModal()
+  }
 
   const modalValues = {
-    ...formStates,
+    onSubmit,
+    isLoading: updateColumnMutation.isMutating,
     title: "컬럼 관리",
     onCloseModal,
   }

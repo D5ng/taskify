@@ -1,19 +1,24 @@
 import Modal from "@/shared/@common/components/ui/modal"
+import { useDeleteDashboardColumn } from "@/shared/dashboard/hooks"
 import { DashboardColumn } from "@shared/dashboard/types"
-import { useDeleteDashboardColumnForm } from "@features/dashboard/dashboard-column/hooks"
+import { FormEventHandler } from "react"
 
 interface Props extends Pick<DashboardColumn, "id"> {
   onCloseModal: () => void
 }
 
 export default function DashboardColumnDeleteModal({ onCloseModal, id }: Props) {
-  const formStates = useDeleteDashboardColumnForm({
-    id,
-    onCloseModal,
-  })
+  const deleteColumnMutation = useDeleteDashboardColumn(id)
+
+  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault()
+    await deleteColumnMutation.trigger()
+    onCloseModal()
+  }
 
   const modalValues = {
-    ...formStates,
+    onSubmit,
+    isLoading: deleteColumnMutation.isMutating,
     title: "컬럼 삭제",
     onCloseModal,
   }
