@@ -1,10 +1,11 @@
+import { FormEventHandler } from "react"
 import Modal from "@common/components/ui/modal"
 import { useInput, useSelect } from "@common/hooks"
 import { ColorChipColor } from "@common/types"
 import { useCreateDashboard, useDashboardPageStore } from "@shared/dashboard/hooks"
 import { isNotEmptyValidation } from "@common/utils/validation"
-import { ColorChipList, FormControlDashboardName } from "@shared/dashboard/components"
-import { FormEventHandler } from "react"
+import { FormControlDashboardName } from "@common/components/form-control"
+import { ColorChipList } from "@common/components/color-chip"
 
 interface Props {
   isToggle: boolean

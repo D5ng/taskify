@@ -11,10 +11,8 @@ export default function DashboardColumnEditButton(props: Pick<DashboardColumn, "
 
   return (
     <>
-      {isDeleteClick && <DashboardColumnDeleteModal onCloseModal={onCloseToggle} id={props.id} />}
-      {isToggle && (
-        <DashboardColumnEditModal onNextModal={onOpenDeleteModal} onCloseModal={onCloseDeleteModal} {...props} />
-      )}
+      {isDeleteClick && <DashboardColumnDeleteModal onCloseModal={onCloseDeleteModal} id={props.id} />}
+      {isToggle && <DashboardColumnEditModal onNextModal={onOpenDeleteModal} onCloseModal={onCloseToggle} {...props} />}
       <button className={classes["column-header-edit-button"]} onClick={onOpenToggle}>
         <Image src={SettingIcon} alt="" fill />
       </button>
