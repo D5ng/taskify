@@ -3,4 +3,15 @@ import FormControlNickname from "./form-control-nickname"
 import FormControlPassword from "./form-control-password"
 import FormControlPasswordConfirm from "./form-control-passwordConfirm"
 
-export { FormControlEmail, FormControlNickname, FormControlPassword, FormControlPasswordConfirm }
+// Dashboard
+import FormControlDashboardName from "./form-control-dashboard-name"
+
+export * from "./task-card-form-control"
+
+export {
+  FormControlEmail,
+  FormControlNickname,
+  FormControlPassword,
+  FormControlPasswordConfirm,
+  FormControlDashboardName,
+}
