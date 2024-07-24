@@ -1,9 +1,6 @@
 import Suspensive from "@common/components/suspensive"
 import { useFetchTaskCard } from "@shared/dashboard/hooks"
-import {
-  DashboardTaskCardList,
-  DashboardTaskCardSkeleton,
-} from "@/features/dashboard-detail/dashboard-task-card/components"
+import { DashboardTaskCardList, DashboardTaskCardSkeleton } from "@features/dashboard/dashboard-task-card/components"
 
 interface Props {
   columnId: number

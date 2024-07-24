@@ -1,6 +1,6 @@
 import React from "react"
 import classes from "./dashboard-column-skeleton.module.css"
-import { DashboardTaskCardSkeleton } from "@/features/dashboard-detail/dashboard-task-card/components"
+import { DashboardTaskCardSkeleton } from "@features/dashboard/dashboard-task-card/components"
 
 export default function DashboardColumnSkeleton() {
   return Array(3)

@@ -4,7 +4,7 @@ import { isNotEmptyValidation } from "@common/utils/validation"
 import { useInput } from "@common/hooks"
 import { DashboardColumn } from "@shared/dashboard/types"
 import { useUpdateDashboardColumn } from "@shared/dashboard/hooks"
-import { useEditDashboardColumnForm } from "@/features/dashboard-detail/dashboard-column/hooks"
+import { useEditDashboardColumnForm } from "@features/dashboard/dashboard-column/hooks"
 import FormControl from "@/shared/@common/components/ui/form-control"
 
 interface Props extends Pick<DashboardColumn, "id" | "title"> {

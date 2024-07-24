@@ -1,4 +1,4 @@
-import { HASHTAG_COLORS, HASHTAG_COLORS_CONFIG } from "@/features/dashboard-detail/dashboard-task-card/constants"
+import { HASHTAG_COLORS, HASHTAG_COLORS_CONFIG } from "@features/dashboard/dashboard-task-card/constants"
 
 const getRandomIndex = (list: any[]) => Math.floor(Math.random() * list.length)
 

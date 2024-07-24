@@ -1,5 +1,5 @@
 import React from "react"
-import { HashtagSkeleton } from "@/features/dashboard-detail/dashboard-task-card/components"
+import { HashtagSkeleton } from "@features/dashboard/dashboard-task-card/components"
 import { AvatarImageSkeleton } from "@/shared/@common/components/ui/avatar"
 import classes from "./dashboard-task-card-skeleton.module.css"
 

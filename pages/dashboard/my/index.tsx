@@ -1,5 +1,5 @@
 import { DashboardLayout, DashboardHeader, DashboardSideBar } from "@shared/dashboard/components"
-import { DashboardList } from "@features/my-dashboard/dashboard-list/components"
+import { DashboardList } from "@features/dashboard/dashboard-list/components"
 
 export default function MyDashboard() {
   return (

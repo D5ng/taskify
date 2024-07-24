@@ -1,4 +1,4 @@
-import { DashboardColumnList, DashboardColumnSkeleton } from "@/features/dashboard-detail/dashboard-column/components"
+import { DashboardColumnList, DashboardColumnSkeleton } from "@features/dashboard/dashboard-column/components"
 import Suspensive from "@common/components/suspensive"
 import { useFetchDashboardColumns } from "@shared/dashboard/hooks"
 import classes from "./dashboard-column.module.css"
