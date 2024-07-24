@@ -1,4 +1,4 @@
-import { Color, Colors } from "@/features/dashboard-detail/dashboard-task-card/types"
+import { Color, Colors } from "@features/dashboard/dashboard-task-card/types"
 
 export const HASHTAG_COLORS_CONFIG: Record<Color, Colors> = Object.freeze({
   green: {

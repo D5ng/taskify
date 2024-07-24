@@ -1,5 +1,5 @@
 import { useFetchTaskCard } from "@shared/dashboard/hooks"
-import { DashboardTaskCardListItem } from "@/features/dashboard-detail/dashboard-task-card/components"
+import { DashboardTaskCardListItem } from "@features/dashboard/dashboard-task-card/components"
 import classes from "./dashboard-task-card-list.module.css"
 
 interface Props {

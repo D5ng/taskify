@@ -1,4 +1,4 @@
-import { getRandomColor } from "@/features/dashboard-detail/dashboard-task-card/utils"
+import { getRandomColor } from "@features/dashboard/dashboard-task-card/utils"
 import { ChangeEventHandler, KeyboardEventHandler, useState } from "react"
 
 export default function useHashtag(defaultHashtags?: string[]) {

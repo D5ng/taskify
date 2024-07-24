@@ -1,6 +1,6 @@
 import Modal from "@/shared/@common/components/ui/modal"
 import { DashboardColumn } from "@shared/dashboard/types"
-import { useDeleteDashboardColumnForm } from "@/features/dashboard-detail/dashboard-column/hooks"
+import { useDeleteDashboardColumnForm } from "@features/dashboard/dashboard-column/hooks"
 
 interface Props extends Pick<DashboardColumn, "id"> {
   onCloseModal: () => void

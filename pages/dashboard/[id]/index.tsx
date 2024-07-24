@@ -3,7 +3,7 @@ import { axiosInstance } from "@/config"
 import { DashboardLayout, DashboardHeader, DashboardSideBar } from "@shared/dashboard/components"
 
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
-import { DashboardColumn } from "@/features/dashboard-detail/dashboard-column/components"
+import { DashboardColumn } from "@features/dashboard/dashboard-column/components"
 
 import { useMemberStore } from "@/shared/dashboard/hooks"
 
