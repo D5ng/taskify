@@ -1,4 +1,4 @@
-import type { ColorChipColor } from "./color-chip.type"
+import type { ColorChipColor } from "@common/types"
 
 export interface Dashboard {
   id: number

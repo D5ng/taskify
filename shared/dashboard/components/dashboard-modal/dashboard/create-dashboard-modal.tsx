@@ -1,9 +1,9 @@
 import Modal from "@common/components/ui/modal"
-import { useInput } from "@common/hooks"
-import { ColorChipColor } from "@shared/dashboard/types"
-import { useColorChipSelect, useCreateDashboard, useDashboardPageStore } from "@shared/dashboard/hooks"
+import { useInput, useSelect } from "@common/hooks"
+import { ColorChipColor } from "@common/types"
+import { useCreateDashboard, useDashboardPageStore } from "@shared/dashboard/hooks"
 import { isNotEmptyValidation } from "@common/utils/validation"
-import { FormControlDashboardName, ColorChipList } from "@shared/dashboard/components"
+import { ColorChipList, FormControlDashboardName } from "@shared/dashboard/components"
 import { FormEventHandler } from "react"
 
 interface Props {
@@ -13,16 +13,15 @@ interface Props {
 
 export default function CreateDashboardModal(props: Props) {
   const currentPage = useDashboardPageStore.use.currentPage()
-
   const inputStates = useInput(isNotEmptyValidation)
-  const colorChipStates = useColorChipSelect<ColorChipColor>("#7AC555")
+  const colorChipStates = useSelect<ColorChipColor>("#7AC555")
 
   const createDashboardMutation = useCreateDashboard(currentPage)
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
-    await createDashboardMutation.trigger({ title: inputStates.inputValue, color: colorChipStates.selectedColorChip })
-    colorChipStates.handleResetColorChip()
+    await createDashboardMutation.trigger({ title: inputStates.inputValue, color: colorChipStates.selectedItem })
+    colorChipStates.onResetSelectedItem()
     props.onCloseModal()
   }
 
@@ -40,7 +39,10 @@ export default function CreateDashboardModal(props: Props) {
         <Modal.Form>
           <Modal.Title />
           <FormControlDashboardName {...inputStates} type="modal" id="dashboard-name" />
-          <ColorChipList {...colorChipStates} />
+          <ColorChipList
+            onSelectedColorChip={colorChipStates.onSelectedItem}
+            selectedColorChip={colorChipStates.selectedItem}
+          />
           <Modal.ButtonLayout>
             <Modal.OutlineButton>취소</Modal.OutlineButton>
             <Modal.PrimaryButton>생성</Modal.PrimaryButton>

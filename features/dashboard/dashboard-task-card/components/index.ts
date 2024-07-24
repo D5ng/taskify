@@ -4,9 +4,6 @@ import DashboardTaskCardListItem from "./task-card-list-item/dashboard-task-card
 import DashboardTaskCardSkeleton from "./task-card-skeleton/dashboard-task-card-skeleton"
 import DashboardTaskCardAddButton from "./task-card-add-button/dashboard-task-card-add-button"
 
-export * from "./task-card-hashtag"
-export * from "./task-card-form-control"
-
 export {
   DashboardTaskCard,
   DashboardTaskCardList,

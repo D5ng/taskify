@@ -1,4 +1,4 @@
-import { ColorChipColors } from "@shared/dashboard/types"
+import { ColorChipColors } from "@common/types"
 
 export const COLOR_CHIPS: ColorChipColors = ["#7AC555", "#760DDE", "#FFA500", "#76A5EA", "#E876EA"]
 

@@ -1,4 +1,4 @@
-import useColorChipSelect from "./use-color-chip-select"
+import useColorChipSelect from "../../@common/hooks/use-select"
 
 export * from "./store"
 export * from "./mutation"
