@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, PropsWithChildren } from "react"
-import classes from "./modal.module.css"
+import classes from "../index.module.css"
 
 interface Props extends PropsWithChildren<HTMLAttributes<HTMLButtonElement>> {}
 

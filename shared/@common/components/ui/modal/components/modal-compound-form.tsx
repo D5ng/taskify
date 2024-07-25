@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react"
 import { useModalContext } from ".."
-import classes from "./modal.module.css"
+import classes from "../index.module.css"
 
 interface FormProps extends PropsWithChildren {
   size?: "small"

@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react"
-import classes from "./modal.module.css"
+import classes from "../index.module.css"
 
 interface HeaderProps extends PropsWithChildren {
   renderKebab?: JSX.Element
