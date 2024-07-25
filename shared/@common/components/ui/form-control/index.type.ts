@@ -1,10 +1,10 @@
 // import { Member } from "@shared/common/types"
 import { ChangeEvent, InputHTMLAttributes, KeyboardEvent, PropsWithChildren } from "react"
 
-export interface InputStates extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputStates<T = any> extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean
   isValid?: boolean
-  inputValue: string
+  inputValue: T
   previewImageUrl?: string | null
   isToggle?: boolean
   disabled?: boolean
@@ -15,8 +15,8 @@ export interface InputStates extends InputHTMLAttributes<HTMLInputElement> {
   handleUpload?: (event: ChangeEvent<HTMLInputElement>) => void
   handleCloseToggle?: () => void
   handleToggle?: () => void
-  // handleSelectedItem?: <T extends Member>(selectedItem: T) => void
   handleInputReset?: () => void
+  handleClick?: (value: T) => void
 }
 
 export interface UploadStates {
