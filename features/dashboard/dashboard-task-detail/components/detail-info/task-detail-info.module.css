@@ -1,0 +1,32 @@
+.task-assignee {
+  padding: 16px;
+  border: 1px solid var(--black-40);
+  border-radius: 8px;
+  width: 200px;
+  margin-top: 24px;
+}
+
+.task-assignee-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 6px 0;
+}
+
+.task-assignee-layout + .task-assignee-layout {
+  margin-top: 20px;
+}
+
+.task-assignee-layout span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.task-assignee-layout time {
+  font-size: 14px;
+}
+
+.task-assignee__profile {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+}

@@ -1,0 +1,13 @@
+.chips {
+  position: relative;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+}
+
+.separator {
+  width: 1px;
+  height: 20px;
+  background-color: var(--black-40);
+}
