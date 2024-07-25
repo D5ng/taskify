@@ -1,0 +1,25 @@
+.headers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.utils {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+}
+
+.lists {
+  margin-top: 27px;
+}
+
+.lists-filed {
+  display: block;
+  color: var(--black-50);
+  margin-bottom: 8px;
+}
