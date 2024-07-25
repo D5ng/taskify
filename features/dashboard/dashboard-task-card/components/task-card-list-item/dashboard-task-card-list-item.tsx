@@ -5,7 +5,7 @@ import { TaskCard } from "@shared/dashboard/types"
 import { dateFormat } from "@common/utils/date"
 import { HashtagList } from "@common/components/hashtag"
 import Avatar from "@/shared/@common/components/ui/avatar"
-// import { TaskCardUpdateModal, TaskCardDetailModal } from "@shared/dashboard/components/dashboard-modal"
+import { TaskCardDetailModal, TaskCardUpdateModal } from "@shared/dashboard/components/dashboard-modal"
 import classes from "./dashboard-task-card-list-item.module.css"
 
 export default function DashboardTaskCardListItem(props: TaskCard) {
@@ -23,8 +23,8 @@ export default function DashboardTaskCardListItem(props: TaskCard) {
 
   return (
     <li>
-      {/* {isOpenUpdateModal && <TaskCardUpdateModal {...props} onCloseModal={onUpdateCloseModal} />}
-      {isToggle && <TaskCardDetailModal onCloseModal={onCloseToggle} onUpdateModal={handleUpdateCard} {...props} />} */}
+      {isOpenUpdateModal && <TaskCardUpdateModal {...props} onCloseModal={onUpdateCloseModal} />}
+      {isToggle && <TaskCardDetailModal onCloseModal={onCloseToggle} onUpdateModal={handleUpdateCard} {...props} />}
       <div className={classes["task-card-layout"]} onClick={onOpenToggle}>
         {props.imageUrl && (
           <div className={classes["task-card-thumbnail"]}>

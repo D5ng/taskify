@@ -1,0 +1,18 @@
+.status {
+  padding: 4px 8px;
+  font-size: 10px;
+  color: var(--main-20);
+  background-color: var(--main-10);
+  display: flex;
+  align-items: center;
+  gap: 0 6px;
+  border-radius: 50px;
+  width: max-content;
+}
+
+.status-badge {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--main-20);
+}

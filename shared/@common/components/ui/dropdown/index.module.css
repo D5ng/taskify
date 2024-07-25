@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.dropdown-list {
+.dropdown-menu {
   display: flex;
   flex-direction: column;
   gap: 8px 0;
@@ -16,15 +16,23 @@
   width: max-content;
 }
 
-.dropdown-list__item {
-  padding: 4px 16px;
+.dropdown-menu-inherit {
+  width: 100%;
+}
+
+.dropdown-layout-medium .dropdown-menu {
+  width: 100%;
+}
+
+.dropdown-menu__item {
+  padding: 4px 10px;
   font-size: 14px;
   line-height: 24px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.dropdown-list__item:hover {
+.dropdown-menu__item:hover {
   color: var(--main-20);
   background-color: var(--main-10);
 }
@@ -33,4 +41,36 @@
   position: relative;
   width: 28px;
   height: 28px;
+}
+
+/*=============================================
+=                    Status                   =
+=============================================*/
+.status {
+  width: 217px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border: 1px solid var(--black-40);
+  border-radius: 6px;
+  background-color: white;
+  color: var(--black-50);
+  text-align: start;
+  margin-top: 10px;
+  position: relative;
+}
+
+.status-active {
+  border: 1px solid var(--main-20);
+}
+
+.status-icon {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0);
+  transition: 0.3s;
 }

@@ -1,4 +1,4 @@
-.modal-layout {
+.modal-root {
   padding: 32px 28px;
   background-color: white;
   position: fixed;
@@ -9,6 +9,10 @@
   border-radius: 8px;
   max-height: 95vh;
   overflow-y: scroll;
+}
+
+.modal-contents {
+  position: relative;
 }
 
 .small {
@@ -56,17 +60,13 @@
   height: 28px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-utils {
-  position: relative;
+.utils {
+  position: absolute;
   display: flex;
   align-items: center;
   gap: 0 24px;
+  right: 0;
+  top: 0;
 }
 
 .delete-button {

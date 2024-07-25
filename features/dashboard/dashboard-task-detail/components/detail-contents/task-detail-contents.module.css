@@ -1,0 +1,16 @@
+.description {
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
