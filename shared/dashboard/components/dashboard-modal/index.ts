@@ -7,6 +7,8 @@ import TaskCardCreateModal from "./dashboard-task-card/task-card-create-modal"
 import TaskCardDetailModal from "./dashboard-task-card/task-card-detail-modal"
 import TaskCardUpdateModal from "./dashboard-task-card/task-card-update-modal"
 
+import InviteModal from "./invite/invite-modal"
+
 export {
   CreateDashboardModal,
   DashboardColumnEditModal,
@@ -14,4 +16,5 @@ export {
   TaskCardCreateModal,
   TaskCardDetailModal,
   TaskCardUpdateModal,
+  InviteModal,
 }
