@@ -1,6 +1,5 @@
-import { useFetchMembers } from "@features/dashboard/dashboard-members/hooks"
 import { DASHBAORD_POST_COUNT } from "@shared/dashboard/constants"
-import { useMemberPageStore } from "@shared/dashboard/hooks"
+import { useFetchMembers, useMemberPageStore } from "@shared/dashboard/hooks"
 import Pagination from "@common/components/ui/pagination"
 import { useRouterQuery } from "@common/hooks"
 
