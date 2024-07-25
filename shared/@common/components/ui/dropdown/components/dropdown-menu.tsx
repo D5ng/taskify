@@ -1,10 +1,19 @@
-import React, { PropsWithChildren } from "react"
+import React, { HTMLAttributes, PropsWithChildren, ReactNode } from "react"
 import { useDropdownContext } from "@common/components/ui/dropdown"
 import classes from "../index.module.css"
 
-export default function DropdownMenu(props: PropsWithChildren) {
+interface Props {
+  children: ReactNode
+  size?: "inherit"
+}
+
+export default function DropdownMenu(props: Props) {
   const dropdownContext = useDropdownContext()
   if (!dropdownContext.isToggle) return null
 
-  return <ul className={classes["dropdown-list"]}>{props.children}</ul>
+  const className = props.size
+    ? `${classes["dropdown-menu-inherit"]} ${classes["dropdown-menu"]}`
+    : `${classes["dropdown-menu"]}`
+
+  return <ul className={className}>{props.children}</ul>
 }

@@ -7,8 +7,14 @@ interface Props extends PropsWithChildren, HTMLAttributes<HTMLLIElement> {
 }
 
 export default function DropdownMenuItem(props: Props) {
+  const dropdownContext = useDropdownContext()
+  const handleClick = () => {
+    props.onClick && props.onClick()
+    dropdownContext.onCloseToggle()
+  }
+
   return (
-    <li className={`${classes["dropdown-list__item"]} ${props.className}`} onClick={props.onClick}>
+    <li className={`${classes["dropdown-menu__item"]} ${props.className}`} onClick={handleClick}>
       {props.children}
     </li>
   )

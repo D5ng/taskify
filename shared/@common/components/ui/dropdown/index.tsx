@@ -18,7 +18,8 @@ export function useDropdownContext() {
 
 export default function Dropdown(props: DropdownProvider) {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
-  const ref = useOutside<HTMLDivElement>({ onCloseToggle: onCloseToggle, callback: props.callback })
+  const ref = useOutside<HTMLDivElement>({ onCloseToggle, callback: props.callback })
+
   return (
     <DropdownContext.Provider value={{ isToggle, onOpenToggle, onCloseToggle }}>
       <div className={`${classes["dropdown-root"]} ${props.className ? props.className : ""}`} ref={ref}>
@@ -31,3 +32,4 @@ export default function Dropdown(props: DropdownProvider) {
 Dropdown.Menu = Components.Menu
 Dropdown.MenuItem = Components.MenuItem
 Dropdown.Trigger = Components.Trigger
+Dropdown.Select = Components.Select
