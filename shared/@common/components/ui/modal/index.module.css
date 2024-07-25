@@ -61,11 +61,12 @@
 }
 
 .utils {
-  /* position: relative; */
   position: absolute;
   display: flex;
   align-items: center;
   gap: 0 24px;
+  right: 0;
+  top: 0;
 }
 
 .delete-button {
