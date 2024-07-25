@@ -60,14 +60,9 @@
   height: 28px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-utils {
-  position: relative;
+.utils {
+  /* position: relative; */
+  position: absolute;
   display: flex;
   align-items: center;
   gap: 0 24px;

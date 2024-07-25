@@ -37,4 +37,5 @@ Modal.OutlineButton = Components.OutlineButton
 Modal.PrimaryButton = Components.PrimaryButton
 Modal.DeleteButton = Components.DeleteButton
 Modal.Close = Components.Close
-Modal.Header = Components.Header
+Modal.Utils = Components.Utils
+Modal.Kebab = Components.Kebab

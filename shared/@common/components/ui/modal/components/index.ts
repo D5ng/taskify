@@ -8,7 +8,8 @@ import Form from "./modal-compound-form"
 import Contents from "./modal-compound-contents"
 import Description from "./modal-compound-description"
 import Close from "./modal-compound-close"
-import Header from "./modal-compound-header"
+import Utils from "./modal-compound-utils"
+import Kebab from "./modal-compound-kebab"
 
 export {
   Backdrop,
@@ -21,5 +22,6 @@ export {
   Contents,
   Description,
   Close,
-  Header,
+  Utils,
+  Kebab,
 }
