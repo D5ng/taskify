@@ -1,0 +1,22 @@
+.layout {
+  width: 620px;
+  border-radius: 8px;
+  background-color: white;
+  padding: 26px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.layout + .layout {
+  margin-top: 12px;
+}
+
+.members {
+  height: 404px;
+  padding-bottom: 0;
+}
+
+.invitation {
+  height: 442px;
+  padding-bottom: 0;
+}
