@@ -1,0 +1,28 @@
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.layout + .layout {
+  border-top: 1px solid var(--black-30);
+}
+
+.text {
+  position: relative;
+  overflow: hidden;
+  width: 70%;
+  height: 22px;
+  background-color: var(--black-40);
+  border-radius: 4px;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  width: 84px;
+  height: 32px;
+  background-color: var(--black-40);
+  border-radius: 4px;
+}
