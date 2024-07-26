@@ -1,0 +1,11 @@
+.list-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-layout__profile {
+  display: flex;
+  align-items: center;
+  gap: 0 12px;
+}
