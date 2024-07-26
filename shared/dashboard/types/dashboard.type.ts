@@ -3,7 +3,7 @@ import type { ColorChipColor } from "@common/types"
 export interface Dashboard {
   id: number
   title: string
-  color: string
+  color: ColorChipColor
   createdAt: string
   updatedAt: string
   createdByMe: boolean
