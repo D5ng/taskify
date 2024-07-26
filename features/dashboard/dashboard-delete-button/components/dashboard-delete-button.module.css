@@ -1,0 +1,10 @@
+.button-wrapper {
+  width: 320px;
+  height: 62px;
+  margin-top: 40px;
+}
+
+.button-wrapper button {
+  font-size: 18px;
+  height: 100%;
+}
