@@ -2,6 +2,7 @@ import { FormEventHandler } from "react"
 import { useRouterQuery } from "@common/hooks"
 import Modal from "@common/components/ui/modal"
 import { useDashboardPageStore, useDeleteDashboard } from "@shared/dashboard/hooks"
+import { useRouter } from "next/router"
 
 interface DeleteDashboardModalProps {
   isToggle: boolean
@@ -9,7 +10,8 @@ interface DeleteDashboardModalProps {
 }
 
 export default function DeleteDashboardModal(props: DeleteDashboardModalProps) {
-  const dashboardId = +useRouterQuery("id")
+  const router = useRouter()
+  const dashboardId = +router.query.id!
   const currentPage = useDashboardPageStore.use.currentPage()
   const deleteDashboardMutation = useDeleteDashboard(dashboardId, currentPage)
 
@@ -17,6 +19,7 @@ export default function DeleteDashboardModal(props: DeleteDashboardModalProps) {
     event.preventDefault()
     deleteDashboardMutation.trigger()
     props.onCloseModal()
+    router.replace("/dashboard/my")
   }
 
   const modalValues = {
