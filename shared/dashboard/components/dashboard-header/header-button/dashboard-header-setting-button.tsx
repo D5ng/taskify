@@ -8,7 +8,7 @@ export default function DashboardHeaderSettingButton(props: LinkWithIconProps) {
   const style = { padding: "10px 16px" }
   return (
     <ButtonLink
-      href={`/dashboard/${props.dashboardId}/edit`}
+      href={`/dashboard/${props.dashboardId}/setting`}
       buttonStyle="outline"
       iconUrl="/images/icons/setting-icon.svg"
       customStyle={style}

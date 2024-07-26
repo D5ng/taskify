@@ -1,21 +1,21 @@
 import { useEditDashboardForm } from "@features/dashboard/dashboard-edit-form/hooks"
-import { useDashboardPageStore } from "@/shared/dashboard/hooks"
+import { useDashboardPageStore, useFetchDashboard } from "@/shared/dashboard/hooks"
 import { Button } from "@common/components/ui/button"
 import { ColorChipList } from "@common/components/color-chip"
 import { FormControlDashboardName } from "@common/components/form-control"
 import { useInput, useSelect } from "@common/hooks"
 import { ColorChipColor } from "@common/types"
 import { isNotEmptyValidation } from "@common/utils/validation"
+import { Dashboard } from "@/shared/dashboard/types"
 import classes from "./dashboard-edit-form.module.css"
 
-interface DashboardEditNewProps {
-  dashboardId: number
-  title: string
+interface Props {
+  dashboard: Dashboard
 }
 
-export default function DashboardEditForm(props: DashboardEditNewProps) {
-  const inputStates = useInput(isNotEmptyValidation)
-  const colorChipStates = useSelect<ColorChipColor>("#7AC555")
+export default function DashboardEditForm(props: Props) {
+  const inputStates = useInput(isNotEmptyValidation, props.dashboard.title)
+  const colorChipStates = useSelect<ColorChipColor>(props.dashboard.color)
   const currentPage = useDashboardPageStore.use.currentPage()
 
   const onReset = () => {
@@ -32,7 +32,7 @@ export default function DashboardEditForm(props: DashboardEditNewProps) {
 
   return (
     <form onSubmit={formStates.onSubmit}>
-      <h2 className={classes["new-dashboard-title"]}>{props.title}</h2>
+      <h2 className={classes["new-dashboard-title"]}>{props.dashboard.title}</h2>
       <div className={classes["color-chips"]}>
         <ColorChipList
           onSelectedColorChip={colorChipStates.onSelectedItem}
