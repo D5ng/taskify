@@ -8,6 +8,8 @@ import FormControlDashboardName from "./form-control-dashboard-name"
 
 export * from "./task-card-form-control"
 
+export * from "./dashboard-account-management"
+
 export {
   FormControlEmail,
   FormControlNickname,

@@ -1,0 +1,43 @@
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.profile-form {
+  margin-top: 32px;
+}
+
+.profile-form__layout {
+  display: flex;
+  align-items: center;
+  gap: 0 16px;
+}
+
+.profile-image {
+  width: 182px;
+  height: 182px;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-add-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.profile-inputs {
+  width: calc(100% - 20px - 182px);
+}
+
+.profile-form__submit {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.profile-form__submit button {
+  margin-left: auto;
+}
