@@ -35,7 +35,10 @@ export default function DashboardMyPageProfileForm() {
       <h2 className={classes.title}>프로필</h2>
       <form className={classes["profile-form"]} onSubmit={handleSubmit}>
         <div className={classes["profile-form__layout"]}>
-          <FormControlProfileUpload {...imageStates} />
+          <FormControlProfileUpload
+            {...imageStates}
+            previewImageUrl={imageStates.previewImageUrl || profileQuery.data!.profileImageUrl}
+          />
           <div className={classes["profile-inputs"]}>
             <FormControlEmail {...emailStates} type="form" id="email" disabled />
             <FormControlNickname {...nicknameStates} type="form" id="email" />

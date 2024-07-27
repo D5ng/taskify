@@ -28,4 +28,5 @@ button {
   border: 0;
   background: #fff;
   cursor: pointer;
+  display: block;
 }
