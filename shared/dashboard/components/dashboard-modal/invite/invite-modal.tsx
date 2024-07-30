@@ -20,6 +20,7 @@ export default function InviteModal(props: InviteModalProps) {
 
   const modalValues = {
     ...formStates,
+    isDisabled: !inputStates.isValid,
     title: "초대하기",
     onCloseModal: props.onCloseModal,
   }
