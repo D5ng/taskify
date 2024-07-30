@@ -16,7 +16,6 @@ import { useCreateTaskCard, useMemberStore } from "@/shared/dashboard/hooks"
 import { isNotEmptyValidation } from "@/shared/@common/utils/validation"
 
 interface TaskCardModalProps {
-  isToggle: boolean
   onCloseModal: () => void
   columnId: number
 }
@@ -56,7 +55,6 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
       <Modal.Form>
         <Modal.Title />
         <FormControlManager handleClick={selectStates.onSelectedItem} inputValue={selectStates.selectedItem} />
-
         <FormControlTitle {...titleStates} />
         <FormControlDescription {...descriptionStates} />
         <FormControlDeadline
