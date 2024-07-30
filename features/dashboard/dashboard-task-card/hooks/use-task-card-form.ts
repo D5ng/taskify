@@ -19,37 +19,26 @@ interface UseTaskCardFrom {
 
 export default function useTaskCardForm({ onCloseModal, mutation, ...state }: UseTaskCardFrom) {
   const dashboardId = useRouterQuery("id")
+  const isValid = isTaskCardFormValidation(state)
 
   const onSubmit: FormEventHandler = async (event) => {
     event.preventDefault()
 
-    const isValidation = isTaskCardFormValidation(state)
     let data: CreateTaskCard | null = null
 
-    if (isValidation && state.image) {
-      data = {
-        columnId: state.columnId,
-        assigneeUserId: state.manager,
-        title: state.title,
-        description: state.description,
-        dueDate: state.deadline,
-        tags: state.hashtags,
-        imageUrl: state.image,
-        dashboardId: +dashboardId,
-      }
+    if (!isValid) return
+
+    const defaultData = {
+      columnId: state.columnId,
+      assigneeUserId: state.manager,
+      title: state.title,
+      description: state.description,
+      dueDate: state.deadline,
+      tags: state.hashtags,
+      dashboardId: +dashboardId,
     }
 
-    if (isValidation && !state.image) {
-      data = {
-        columnId: state.columnId,
-        assigneeUserId: state.manager,
-        title: state.title,
-        description: state.description,
-        dueDate: state.deadline,
-        tags: state.hashtags,
-        dashboardId: +dashboardId,
-      }
-    }
+    data = state.image ? { ...defaultData, imageUrl: state.image } : defaultData
 
     try {
       if (!data) throw new Error("Data 형식이 잘못되었습니다.")
@@ -61,6 +50,7 @@ export default function useTaskCardForm({ onCloseModal, mutation, ...state }: Us
   }
 
   return {
+    isDisabled: !isValid,
     onSubmit,
     isLoading: mutation.isMutating,
   }
