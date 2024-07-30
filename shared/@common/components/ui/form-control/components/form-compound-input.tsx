@@ -11,7 +11,7 @@ export default function Input(props: InputHTMLAttributes<HTMLInputElement>) {
       placeholder={props.placeholder}
       id={formControlContext.id}
       name={formControlContext.id}
-      className={`${classes.input} ${isInputFile}`}
+      className={`${classes.input} ${isInputFile} ${props.className}`}
       value={formControlContext.inputValue}
       onChange={formControlContext.handleInputValueChange || formControlContext.handleUpload}
       onBlur={formControlContext.handleInputBlur}
