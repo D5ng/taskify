@@ -2,8 +2,8 @@ import { FormEventHandler } from "react"
 import { AxiosResponse } from "axios"
 import { SWRMutationResponse } from "swr/mutation"
 import { useRouterQuery } from "@common/hooks"
-import { isImageValidation } from "@common/utils/validation"
 import { CreateTaskCard } from "@shared/dashboard/types"
+import { isTaskCardFormValidation } from "@features/dashboard/dashboard-task-card/utils"
 
 interface UseTaskCardFrom {
   columnId: number
@@ -23,7 +23,7 @@ export default function useTaskCardForm({ onCloseModal, mutation, ...state }: Us
   const onSubmit: FormEventHandler = async (event) => {
     event.preventDefault()
 
-    const isValidation = isImageValidation(state)
+    const isValidation = isTaskCardFormValidation(state)
     let data: CreateTaskCard | null = null
 
     if (isValidation && state.image) {
