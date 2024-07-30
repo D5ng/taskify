@@ -21,8 +21,3 @@ export function passwordConfirmValidation(passwordValue: string, confirmValue: s
 export function isNotEmptyValidation(value: string) {
   return value.trim().length !== 0
 }
-
-export function isImageValidation({ ...state }) {
-  const defaultValidation = state.manager && state.title && state.description && state.deadline && state.hashtags
-  return !!defaultValidation
-}

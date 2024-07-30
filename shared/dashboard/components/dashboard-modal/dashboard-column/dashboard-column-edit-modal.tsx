@@ -29,6 +29,7 @@ export default function DashboardColumnEditModal({ onNextModal, onCloseModal, id
 
   const modalValues = {
     onSubmit,
+    isDisabled: !inputStates.isValid,
     isLoading: updateColumnMutation.isMutating,
     title: "컬럼 관리",
     onCloseModal,

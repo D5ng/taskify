@@ -5,12 +5,11 @@ import { useInput } from "@common/hooks"
 import { emailValidation } from "@common/utils/validation"
 import { useInviteForm } from "@features/dashboard/dashboard-invite/hooks"
 
-interface InviteModalProps {
-  isToggle: boolean
+interface Props {
   onCloseModal: () => void
 }
 
-export default function InviteModal(props: InviteModalProps) {
+export default function InviteModal(props: Props) {
   const inputStates = useInput(emailValidation)
 
   const formStates = useInviteForm({
@@ -20,23 +19,22 @@ export default function InviteModal(props: InviteModalProps) {
 
   const modalValues = {
     ...formStates,
+    isDisabled: !inputStates.isValid,
     title: "초대하기",
     onCloseModal: props.onCloseModal,
   }
 
   return (
-    props.isToggle && (
-      <Modal value={modalValues}>
-        <Modal.Backdrop />
-        <Modal.Form>
-          <Modal.Title />
-          <FormControlEmail {...inputStates} type="modal" id="invite" />
-          <Modal.ButtonLayout>
-            <Modal.OutlineButton>취소</Modal.OutlineButton>
-            <Modal.PrimaryButton>생성</Modal.PrimaryButton>
-          </Modal.ButtonLayout>
-        </Modal.Form>
-      </Modal>
-    )
+    <Modal value={modalValues}>
+      <Modal.Backdrop />
+      <Modal.Form>
+        <Modal.Title />
+        <FormControlEmail {...inputStates} type="modal" id="invite" />
+        <Modal.ButtonLayout>
+          <Modal.OutlineButton>취소</Modal.OutlineButton>
+          <Modal.PrimaryButton>생성</Modal.PrimaryButton>
+        </Modal.ButtonLayout>
+      </Modal.Form>
+    </Modal>
   )
 }

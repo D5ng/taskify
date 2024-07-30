@@ -28,6 +28,7 @@ export default function CreateDashboardModal(props: Props) {
 
   const modalValues = {
     onSubmit,
+    isDisabled: !inputStates.isValid,
     isLoading: createDashboardMutation.isMutating,
     title: "대시보드 생성하기",
     onCloseModal: props.onCloseModal,
