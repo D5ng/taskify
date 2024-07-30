@@ -51,28 +51,26 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
   }
 
   return (
-    props.isToggle && (
-      <Modal value={modalValues}>
-        <Modal.Backdrop />
-        <Modal.Form>
-          <Modal.Title />
-          <FormControlManager handleClick={selectStates.onSelectedItem} inputValue={selectStates.selectedItem} />
+    <Modal value={modalValues}>
+      <Modal.Backdrop />
+      <Modal.Form>
+        <Modal.Title />
+        <FormControlManager handleClick={selectStates.onSelectedItem} inputValue={selectStates.selectedItem} />
 
-          <FormControlTitle {...titleStates} />
-          <FormControlDescription {...descriptionStates} />
-          <FormControlDeadline
-            {...deadlineStates}
-            inputValue={dateFormat(deadlineStates.inputValue || defaultDateTime, "dashWithTime")}
-          />
-          <FormControlHashtag {...hashtagStates} />
-          <FormControlUpload {...imageStates} />
-          <Modal.ButtonLayout>
-            <Modal.OutlineButton>취소</Modal.OutlineButton>
-            <Modal.PrimaryButton>생성</Modal.PrimaryButton>
-          </Modal.ButtonLayout>
-        </Modal.Form>
-      </Modal>
-    )
+        <FormControlTitle {...titleStates} />
+        <FormControlDescription {...descriptionStates} />
+        <FormControlDeadline
+          {...deadlineStates}
+          inputValue={dateFormat(deadlineStates.inputValue || defaultDateTime, "dashWithTime")}
+        />
+        <FormControlHashtag {...hashtagStates} />
+        <FormControlUpload {...imageStates} />
+        <Modal.ButtonLayout>
+          <Modal.OutlineButton>취소</Modal.OutlineButton>
+          <Modal.PrimaryButton>생성</Modal.PrimaryButton>
+        </Modal.ButtonLayout>
+      </Modal.Form>
+    </Modal>
   )
 }
 
