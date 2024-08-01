@@ -12,7 +12,7 @@ export default function DashboardDetailPage(props: InferGetStaticPropsType<typeo
   setMembers(props.members || [])
   return (
     <>
-      <DashboardHeader title={props.title} members={props.members} />
+      <DashboardHeader dashboard={props.dashboard} members={props.members} />
       <DashboardLayout>
         <DashboardColumn />
       </DashboardLayout>
@@ -30,18 +30,16 @@ export const getServerSideProps = (async (context) => {
 
   try {
     const dashboard = await DashboardApiInstance.fetchDashboardDetail(+dashboardId!)
-    const members = await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)
+    const members = (await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)).members
 
     return {
       props: {
-        id: dashboard.id,
-        title: dashboard.title,
-        members: members.members,
+        dashboard,
+        members: members,
       },
     }
   } catch (error) {
     return {
-      props: {},
       notFound: true,
     }
   }
