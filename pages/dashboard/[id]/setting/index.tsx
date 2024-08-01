@@ -8,7 +8,7 @@ import {
 } from "@shared/dashboard/components"
 import { GoBack } from "@common/components/go-back"
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
-import { DashboardEditForm } from "@features/dashboard/dashboard-edit-form/components"
+import { DashboardEdit } from "@features/dashboard/dashboard-edit/components"
 import { DashboardMember } from "@features/dashboard/dashboard-members/components"
 import { DashboardDeleteButton } from "@features/dashboard/dashboard-delete-button/components"
 import { DashboardInvite } from "@features/dashboard/dashboard-invite/components"
@@ -20,7 +20,7 @@ export default function Edit(props: InferGetStaticPropsType<typeof getServerSide
       <DashboardLayout>
         <GoBack />
         <DashboardSectionLayout>
-          <DashboardEditForm dashboard={props.dashboard} />
+          <DashboardEdit dashboard={props.dashboard} />
         </DashboardSectionLayout>
         <DashboardSectionLayout layout="members">
           <DashboardMember dashboardId={props.dashboard.id} />

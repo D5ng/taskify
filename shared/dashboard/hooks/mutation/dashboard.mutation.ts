@@ -17,10 +17,10 @@ export function useCreateDashboard(currentPage: number) {
   })
 }
 
-export function useUpdateDashboard(currentPage: number) {
+export function useUpdateDashboard(dashboardId: number, currentPage: number) {
   const { mutate } = useFetchDashboards(currentPage)
 
-  return useSWRMutation("dashboards", DashboardApiInstance.updateDashboard, {
+  return useSWRMutation(`dashboards/${dashboardId}`, DashboardApiInstance.updateDashboard, {
     onError(err, key, config) {
       console.log(err)
     },
