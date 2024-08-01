@@ -32,7 +32,7 @@ export default function InviteModal(props: Props) {
         <FormControlEmail {...inputStates} type="modal" id="invite" />
         <Modal.ButtonLayout>
           <Modal.OutlineButton>취소</Modal.OutlineButton>
-          <Modal.PrimaryButton>생성</Modal.PrimaryButton>
+          <Modal.PrimaryButton>초대</Modal.PrimaryButton>
         </Modal.ButtonLayout>
       </Modal.Form>
     </Modal>
