@@ -1,27 +1,31 @@
-import { PropsWithChildren } from "react"
 import Link from "next/link"
-import { useRouter } from "next/router"
-import { DashboardHeaderDetail, DashboardHeaderProfile } from "@shared/dashboard/components"
-import type { Member } from "@shared/dashboard/types"
+import { DashboardHeaderProfile } from "@shared/dashboard/components"
+import type { Dashboard, Member } from "@shared/dashboard/types"
+import DashboardHeaderDetail from "../header-detail/dashboard-header-detail"
+import { useDashboardStore } from "@/shared/dashboard/hooks"
 import classes from "./dashboard-header.module.css"
 
-interface DashboardHeaderProps extends PropsWithChildren {
-  title?: string | undefined
+interface DashboardHeaderProps {
+  dashboard?: Dashboard
   members?: Member[]
 }
 
 export default function DashboardHeader(props: DashboardHeaderProps) {
-  const router = useRouter()
-  const id = router.query.id
-
+  const dashboardTitle = useDashboardStore.use.title()
   return (
     <header className={classes.header}>
       <div className={classes["header-layout"]}>
         <h2 className={classes["header-title"]}>
-          {props.title ? props.title : <Link href="/dashboard/my">내 대시보드</Link>}
+          {props.dashboard?.title ? (
+            dashboardTitle || props.dashboard.title
+          ) : (
+            <Link href="/dashboard/my">내 대시보드</Link>
+          )}
         </h2>
         <div className={classes["flex-layout"]}>
-          {id && <DashboardHeaderDetail members={props.members!} className={classes["button-layout"]} />}
+          {props.dashboard?.id && (
+            <DashboardHeaderDetail members={props.members!} className={classes["button-layout"]} />
+          )}
           <div className={classes["profile-wrapper"]}>
             <DashboardHeaderProfile />
           </div>
