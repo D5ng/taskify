@@ -15,9 +15,9 @@ export default function DeleteDashboardModal(props: DeleteDashboardModalProps) {
   const currentPage = useDashboardPageStore.use.currentPage()
   const deleteDashboardMutation = useDeleteDashboard(dashboardId, currentPage)
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
-    deleteDashboardMutation.trigger()
+    await deleteDashboardMutation.trigger()
     props.onCloseModal()
     router.replace("/dashboard/my")
   }
