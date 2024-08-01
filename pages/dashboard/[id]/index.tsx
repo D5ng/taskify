@@ -6,13 +6,14 @@ import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/servi
 import { DashboardColumn } from "@features/dashboard/dashboard-column/components"
 
 import { useMemberStore } from "@/shared/dashboard/hooks"
+import { AuthApiInstance } from "@/shared/@common/services"
 
 export default function DashboardDetailPage(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   const setMembers = useMemberStore.use.setMembers()
   setMembers(props.members || [])
   return (
     <>
-      <DashboardHeader title={props.title} members={props.members} />
+      <DashboardHeader dashboard={props.dashboard} members={props.members} user={props.user} />
       <DashboardLayout>
         <DashboardColumn />
       </DashboardLayout>
@@ -30,18 +31,18 @@ export const getServerSideProps = (async (context) => {
 
   try {
     const dashboard = await DashboardApiInstance.fetchDashboardDetail(+dashboardId!)
-    const members = await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)
+    const members = (await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)).members
+    const user = await AuthApiInstance.fetchProfile(`users/me`)
 
     return {
       props: {
-        id: dashboard.id,
-        title: dashboard.title,
-        members: members.members,
+        dashboard,
+        members: members,
+        user,
       },
     }
   } catch (error) {
     return {
-      props: {},
       notFound: true,
     }
   }

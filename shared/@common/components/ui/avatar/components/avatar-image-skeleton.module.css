@@ -7,6 +7,11 @@
   width: 24px;
   height: 24px;
   background-color: var(--black-40);
+  border: 2px solid #fff;
+}
+
+.profile-image + .profile-image {
+  margin-left: -8px;
 }
 
 .small {

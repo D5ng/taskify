@@ -1,21 +1,22 @@
 import React from "react"
-import { useAuthStore } from "@common/hooks"
+import { useRouter } from "next/router"
+import { User } from "@common/types"
 import Dropdown from "@common/components/ui/dropdown"
 import Avatar from "@common/components/ui/avatar"
 import classes from "./dashboard-header-profile.module.css"
-import { useRouter } from "next/router"
 
-export default function DashboardHeaderProfile() {
+interface Props {
+  user: User
+}
+
+export default function DashboardHeaderProfile(props: Props) {
   const router = useRouter()
-  const nickname = useAuthStore.use.nickname()
-  const profileImage = useAuthStore.use.profileImageUrl()
-
   const targetValidation = (target: Element) => !!target.closest("button")
 
   return (
     <Dropdown callback={targetValidation} className={classes["header-profile"]}>
       <Dropdown.Trigger>
-        <Avatar image={profileImage} nickname={nickname}>
+        <Avatar image={props.user.profileImageUrl} nickname={props.user.nickname}>
           <Avatar.Image />
           <Avatar.Name />
         </Avatar>
