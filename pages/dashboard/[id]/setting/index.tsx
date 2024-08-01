@@ -1,10 +1,10 @@
 import { GetServerSideProps, InferGetStaticPropsType } from "next"
 import { axiosInstance } from "@/config"
 import {
-  DashboardHeader,
   DashboardSideBar,
   DashboardLayout,
   DashboardSectionLayout,
+  DashboardHeader,
 } from "@shared/dashboard/components"
 import { GoBack } from "@common/components/go-back"
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
@@ -13,10 +13,10 @@ import { DashboardMember } from "@features/dashboard/dashboard-members/component
 import { DashboardDeleteButton } from "@features/dashboard/dashboard-delete-button/components"
 import { DashboardInvite } from "@features/dashboard/dashboard-invite/components"
 
-export default function Edit(props: InferGetStaticPropsType<typeof getServerSideProps>) {
+export default function Setting(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <>
-      <DashboardHeader title={props.dashboard!.title} members={props.members} />
+      <DashboardHeader dashboard={props.dashboard} members={props.members} />
       <DashboardLayout>
         <GoBack />
         <DashboardSectionLayout>
@@ -44,12 +44,12 @@ export const getServerSideProps = (async (context) => {
 
   try {
     const dashboard = await DashboardApiInstance.fetchDashboardDetail(+dashboardId!)
-    const members = await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)
+    const members = (await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)).members
 
     return {
       props: {
-        dashboard: dashboard,
-        members: members.members,
+        dashboard,
+        members,
       },
     }
   } catch (error) {
