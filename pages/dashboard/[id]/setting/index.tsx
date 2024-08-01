@@ -12,11 +12,12 @@ import { DashboardEdit } from "@features/dashboard/dashboard-edit/components"
 import { DashboardMember } from "@features/dashboard/dashboard-members/components"
 import { DashboardDeleteButton } from "@features/dashboard/dashboard-delete-button/components"
 import { DashboardInvite } from "@features/dashboard/dashboard-invite/components"
+import { AuthApiInstance } from "@/shared/@common/services"
 
 export default function Setting(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <>
-      <DashboardHeader dashboard={props.dashboard} members={props.members} />
+      <DashboardHeader dashboard={props.dashboard} members={props.members} user={props.user} />
       <DashboardLayout>
         <GoBack />
         <DashboardSectionLayout>
@@ -45,11 +46,13 @@ export const getServerSideProps = (async (context) => {
   try {
     const dashboard = await DashboardApiInstance.fetchDashboardDetail(+dashboardId!)
     const members = (await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)).members
+    const user = await AuthApiInstance.fetchProfile(`users/me`)
 
     return {
       props: {
         dashboard,
         members,
+        user,
       },
     }
   } catch (error) {
