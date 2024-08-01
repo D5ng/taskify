@@ -1,0 +1,44 @@
+.dashboard-title {
+  margin-bottom: 37px;
+  height: 24px;
+  background-color: var(--black-40);
+  border-radius: 6px;
+  width: 30%;
+}
+
+.color-chips {
+  position: absolute;
+  right: 28px;
+  top: 32px;
+  display: flex;
+  gap: 0 10px;
+  width: 190px;
+  height: 30px;
+  background-color: var(--black-40);
+  border-radius: 6px;
+}
+
+.color-chip-item {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.dashboard-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.dashboard-name {
+  font-size: 16px;
+  color: var(--black-80);
+}
+
+.dashboard-input {
+  border-radius: 8px;
+  padding: 16px;
+  height: 50px;
+  margin-top: 8px;
+  background-color: var(--black-40);
+}
