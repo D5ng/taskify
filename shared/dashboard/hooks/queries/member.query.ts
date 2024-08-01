@@ -4,3 +4,7 @@ import useSWR from "swr"
 export function useFetchMembers(dashboardId: number, currentPage: number = 0) {
   return useSWR(`members?dashboardId=${dashboardId}&page=${currentPage}`, MemberApiInstance.getMembers)
 }
+
+export function useFetchAllMembers(dashboardId: number) {
+  return useSWR(`members?dashboardId=${dashboardId}&size=50`, MemberApiInstance.getMembers)
+}
