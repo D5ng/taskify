@@ -8,7 +8,7 @@ export default function DashboardInviteButton() {
   const style = { width: "105px", height: "32px", borderRadius: "4px" }
   return (
     <>
-      {isToggle && <InviteModal isToggle={isToggle} onCloseModal={onCloseToggle} />}
+      {isToggle && <InviteModal onCloseModal={onCloseToggle} />}
       <Button iconUrl={AddIcon} buttonStyle="primary" size="none" customStyle={style} onClick={onOpenToggle}>
         초대하기
       </Button>
