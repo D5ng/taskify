@@ -1,7 +1,9 @@
 import useSWRMutation from "swr/mutation"
-import { useFetchDashboards, useFetchInvitation } from "@shared/dashboard/hooks"
+import { useFetchDashboards, useFetchInvitation, useInvitePageStore } from "@shared/dashboard/hooks"
 import { DashboardApiInstance } from "@shared/dashboard/services"
 import { useRouterQuery } from "@common/hooks"
+import { INVITE_POST_COUNT } from "@/features/dashboard/dashboard-invite/constants"
+import { AxiosError } from "axios"
 
 export function useCreateDashboard(currentPage: number) {
   const { mutate } = useFetchDashboards(currentPage)
@@ -47,14 +49,14 @@ export function useDeleteDashboard(dashboardId: number, currentPage: number) {
 
 export function useInvite(currentPage: number) {
   const dashboardId = useRouterQuery("id")
-  const { mutate } = useFetchInvitation(currentPage)
+  const { mutate, error } = useFetchInvitation(currentPage)
 
   return useSWRMutation(`dashboards/${dashboardId}/invitations`, DashboardApiInstance.dashboardInvite, {
     onError(err, key, config) {
-      console.log(err)
+      console.log(error)
     },
 
-    onSuccess() {
+    onSuccess(data, key, config) {
       mutate()
     },
   })
@@ -62,17 +64,21 @@ export function useInvite(currentPage: number) {
 
 export function useDeleteInvitation(currentPage: number, invitationId: number) {
   const dashboardId = useRouterQuery("id")
-  const { mutate } = useFetchInvitation(currentPage)
+  const { mutate, data: invitationData } = useFetchInvitation(currentPage)
+  const currentPagination = useInvitePageStore.use.currentPage()
+  const setCurrentPage = useInvitePageStore.use.setCurrentPage()
 
   return useSWRMutation(
     `dashboards/${dashboardId}/invitations/${invitationId}`,
     DashboardApiInstance.deleteInvitation,
     {
       onError(err, key, config) {
-        console.log(err)
+        console.log("Mutation Error", Error)
       },
 
-      onSuccess() {
+      onSuccess(data, key) {
+        const calculatePage = invitationData!.invitations.length - 1 === 0 ? currentPagination - 1 : currentPagination
+        setCurrentPage(calculatePage || 1)
         mutate()
       },
     }
