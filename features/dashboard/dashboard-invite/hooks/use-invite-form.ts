@@ -1,4 +1,4 @@
-import { FormEventHandler } from "react"
+import { FormEventHandler, useEffect, useState } from "react"
 import { useInvite, useInvitePageStore } from "@/shared/dashboard/hooks"
 
 interface UseInviteFormProps {
@@ -8,16 +8,31 @@ interface UseInviteFormProps {
 
 export default function useInviteForm({ value, onCloseModal }: UseInviteFormProps) {
   const currentPage = useInvitePageStore.use.currentPage()
-  const invite = useInvite(currentPage)
+  const inviteMutation = useInvite(currentPage)
 
   const onSubmit: FormEventHandler = async (event) => {
     event.preventDefault()
-    await invite.trigger({ email: value })
-    onCloseModal()
+    try {
+      await inviteMutation.trigger({ email: value })
+      onCloseModal()
+    } catch (error) {
+      setFormError(error)
+    }
   }
+
+  useEffect(() => {
+    const resetFormError = () => {
+      if () {
+        setFormError("")
+      }
+    }
+
+    resetFormError()
+  }, [value])
 
   return {
     onSubmit,
-    isLoading: invite.isMutating,
+    formError,
+    isLoading: inviteMutation.isMutating,
   }
 }
