@@ -1,45 +1,33 @@
 import { useState, FocusEventHandler, ChangeEventHandler, useEffect, useCallback, FormEvent } from "react"
-import { UseFormProps, FormFields } from "@common/types"
+import { UseFormProps, FormFields, FieldElement } from "@common/types"
 
 export default function useForm<T extends FormFields>({ defaultValues, validate, onSubmit }: UseFormProps<T>) {
   const [formValues, setFormValues] = useState(defaultValues)
   const [touchedFields, setTouchedFields] = useState<Partial<T>>({})
   const [errors, setErrors] = useState<Partial<T>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const isFormError = Object.values(errors).some((error) => !!error)
+  const hasFormError = Object.values(errors).some((error) => !!error)
 
   const handleSetError = (error: Partial<T>) => {
     setErrors((prevState) => ({ ...prevState, ...error }))
   }
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
-    if (isFormError) return
-
-    try {
-      const result = await onSubmit(formValues)
-      return result
-    } catch (err) {
-      const error = err as Partial<T>
-      handleSetError(error)
-    }
-  }
-
-  const handleBlur: FocusEventHandler<HTMLInputElement> = (event) =>
+  const handleBlur: FocusEventHandler<FieldElement> = (event) => {
     setTouchedFields((prevState) => ({
       ...prevState,
       [event.target.name]: true,
     }))
+  }
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) =>
+  const handleChange: ChangeEventHandler<FieldElement> = (event) =>
     setFormValues((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }))
 
   const register = (field: string) => {
-    const value = formValues[field]
+    const value = formValues[field] as string
     return {
       value,
       onBlur: handleBlur,
@@ -56,14 +44,30 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
     setErrors(errors)
   }, [runValidator, formValues])
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (hasFormError) return
+    setIsSubmitting(true)
+    try {
+      const result = await onSubmit(formValues)
+      return result
+    } catch (err) {
+      const error = err as Partial<T>
+      handleSetError(error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return {
     formValues,
-    errors,
     touchedFields,
+    errors,
     register,
     handleSubmit,
-    handleSetError,
-    isFormError,
+    hasFormError,
     hasError,
+    isSubmitting,
   }
 }

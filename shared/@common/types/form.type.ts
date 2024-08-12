@@ -5,3 +5,5 @@ export interface UseFormProps<T> {
 }
 
 export type FormFields = Record<string, any>
+
+export type FieldElement = HTMLInputElement | HTMLTextAreaElement
