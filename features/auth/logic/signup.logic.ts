@@ -1,4 +1,4 @@
-import { DefaultValues } from "../types/signup.type"
+import { SignupDefaultValues } from "@features/auth/types"
 import {
   emailValidation,
   nicknameValidation,
@@ -13,8 +13,8 @@ export const defaultValues = {
   passwordConfirm: "",
 }
 
-export const validate = (values: DefaultValues) => {
-  const error = {
+export const validate = (values: SignupDefaultValues) => {
+  const error: Partial<SignupDefaultValues> = {
     email: "",
     nickname: "",
     password: "",
@@ -22,12 +22,11 @@ export const validate = (values: DefaultValues) => {
   }
 
   error.email = emailValidation(values.email)
-
-  if (!nicknameValidation(values.nickname)) error.nickname = "닉네임 형식이 유효하지 않습니다."
-  if (!passwordValidation(values.password)) error.password = "비밀번호 형식이 유효하지 않습니다."
-  if (!passwordValidation(values.passwordConfirm)) error.passwordConfirm = "비밀번호가 일치하지 않습니다."
+  error.nickname = nicknameValidation(values.nickname)
+  error.password = passwordValidation(values.password)
+  error.passwordConfirm = passwordConfirmValidation(values.password, values.passwordConfirm)
 
   return error
 }
 
-export const onSubmit = (values: DefaultValues) => {}
+export const onSubmit = (values: SignupDefaultValues) => {}
