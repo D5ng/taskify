@@ -1,5 +1,5 @@
 import { Invite } from "@shared/dashboard/types"
-import { useDeleteInvitation, useFetchInvitation, useInvitePageStore } from "@shared/dashboard/hooks"
+import { useDeleteInvitation, useFetchInvitation, useInvitePageStore, useMemberStore } from "@shared/dashboard/hooks"
 import { INVITE_POST_COUNT } from "@features/dashboard/dashboard-invite/constants"
 import { Button } from "@common/components/ui/button"
 import classes from "./dashboard-invite-list-item.module.css"
@@ -9,11 +9,13 @@ export default function DashboardInviteListItem(props: Invite) {
   const setCurrentPage = useInvitePageStore.use.setCurrentPage()
   const invitationQuery = useFetchInvitation(currentPage)
   const deleteInvitationMutation = useDeleteInvitation(currentPage, props.id)
+  const setMembers = useMemberStore.use.setMembers()
 
   const handleDeleteInvitation = async () => {
     await deleteInvitationMutation.trigger()
-    const maxPage = Math.ceil(invitationQuery.data!.totalCount / (INVITE_POST_COUNT + 1))
-    setCurrentPage(maxPage)
+    // const maxPage = Math.ceil(invitationQuery.data!.totalCount / (INVITE_POST_COUNT + 1))
+    // setCurrentPage(maxPage)
+    // setMembers()
   }
 
   return (
