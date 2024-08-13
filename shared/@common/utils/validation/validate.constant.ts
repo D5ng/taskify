@@ -3,4 +3,25 @@ export const formValidationPattern = {
   nickname: /[0-9]|[a-z]|[A-Z]|[가-힣]/,
   password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
   passwordConfirm: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-}
+} as const
+
+export const EMAIL_ERRROR_MESSAGE = {
+  EMPTY: "이메일을 입력해주세요.",
+  INVALID: "이메일 형식으로 작성해주세요.",
+} as const
+
+export const NICKANME_ERROR_MESSAGE = {
+  EMPTY: "닉네임을 입력해주세요.",
+  INVALID: "닉네임은 10자 이하로 작성해주세요.",
+} as const
+
+export const PASSWORD_ERROR_MESSAGE = {
+  EMPTY: "비밀번호를 입력해주세요.",
+  INVALID: "비밀번호는 8자 이상 입력해주세요.",
+} as const
+
+export const PASSWORD_CONFIRM_ERROR_MESSAGE = {
+  EMPTY: "비밀번호를 다시 입력해주세요.",
+  INVALID: "비밀번호는 8자 이상 입력해주세요.",
+  CONFIRM: "비밀번호가 일치하지 않아요.",
+} as const
