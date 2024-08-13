@@ -1,6 +1,5 @@
 import { axiosInstance } from "@/config"
 import type { DashboardData, Dashboard, DashboardResponse, InviteData, InviteResponse } from "@shared/dashboard/types"
-import axios, { AxiosError } from "axios"
 
 class DashboardAPI {
   async fetchDashboard(page: number) {
@@ -25,18 +24,7 @@ class DashboardAPI {
   }
 
   async dashboardInvite(url: string, { arg }: { arg: InviteData }) {
-    try {
-      return await axiosInstance.post(url, arg)
-    } catch (error) {
-      // 403
-      // 404
-      if (axios.isAxiosError(error)) {
-        const status = error.response?.status
-        const errorMessage = error.response?.data?.message
-        throw { status, errorMessage }
-      }
-      throw error
-    }
+    return await axiosInstance.post(url, arg)
   }
 
   async fetchInvitation(url: string) {
