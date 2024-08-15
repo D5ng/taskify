@@ -1,7 +1,7 @@
 import { useState, FocusEventHandler, ChangeEventHandler, useEffect, useCallback, FormEvent } from "react"
-import { UseFormProps, FormFields, FieldElement } from "@common/types"
+import { UseFormProps, FormFields, FieldElement, SubmitHandler } from "@common/types"
 
-export default function useForm<T extends FormFields>({ defaultValues, validate, onSubmit }: UseFormProps<T>) {
+export default function useForm<T extends FormFields>({ defaultValues, validate }: UseFormProps<T>) {
   const [formValues, setFormValues] = useState(defaultValues)
   const [touchedFields, setTouchedFields] = useState<Partial<T>>({})
   const [errors, setErrors] = useState<Partial<T>>({})
@@ -44,30 +44,32 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
     setErrors(errors)
   }, [runValidator, formValues])
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (onSubmit: SubmitHandler<T>) => async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     if (hasFormError) return
     setIsSubmitting(true)
+
     try {
       const result = await onSubmit(formValues)
       return result
-    } catch (err) {
-      const error = err as Partial<T>
-      handleSetError(error)
+    } catch (error) {
+      throw new Error("알 수 없는 에러가 발생했어요")
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return {
-    formValues,
-    touchedFields,
-    errors,
+    formStates: {
+      formValues,
+      isSubmitting,
+      hasFormError,
+      touchedFields,
+    },
     register,
     handleSubmit,
-    hasFormError,
     hasError,
-    isSubmitting,
+    handleSetError,
   }
 }
