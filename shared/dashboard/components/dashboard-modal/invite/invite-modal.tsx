@@ -5,15 +5,18 @@ import { useInviteForm } from "@features/dashboard/dashboard-invite/hooks"
 import FormControl from "@/shared/@common/components/ui/form-control"
 import { defaultValues, validate } from "@/features/dashboard/dashboard-invite/logic"
 import { DefaultValues } from "@/features/dashboard/dashboard-invite/types"
+import { useFetchAllInvitaion } from "@/shared/dashboard/hooks"
 
 interface Props {
   onCloseModal: () => void
 }
 
 export default function InviteModal(props: Props) {
+  const inivteQuery = useFetchAllInvitaion()
+
   const { register, formStates, handleSubmit, fieldError, handleSetError } = useForm<DefaultValues>({
     defaultValues,
-    validate,
+    validate: (values) => validate(values, inivteQuery.data?.invitations),
   })
 
   const onSubmit = useInviteForm(props.onCloseModal, handleSetError)
