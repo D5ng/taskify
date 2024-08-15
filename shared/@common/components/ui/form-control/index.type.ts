@@ -1,15 +1,16 @@
 // import { Member } from "@shared/common/types"
-import { ChangeEvent, InputHTMLAttributes, KeyboardEvent, PropsWithChildren } from "react"
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, KeyboardEvent, PropsWithChildren, ReactNode } from "react"
 
 export interface InputStates<T = any> extends InputHTMLAttributes<HTMLInputElement> {
-  hasError?: boolean
+  // hasError?: string
+  // errorMessage: string
   isValid?: boolean
-  inputValue: T
+  // inputValue: T
   previewImageUrl?: string | null
   isToggle?: boolean
   disabled?: boolean
-  handleInputValueChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-  handleInputBlur?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  // handleInputValueChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  // handleInputBlur?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
   handleKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
   handleKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void
   handleUpload?: (event: ChangeEvent<HTMLInputElement>) => void
@@ -17,6 +18,13 @@ export interface InputStates<T = any> extends InputHTMLAttributes<HTMLInputEleme
   handleToggle?: () => void
   handleInputReset?: () => void
   handleClick?: (value: T) => void
+  errorMessage?: string
+}
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  value: string
+  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  onBlur: (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
 
 export interface UploadStates {
@@ -30,8 +38,11 @@ export type FormControlStates = {
   id: string
 } & InputStates
 
-export interface FormControlContextValues extends PropsWithChildren {
-  value: InputStates & { type: string; id: string }
+export interface FormControlContextValues {
+  hasError: (field: string) => string
+  children: ReactNode
+  type: string
+  id: string
 }
 
 export interface FormControlContextProps extends FormControlStates {

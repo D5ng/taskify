@@ -6,11 +6,10 @@ import classes from "./index.module.css"
 const formControlContextInitialState: FormControlContextProps = {
   id: "",
   isValid: false,
-  inputValue: "",
+  // inputValue: "",
   type: "form",
-  hasError: false,
-  handleInputValueChange: () => {},
-  handleInputBlur: () => {},
+  // handleInputValueChange: () => {},
+  // handleInputBlur: () => {},
 }
 
 const FormControlContext = createContext<FormControlContextProps>(formControlContextInitialState)
@@ -22,16 +21,12 @@ export function useFormControlContext() {
 }
 
 export default function FormControl(props: FormControlContextValues) {
-  const className =
-    props.value.type === ""
-      ? classes.formControl
-      : props.value.hasError
-      ? `${classes.formControl} ${classes.error}`
-      : classes.formControl
+  const errorMessage = props.hasError(props.id)
+  const className = errorMessage ? `${classes.formControl} ${classes.error}` : classes.formControl
 
   return (
-    <FormControlContext.Provider value={props.value}>
-      <div className={`${className} ${classes[props.value.type || "form"]}`}>{props.children}</div>
+    <FormControlContext.Provider value={{ ...props, errorMessage }}>
+      <div className={`${className} ${classes[props.type || "form"]}`}>{props.children}</div>
     </FormControlContext.Provider>
   )
 }
