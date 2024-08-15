@@ -1,9 +1,15 @@
-import { ColorChipItemProps } from "@common/types"
+import { ColorChipColor } from "@common/types"
 import { COLOR_CHIPS_NAME } from "@shared/dashboard/constants"
 import SelectedColorChip from "../selected/selected-color-chip"
 import classes from "./color-chip-item.module.css"
 
-export default function ColorChipItem(props: ColorChipItemProps) {
+interface Props {
+  onChange: (value: ColorChipColor) => void
+  value: ColorChipColor
+  color: ColorChipColor
+}
+
+export default function ColorChipItem(props: Props) {
   const styles = { backgroundColor: props.color }
 
   return (
@@ -12,10 +18,10 @@ export default function ColorChipItem(props: ColorChipItemProps) {
         type="button"
         className={classes["color-chiop-item__button"]}
         style={styles}
-        onClick={props.onSelectedColorChip!.bind(null, props.color)}
+        onClick={props.onChange!.bind(null, props.color)}
         name={COLOR_CHIPS_NAME[props.color]}
       >
-        {props.selectedColorChip === props.color && <SelectedColorChip />}
+        {props.value === props.color && <SelectedColorChip />}
       </button>
     </li>
   )
