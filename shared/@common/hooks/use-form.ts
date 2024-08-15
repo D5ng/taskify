@@ -40,7 +40,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
 
   const fieldError = (field: string) => ((touchedFields[field] && fieldErros[field]) || "") as string
 
-  const runValidator = useCallback(() => validate(formValues), [validate, formValues])
+  const runValidator = useCallback(() => validate(formValues), [formValues])
 
   useEffect(() => {
     const errors = runValidator()
