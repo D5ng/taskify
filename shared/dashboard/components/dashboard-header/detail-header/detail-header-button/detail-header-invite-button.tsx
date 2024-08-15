@@ -1,9 +1,9 @@
 import React from "react"
 import { useToggle } from "@common/hooks"
 import { Button } from "@common/components/ui/button"
-import { InviteModal } from "../../dashboard-modal"
+import { InviteModal } from "../../../dashboard-modal"
 
-export default function DashboardHeaderInviteButton() {
+export default function DetailHeaderInviteButton() {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
   const style = { padding: "10px 16px" }
   return (

@@ -4,7 +4,7 @@ interface LinkWithIconProps {
   dashboardId: number
 }
 
-export default function DashboardHeaderSettingButton(props: LinkWithIconProps) {
+export default function DetailHeaderSettingButton(props: LinkWithIconProps) {
   const style = { padding: "10px 16px" }
   return (
     <ButtonLink

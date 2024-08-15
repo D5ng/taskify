@@ -1,10 +1,10 @@
 import { GetServerSideProps, InferGetStaticPropsType } from "next"
 import { axiosInstance } from "@/config"
 import {
-  DashboardHeader,
   DashboardSideBar,
   DashboardLayout,
   DashboardSectionLayout,
+  DashboardDetailHeader,
 } from "@shared/dashboard/components"
 import { GoBack } from "@common/components/go-back"
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
@@ -16,19 +16,19 @@ import { DashboardInvite } from "@features/dashboard/dashboard-invite/components
 export default function Edit(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <>
-      <DashboardHeader title={props.dashboard!.title} members={props.members} />
+      <DashboardDetailHeader dashboard={props.dashboard} members={props.members} />
       <DashboardLayout>
         <GoBack />
         <DashboardSectionLayout>
           <DashboardEdit dashboard={props.dashboard} />
         </DashboardSectionLayout>
-        <DashboardSectionLayout layout="members">
+        {/* <DashboardSectionLayout layout="members">
           <DashboardMember dashboardId={props.dashboard.id} />
         </DashboardSectionLayout>
         <DashboardSectionLayout layout="invitation">
           <DashboardInvite />
         </DashboardSectionLayout>
-        <DashboardDeleteButton />
+        <DashboardDeleteButton /> */}
       </DashboardLayout>
       <DashboardSideBar />
     </>

@@ -19,11 +19,24 @@
   font-weight: 700;
 }
 
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-layout {
+  display: flex;
+  align-items: center;
+  gap: 0 12px;
+  padding-left: 32px;
+}
+
 .flex-layout {
   display: flex;
   align-items: center;
 }
 
-.profile-wrapper {
-  position: relative;
+.button-layout {
+  display: flex;
+  align-items: center;
+  gap: 0 16px;
 }

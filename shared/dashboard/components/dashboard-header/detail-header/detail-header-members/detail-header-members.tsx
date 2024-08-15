@@ -1,13 +1,12 @@
 import Avatar from "@common/components/ui/avatar"
-import { useMemberStore } from "@shared/dashboard/hooks"
 import type { Member } from "@shared/dashboard/types"
-import classes from "./dashboard-header-members.module.css"
+import classes from "./detail-header-members.module.css"
 
 interface Props {
   members: Member[]
 }
 
-export default function DashboardHeaderMembers(props: Props) {
+export default function DetailHeaderMembers(props: Props) {
   return (
     <ul className={classes.members}>
       {props.members.map((member, index) => (
