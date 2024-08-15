@@ -1,38 +1,22 @@
-import { FormEventHandler, useEffect, useState } from "react"
+import { isAxiosError } from "axios"
+import { SetError, ErrorResponse } from "@common/types"
 import { useInvite, useInvitePageStore } from "@/shared/dashboard/hooks"
+import { DefaultValues } from "@features/dashboard/dashboard-invite/types"
 
-interface UseInviteFormProps {
-  value: string
-  onCloseModal: () => void
-}
-
-export default function useInviteForm({ value, onCloseModal }: UseInviteFormProps) {
+export default function useInviteForm(onCloseModal: () => void, setError: SetError<DefaultValues>) {
   const currentPage = useInvitePageStore.use.currentPage()
   const inviteMutation = useInvite(currentPage)
 
-  const onSubmit: FormEventHandler = async (event) => {
-    event.preventDefault()
+  const onSubmit = async (values: DefaultValues) => {
     try {
-      await inviteMutation.trigger({ email: value })
+      await inviteMutation.trigger({ email: values.email })
       onCloseModal()
     } catch (error) {
-      setFormError(error)
-    }
-  }
-
-  useEffect(() => {
-    const resetFormError = () => {
-      if () {
-        setFormError("")
+      if (isAxiosError<ErrorResponse>(error) && error.response) {
+        setError({ email: error.response.data.message })
       }
     }
-
-    resetFormError()
-  }, [value])
-
-  return {
-    onSubmit,
-    formError,
-    isLoading: inviteMutation.isMutating,
   }
+
+  return onSubmit
 }
