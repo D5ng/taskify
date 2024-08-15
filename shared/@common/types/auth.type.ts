@@ -7,6 +7,11 @@ export interface SignupResponse {
   updatedAt: string
 }
 
+export interface SignupResponseError {
+  code: number
+  message: string
+}
+
 export interface SigninPostData {
   email: string
   password: string
