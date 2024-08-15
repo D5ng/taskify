@@ -28,5 +28,3 @@ export const validate = (values: SignupDefaultValues) => {
 
   return error
 }
-
-export const onSubmit = (values: SignupDefaultValues) => {}
