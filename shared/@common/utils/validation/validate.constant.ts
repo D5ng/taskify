@@ -1,6 +1,6 @@
 export const formValidationPattern = {
   email: /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/,
-  nickname: /[0-9]|[a-z]|[A-Z]|[가-힣]/,
+  nickname: /^[가-힣a-zA-Z]{1,10}$/,
   password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
   passwordConfirm: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
 } as const
@@ -12,7 +12,7 @@ export const EMAIL_ERRROR_MESSAGE = {
 
 export const NICKANME_ERROR_MESSAGE = {
   EMPTY: "닉네임을 입력해주세요.",
-  INVALID: "닉네임은 10자 이하로 작성해주세요.",
+  INVALID: "닉네임은 특수문자를 제외한 10자 이하로 작성해주세요.",
 } as const
 
 export const PASSWORD_ERROR_MESSAGE = {
