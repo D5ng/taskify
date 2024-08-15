@@ -1,14 +1,14 @@
 import { useRouter } from "next/router"
 import { isAxiosError } from "axios"
-import { SignupResponseError } from "@common/types"
+import { AuthResponseError } from "@common/types"
 import { AuthApiInstance } from "@common/services"
-import { SignupDefaultValues } from "@features/auth/types"
+import { SignupValues } from "@features/auth/types"
 
-type SetError = (error: Partial<SignupDefaultValues>) => void
+type SetError = (error: Partial<SignupValues>) => void
 
 export default function useSignup(setError: SetError) {
   const router = useRouter()
-  const onSubmit = async (values: SignupDefaultValues) => {
+  const onSubmit = async (values: SignupValues) => {
     try {
       await AuthApiInstance.signup({
         email: values.email,
@@ -16,9 +16,9 @@ export default function useSignup(setError: SetError) {
         password: values.password,
       })
 
-      router.push("/dashboard/my")
+      router.push("/signin")
     } catch (error) {
-      if (isAxiosError<SignupResponseError>(error) && error.response) {
+      if (isAxiosError<AuthResponseError>(error) && error.response) {
         setError({ email: error.response.data.message })
       }
     }
