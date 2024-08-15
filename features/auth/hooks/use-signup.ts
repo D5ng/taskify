@@ -1,48 +1,28 @@
-import { FormEventHandler, useState } from "react"
-import { AxiosError } from "axios"
+import { useRouter } from "next/router"
+import { isAxiosError } from "axios"
+import { SignupResponseError } from "@common/types"
 import { AuthApiInstance } from "@common/services"
-import type { InputStates } from "@common/components/ui/form-control"
+import { SignupDefaultValues } from "@features/auth/types"
 
-interface SignUpProps {
-  emailState: InputStates
-  nicknameState: InputStates
-  passwordState: InputStates
-  passwordConfirmState: InputStates
-}
+type SetError = (error: Partial<SignupDefaultValues>) => void
 
-export default function useSignup({ emailState, nicknameState, passwordState, passwordConfirmState }: SignUpProps) {
-  const [hasFormError, setHasFormError] = useState<any>("")
-  const [isLoading, setIsLoading] = useState(false)
-
-  const isFormValid =
-    emailState.isValid && nicknameState.isValid && passwordState.isValid && passwordConfirmState.isValid
-
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault()
-
-    if (!isFormValid) return
-    setIsLoading(true)
-
-    const data = {
-      email: emailState.inputValue,
-      nickname: nicknameState.inputValue,
-      password: passwordState.inputValue,
-    }
-
+export default function useSignup(setError: SetError) {
+  const router = useRouter()
+  const onSubmit = async (values: SignupDefaultValues) => {
     try {
-      await AuthApiInstance.signup(data)
-      setIsLoading(false)
-    } catch (err) {
-      const error = err as AxiosError<{ message: string }>
-      setHasFormError(error.response?.data.message || "알 수 없는 에러가 발생했어요.")
-      setIsLoading(false)
+      await AuthApiInstance.signup({
+        email: values.email,
+        nickname: values.nickname,
+        password: values.password,
+      })
+
+      router.push("/dashboard/my")
+    } catch (error) {
+      if (isAxiosError<SignupResponseError>(error) && error.response) {
+        setError({ email: error.response.data.message })
+      }
     }
   }
 
-  return {
-    isLoading,
-    hasFormError,
-    isFormValid,
-    handleSubmit,
-  }
+  return onSubmit
 }
