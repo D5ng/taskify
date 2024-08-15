@@ -7,7 +7,7 @@ export interface SignupResponse {
   updatedAt: string
 }
 
-export interface SignupResponseError {
+export interface AuthResponseError {
   code: number
   message: string
 }
