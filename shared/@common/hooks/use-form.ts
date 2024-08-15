@@ -4,13 +4,13 @@ import { UseFormProps, FormFields, FieldElement, SubmitHandler } from "@common/t
 export default function useForm<T extends FormFields>({ defaultValues, validate }: UseFormProps<T>) {
   const [formValues, setFormValues] = useState(defaultValues)
   const [touchedFields, setTouchedFields] = useState<Partial<T>>({})
-  const [errors, setErrors] = useState<Partial<T>>({})
+  const [fieldErros, setFiledErrors] = useState<Partial<T>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const hasFormError = Object.values(errors).some((error) => !!error)
+  const hasFormError = Object.values(fieldErros).some((error) => !!error)
 
   const handleSetError = (error: Partial<T>) => {
-    setErrors((prevState) => ({ ...prevState, ...error }))
+    setFiledErrors((prevState) => ({ ...prevState, ...error }))
   }
 
   const handleBlur: FocusEventHandler<FieldElement> = (event) => {
@@ -35,13 +35,13 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
     }
   }
 
-  const hasError = (field: string) => ((touchedFields[field] && errors[field]) || "") as string
+  const fieldError = (field: string) => ((touchedFields[field] && fieldErros[field]) || "") as string
 
   const runValidator = useCallback(() => validate(formValues), [validate, formValues])
 
   useEffect(() => {
     const errors = runValidator()
-    setErrors(errors)
+    setFiledErrors(errors)
   }, [runValidator, formValues])
 
   const handleSubmit = (onSubmit: SubmitHandler<T>) => async (event: FormEvent<HTMLFormElement>) => {
@@ -66,10 +66,11 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
       isSubmitting,
       hasFormError,
       touchedFields,
+      fieldErros,
     },
     register,
     handleSubmit,
-    hasError,
+    fieldError,
     handleSetError,
   }
 }
