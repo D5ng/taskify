@@ -17,3 +17,9 @@ export function useFetchInvitation(currentPage: number) {
   const fetcher = (url: string) => DashboardApiInstance.fetchInvitation(url)
   return useSWR(`dashboards/${dashboardId}/invitations?page=${currentPage}&size=5`, fetcher)
 }
+
+export function useFetchAllInvitaion() {
+  const dashboardId = useRouterQuery("id")
+  const fetcher = (url: string) => DashboardApiInstance.fetchInvitation(url)
+  return useSWR(`dashboards/${dashboardId}/invitations?size=50`, fetcher)
+}
