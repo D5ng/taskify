@@ -1,40 +1,21 @@
 import { Button } from "@common/components/ui/button"
-import { useInput } from "@common/hooks"
-import {
-  FormControlEmail,
-  FormControlNickname,
-  FormControlPassword,
-  FormControlPasswordConfirm,
-} from "@common/components/form-control"
-
-import { useSignup } from "@features/auth/hooks"
-import classes from "./auth-form.module.css"
-import useForm from "@/shared/@common/hooks/use-form"
 import FormControl from "@common/components/ui/form-control"
-
-import { defaultValues, validate, onSubmit } from "../../logic/signup.logic"
-import { DefaultValues } from "../../types/signup.type"
+import { useForm } from "@common/hooks"
+import { defaultValues, validate } from "@features/auth/logic"
+import { SignupDefaultValues } from "@features/auth/types"
+import classes from "./auth-form.module.css"
+import { useSignup } from "../../hooks"
 
 export default function AuthSignUpForm() {
-  const { register, hasFormError, isSubmitting, handleSubmit, hasError } = useForm<DefaultValues>({
+  const { register, formStates, handleSubmit, hasError, handleSetError } = useForm<SignupDefaultValues>({
     defaultValues,
     validate,
-    onSubmit,
   })
 
-  // const emailState = useInput(emailValidation)
-  // const nicknameState = useInput(nicknameValidation)
-  // const passwordState = useInput(passwordValidation)
-  // const passwordConfirmState = useInput(passwordConfirmValidation.bind(null, passwordState.inputValue))
-  // const { isLoading, hasFormError, isFormValid, handleSubmit } = useSignup({
-  //   emailState,
-  //   nicknameState,
-  //   passwordState,
-  //   passwordConfirmState,
-  // })
+  const onSubmit = useSignup(handleSetError)
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit}>
+    <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
       <FormControl type="form" id="email" hasError={hasError}>
         <FormControl.Label>이메일</FormControl.Label>
         <FormControl.Input type="text" placeholder="이메일을 입력해주세요" {...register("email")} />
@@ -59,12 +40,13 @@ export default function AuthSignUpForm() {
         />
         <FormControl.ErrorMessage />
       </FormControl>
-      {/* <FormControlEmail {...emailState} type="form" id="email" />
-      <FormControlNickname {...nicknameState} type="form" id="nickname" />
-      <FormControlPassword {...passwordState} type="form" id="password" />
-      <FormControlPasswordConfirm {...passwordConfirmState} type="form" id="password-confirm" /> */}
-      {/* {hasFormError && <p className={classes["form-error"]}>{hasFormError}</p>} */}
-      <Button size="auth" buttonStyle="primary" isDisabled={hasFormError} isLoading={isSubmitting} type="submit">
+      <Button
+        size="auth"
+        buttonStyle="primary"
+        isDisabled={formStates.hasFormError}
+        isLoading={formStates.isSubmitting}
+        type="submit"
+      >
         가입하기
       </Button>
     </form>
