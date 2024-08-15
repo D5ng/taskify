@@ -1,12 +1,10 @@
 import { useRouter } from "next/router"
 import { isAxiosError } from "axios"
-import { ErrorResponse } from "@common/types"
+import { ErrorResponse, SetError } from "@common/types"
 import { AuthApiInstance } from "@common/services"
 import { SignupValues } from "@features/auth/types"
 
-type SetError = (error: Partial<SignupValues>) => void
-
-export default function useSignup(setError: SetError) {
+export default function useSignup(setError: SetError<SignupValues>) {
   const router = useRouter()
   const onSubmit = async (values: SignupValues) => {
     try {

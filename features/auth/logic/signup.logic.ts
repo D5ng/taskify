@@ -1,4 +1,4 @@
-import { SignupDefaultValues } from "@features/auth/types"
+import { SignupValues } from "@features/auth/types"
 import {
   emailValidation,
   nicknameValidation,
@@ -13,8 +13,8 @@ export const defaultValues = {
   passwordConfirm: "",
 }
 
-export const validate = (values: SignupDefaultValues) => {
-  const error: Partial<SignupDefaultValues> = {
+export const validate = (values: SignupValues) => {
+  const error: Partial<SignupValues> = {
     email: "",
     nickname: "",
     password: "",

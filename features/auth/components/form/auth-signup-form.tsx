@@ -2,12 +2,12 @@ import { Button } from "@common/components/ui/button"
 import FormControl from "@common/components/ui/form-control"
 import { useForm } from "@common/hooks"
 import { Signup } from "@features/auth/logic"
-import { SignupDefaultValues } from "@features/auth/types"
+import { SignupValues } from "@features/auth/types"
+import { useSignup } from "@features/auth/hooks"
 import classes from "./auth-form.module.css"
-import { useSignup } from "../../hooks"
 
 export default function AuthSignUpForm() {
-  const { register, formStates, handleSubmit, fieldError, handleSetError } = useForm<SignupDefaultValues>({
+  const { register, formStates, handleSubmit, fieldError, handleSetError } = useForm<SignupValues>({
     defaultValues: Signup.defaultValues,
     validate: Signup.validate,
   })
