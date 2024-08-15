@@ -1,12 +1,4 @@
-import {
-  useState,
-  FocusEventHandler,
-  ChangeEventHandler,
-  useEffect,
-  useCallback,
-  FormEvent,
-  MouseEventHandler,
-} from "react"
+import { useState, FocusEventHandler, ChangeEventHandler, useEffect, useCallback, FormEvent } from "react"
 import { UseFormProps, FormFields, FieldElement, SubmitHandler } from "@common/types"
 
 export default function useForm<T extends FormFields>({ defaultValues, validate }: UseFormProps<T>) {
