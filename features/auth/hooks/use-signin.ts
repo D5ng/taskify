@@ -4,7 +4,7 @@ import { AuthApiInstance } from "@common/services"
 import { useAuthStore } from "@common/hooks/store"
 import { SigninValues } from "../types"
 import { isAxiosError } from "axios"
-import { AuthResponseError, SetError } from "@/shared/@common/types"
+import { ErrorResponse, SetError } from "@/shared/@common/types"
 
 export default function useSignin(setError: SetError<SigninValues>) {
   const router = useRouter()
@@ -17,7 +17,7 @@ export default function useSignin(setError: SetError<SigninValues>) {
       setAuthState(result)
       router.push("/dashboard/my")
     } catch (error) {
-      if (isAxiosError<AuthResponseError>(error) && error.response) {
+      if (isAxiosError<ErrorResponse>(error) && error.response) {
         if (error.response.status === 400) {
           setError({ form: error.response.data.message })
         }

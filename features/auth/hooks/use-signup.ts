@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { isAxiosError } from "axios"
-import { AuthResponseError } from "@common/types"
+import { ErrorResponse } from "@common/types"
 import { AuthApiInstance } from "@common/services"
 import { SignupValues } from "@features/auth/types"
 
@@ -18,7 +18,7 @@ export default function useSignup(setError: SetError) {
 
       router.push("/signin")
     } catch (error) {
-      if (isAxiosError<AuthResponseError>(error) && error.response) {
+      if (isAxiosError<ErrorResponse>(error) && error.response) {
         setError({ email: error.response.data.message })
       }
     }
