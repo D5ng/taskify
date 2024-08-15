@@ -25,3 +25,7 @@ export const PASSWORD_CONFIRM_ERROR_MESSAGE = {
   INVALID: "비밀번호는 8자 이상 입력해주세요.",
   CONFIRM: "비밀번호가 일치하지 않아요.",
 } as const
+
+export const DASHBOARD_TITLE_ERROR_MESSAGE = {
+  EMPTY: "대시보드 이름을 입력해주세요.",
+}

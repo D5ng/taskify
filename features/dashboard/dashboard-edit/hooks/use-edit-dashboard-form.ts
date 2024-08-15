@@ -1,29 +1,25 @@
-import { FormEventHandler } from "react"
-import { useDashboardPageStore, useUpdateDashboard } from "@/shared/dashboard/hooks"
-import { ColorChipColor } from "@/shared/@common/types"
-import { useRouterQuery } from "@/shared/@common/hooks"
-import useDashboardStore from "@/shared/dashboard/hooks/store/dashboard.store"
+import { ErrorResponse, SetError } from "@common/types"
+import { useRouterQuery } from "@common/hooks"
+import { useDashboardPageStore, useDashboardStore, useUpdateDashboard } from "@/shared/dashboard/hooks"
+import { DefaultValues } from "@features/dashboard/dashboard-edit/types"
+import { isAxiosError } from "axios"
 
-interface Props {
-  title: string
-  color: ColorChipColor
-  onReset?: () => void
-}
-
-export default function useEditDashboardForm({ title, color }: Props) {
+export default function useEditDashboardForm(setError: SetError<DefaultValues>) {
   const dashboardId = +useRouterQuery("id")
   const currentPage = useDashboardPageStore.use.currentPage()
   const updateDashboardMutation = useUpdateDashboard(dashboardId, currentPage)
   const setDashboard = useDashboardStore.use.setDashboard()
 
-  const onSubmit: FormEventHandler = async (event) => {
-    event.preventDefault()
-    await updateDashboardMutation.trigger({ title, color })
-    setDashboard({ title, color })
+  const onSubmit = async ({ title, color }: DefaultValues) => {
+    try {
+      await updateDashboardMutation.trigger({ title, color })
+      setDashboard({ title, color })
+    } catch (error) {
+      if (isAxiosError<ErrorResponse>(error) && error.response) {
+        setError({ title: error.response.data.message })
+      }
+    }
   }
 
-  return {
-    onSubmit,
-    isLoading: updateDashboardMutation.isMutating,
-  }
+  return onSubmit
 }
