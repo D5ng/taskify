@@ -6,13 +6,11 @@ export default function TextArea(props: TextareaHTMLAttributes<HTMLTextAreaEleme
   const formControlContext = useFormControlContext()
   return (
     <textarea
+      {...props}
       className={classes.textarea}
       placeholder={props.placeholder}
       id={formControlContext.id}
       name={formControlContext.id}
-      value={formControlContext.inputValue}
-      onChange={formControlContext.handleInputValueChange}
-      onBlur={formControlContext.handleInputBlur}
     ></textarea>
   )
 }

@@ -1,16 +1,17 @@
-// import { Member } from "@shared/common/types"
-import { ChangeEvent, FocusEvent, InputHTMLAttributes, KeyboardEvent, PropsWithChildren, ReactNode } from "react"
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  FocusEventHandler,
+  InputHTMLAttributes,
+  KeyboardEvent,
+  ReactNode,
+} from "react"
 
 export interface InputStates<T = any> extends InputHTMLAttributes<HTMLInputElement> {
-  // hasError?: string
-  // errorMessage: string
   isValid?: boolean
-  // inputValue: T
   previewImageUrl?: string | null
   isToggle?: boolean
   disabled?: boolean
-  // handleInputValueChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-  // handleInputBlur?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
   handleKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
   handleKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void
   handleUpload?: (event: ChangeEvent<HTMLInputElement>) => void
@@ -22,9 +23,9 @@ export interface InputStates<T = any> extends InputHTMLAttributes<HTMLInputEleme
 }
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  value: string
-  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-  onBlur: (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  value?: string
+  onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
+  onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>
 }
 
 export interface UploadStates {
