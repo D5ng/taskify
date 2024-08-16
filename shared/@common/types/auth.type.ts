@@ -27,7 +27,7 @@ export interface User {
   email: string
   id: number
   nickname: string
-  profileImageUrl: null | string
+  profileImageUrl: string
 }
 
 export interface AuthResposne {
