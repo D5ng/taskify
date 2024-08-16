@@ -1,6 +1,6 @@
 import { GetServerSideProps, InferGetStaticPropsType } from "next"
 import { axiosInstance } from "@/config"
-import { DashboardLayout, DashboardHeader, DashboardSideBar } from "@shared/dashboard/components"
+import { DashboardLayout, DashboardSideBar, DashboardDetailHeader } from "@shared/dashboard/components"
 
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
 import { DashboardColumn } from "@features/dashboard/dashboard-column/components"
@@ -12,7 +12,7 @@ export default function DashboardDetailPage(props: InferGetStaticPropsType<typeo
   setMembers(props.members || [])
   return (
     <>
-      <DashboardHeader title={props.title} members={props.members} />
+      <DashboardDetailHeader dashboard={props.dashboard} members={props.members} />
       <DashboardLayout>
         <DashboardColumn />
       </DashboardLayout>
@@ -31,17 +31,14 @@ export const getServerSideProps = (async (context) => {
   try {
     const dashboard = await DashboardApiInstance.fetchDashboardDetail(+dashboardId!)
     const members = await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)
-
     return {
       props: {
-        id: dashboard.id,
-        title: dashboard.title,
+        dashboard: dashboard,
         members: members.members,
       },
     }
   } catch (error) {
     return {
-      props: {},
       notFound: true,
     }
   }

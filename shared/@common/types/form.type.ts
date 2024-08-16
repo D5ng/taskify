@@ -1,6 +1,6 @@
 export interface UseFormProps<T> {
   defaultValues: T
-  validate: (values: T) => Partial<T>
+  validate: (values: T) => { [key in keyof T]?: string }
 }
 
 export type FailedFn<T> = (error: Partial<T>) => void

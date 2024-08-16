@@ -28,4 +28,13 @@ export const PASSWORD_CONFIRM_ERROR_MESSAGE = {
 
 export const DASHBOARD_TITLE_ERROR_MESSAGE = {
   EMPTY: "대시보드 이름을 입력해주세요.",
+} as const
+
+export const DASHBOARD_COLUMN_TITLE_ERROR_MESSAGE = {
+  EMPTY: "대시보드 컬럼 이름을 입력해주세요.",
+} as const
+
+export const DASHBOARD_TASK_CARD_ERROR_MESSAGE = {
+  TITLE_EMPTY: "카드의 제목을 입력해주세요.",
+  DESCRIPTION_EMPTY: "카드의 설명을 입력해주세요.",
 }

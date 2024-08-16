@@ -4,7 +4,7 @@ import { UseFormProps, FormFields, FieldElement, SubmitHandler } from "@common/t
 export default function useForm<T extends FormFields>({ defaultValues, validate }: UseFormProps<T>) {
   const [formValues, setFormValues] = useState(defaultValues)
   const [touchedFields, setTouchedFields] = useState<Partial<T>>({})
-  const [fieldErros, setFiledErrors] = useState<Partial<T>>({})
+  const [fieldErros, setFiledErrors] = useState<{ [key in keyof T]?: string }>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const hasFormError = Object.values(fieldErros).some((error) => !!error)
@@ -44,6 +44,8 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
 
   const runValidator = useCallback(() => validate(formValues), [formValues])
 
+  const resetForm = () => setFormValues(defaultValues)
+
   useEffect(() => {
     const errors = runValidator()
     setFiledErrors(errors)
@@ -62,6 +64,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
       throw new Error("알 수 없는 에러가 발생했어요")
     } finally {
       setIsSubmitting(false)
+      resetForm()
     }
   }
 
@@ -79,5 +82,6 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
     handleSetError,
     handleSelect,
     setValue,
+    resetForm,
   }
 }

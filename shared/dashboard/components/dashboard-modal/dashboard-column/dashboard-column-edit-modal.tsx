@@ -1,10 +1,9 @@
-import React, { FormEventHandler } from "react"
 import Modal from "@common/components/ui/modal"
-import { isNotEmptyValidation } from "@common/utils/validation"
-import { useInput } from "@common/hooks"
-import { DashboardColumn } from "@shared/dashboard/types"
-import { useUpdateDashboardColumn } from "@shared/dashboard/hooks"
+import { useForm } from "@common/hooks"
+import { DashboardColumn, UpdateDashboardColumn } from "@shared/dashboard/types"
 import FormControl from "@/shared/@common/components/ui/form-control"
+import { DashboardColumnLogic } from "@shared/dashboard/logic"
+import useUpdateColumnForm from "@/shared/dashboard/hooks/use-update-column-form"
 
 interface Props extends Pick<DashboardColumn, "id" | "title"> {
   onCloseModal: () => void
@@ -12,25 +11,24 @@ interface Props extends Pick<DashboardColumn, "id" | "title"> {
 }
 
 export default function DashboardColumnEditModal({ onNextModal, onCloseModal, id, title }: Props) {
-  const inputStates = useInput(isNotEmptyValidation, title)
-  const updateColumnMutation = useUpdateDashboardColumn(id)
+  const { formStates, register, handleSubmit, handleSetError, fieldError } = useForm<UpdateDashboardColumn>({
+    defaultValues: {
+      title: title,
+    },
+    validate: DashboardColumnLogic.validate,
+  })
+
+  const onSubmit = useUpdateColumnForm({ columnId: id, onCloseModal, setError: handleSetError })
 
   const handleDeleteClick = () => {
     onCloseModal()
     onNextModal()
   }
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault()
-    if (!inputStates.isValid) return
-    await updateColumnMutation.trigger({ title: inputStates.inputValue })
-    onCloseModal()
-  }
-
   const modalValues = {
-    onSubmit,
-    isDisabled: !inputStates.isValid,
-    isLoading: updateColumnMutation.isMutating,
+    onSubmit: handleSubmit(onSubmit),
+    isDisabled: formStates.hasFormError,
+    isLoading: formStates.isSubmitting,
     title: "컬럼 관리",
     onCloseModal,
   }
@@ -40,10 +38,10 @@ export default function DashboardColumnEditModal({ onNextModal, onCloseModal, id
       <Modal.Backdrop />
       <Modal.Form>
         <Modal.Title />
-        <FormControl value={{ ...inputStates, type: "modal", id: "edit-dashboard-column" }}>
+        <FormControl type="modal" id="title" hasError={fieldError}>
           <FormControl.Label>이름</FormControl.Label>
-          <FormControl.Input type="text" placeholder="이메일을 입력해주세요." />
-          <FormControl.ErrorMessage>이름을 입력해주세요.</FormControl.ErrorMessage>
+          <FormControl.Input type="text" placeholder="이름을 입력해주세요." {...register("title")} />
+          <FormControl.ErrorMessage />
         </FormControl>
         <Modal.ButtonLayout>
           <Modal.OutlineButton>취소</Modal.OutlineButton>

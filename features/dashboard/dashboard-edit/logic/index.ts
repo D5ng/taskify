@@ -1,8 +1,8 @@
 import { DASHBOARD_TITLE_ERROR_MESSAGE, isNotEmptyValidation } from "@/shared/@common/utils/validation"
-import { DefaultValues } from "../types"
+import { DashboardData } from "@/shared/dashboard/types"
 
-export const validate = (values: DefaultValues) => {
-  const error: Partial<DefaultValues> = {}
+export const validate = (values: DashboardData) => {
+  const error: Partial<DashboardData> = {}
 
   error.title = isNotEmptyValidation(values.title) ? "" : DASHBOARD_TITLE_ERROR_MESSAGE.EMPTY
 

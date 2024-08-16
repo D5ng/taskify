@@ -1,5 +1,4 @@
 import { FormEventHandler } from "react"
-import { useRouterQuery } from "@common/hooks"
 import Modal from "@common/components/ui/modal"
 import { useDashboardPageStore, useDeleteDashboard } from "@shared/dashboard/hooks"
 import { useRouter } from "next/router"

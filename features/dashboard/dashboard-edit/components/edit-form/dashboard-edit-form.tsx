@@ -3,11 +3,11 @@ import { useFetchDashboard } from "@/shared/dashboard/hooks"
 import { Button } from "@common/components/ui/button"
 import { ColorChipList } from "@common/components/color-chip"
 import { useForm } from "@common/hooks"
-import { DefaultValues } from "@features/dashboard/dashboard-edit/types"
 import { validate } from "@features/dashboard/dashboard-edit/logic"
 import { useEditDashboardForm } from "@features/dashboard/dashboard-edit/hooks"
 import FormControl from "@common/components/ui/form-control"
 import classes from "./dashboard-edit-form.module.css"
+import { DashboardData } from "@/shared/dashboard/types"
 
 interface Props {
   dashboardId: number
@@ -15,7 +15,7 @@ interface Props {
 
 export default function DashboardEditForm(props: Props) {
   const dashboardQuery = useFetchDashboard(props.dashboardId)
-  const { register, handleSubmit, fieldError, formStates, handleSetError, handleSelect } = useForm<DefaultValues>({
+  const { register, handleSubmit, fieldError, formStates, handleSetError, handleSelect } = useForm<DashboardData>({
     defaultValues: {
       title: dashboardQuery.data!.title,
       color: dashboardQuery.data!.color,

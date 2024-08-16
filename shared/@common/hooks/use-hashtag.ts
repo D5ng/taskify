@@ -2,12 +2,17 @@ import { getRandomColor } from "@features/dashboard/dashboard-task-card/utils"
 import { ChangeEventHandler, KeyboardEventHandler, useState } from "react"
 import { HASHTAG_ALLOWED_COMMEND, HASHTAG_INPUT_LENGTH, HASHTAG_MAX_ARRAY_LENGTH } from "../constants"
 
-export default function useHashtag(defaultHashtags?: string[]) {
+interface Props {
+  value: string[]
+  defaultHashtags?: string[]
+  onChangeValue: (value: string | string[]) => void
+}
+
+export default function useHashtag({ onChangeValue, value }: Props) {
   const [inputValue, setInputValue] = useState("")
-  const [hashtags, setHashtags] = useState<string[]>(defaultHashtags || [])
   const [errorMessage, setErrorMessage] = useState("")
 
-  const handleInputValueChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (event) => {
+  const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (event) => {
     const target = event.target as HTMLInputElement
 
     if (target.value.length > HASHTAG_INPUT_LENGTH) {
@@ -19,13 +24,13 @@ export default function useHashtag(defaultHashtags?: string[]) {
     setErrorMessage("")
   }
 
-  const handleKeyUp: KeyboardEventHandler<HTMLInputElement> = (event) => {
+  const onKeyUp: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (!HASHTAG_ALLOWED_COMMEND.includes(event.code)) return
     const target = event.target as HTMLInputElement
 
     if (!target.value.trim().length) return
 
-    if (hashtags.includes(target.value)) {
+    if (value.includes(target.value)) {
       setErrorMessage("중복된 해시태그는 사용할 수 없어요.")
       return
     }
@@ -34,12 +39,14 @@ export default function useHashtag(defaultHashtags?: string[]) {
 
     const newTag = target.value.trim() + `$${color}$${background}`
 
+    const values = [...value, newTag]
+
     setErrorMessage("")
-    setHashtags((prevState) => [...prevState, newTag])
+    onChangeValue(values)
     setInputValue("")
   }
 
-  const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
+  const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.code === "Enter") {
       event.preventDefault()
       return
@@ -47,19 +54,19 @@ export default function useHashtag(defaultHashtags?: string[]) {
   }
 
   const handleDeleteHashtag = (deleteHashtag: string) => {
-    const filteredHashtag = hashtags.filter((hashtag) => hashtag !== deleteHashtag)
+    const filteredHashtag = value.filter((hashtag) => hashtag !== deleteHashtag)
     if (filteredHashtag.length < HASHTAG_MAX_ARRAY_LENGTH) setErrorMessage("")
-    setHashtags(filteredHashtag)
+    onChangeValue(filteredHashtag)
   }
 
   const hasError = !!errorMessage
 
   return {
-    inputValue,
-    hashtags,
-    handleInputValueChange,
-    handleKeyDown,
-    handleKeyUp,
+    value: inputValue,
+    // hashtags,
+    onChange,
+    onKeyDown,
+    onKeyUp,
     handleDeleteHashtag,
     errorMessage,
     hasError,

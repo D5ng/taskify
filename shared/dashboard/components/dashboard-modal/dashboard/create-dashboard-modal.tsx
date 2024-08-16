@@ -1,11 +1,10 @@
-import { FormEventHandler } from "react"
 import Modal from "@common/components/ui/modal"
-import { useInput, useSelect } from "@common/hooks"
-import { ColorChipColor } from "@common/types"
-import { useCreateDashboard, useDashboardPageStore } from "@shared/dashboard/hooks"
-import { isNotEmptyValidation } from "@common/utils/validation"
-import { FormControlDashboardName } from "@common/components/form-control"
+import { useForm } from "@common/hooks"
+import { useCreateDashboardForm } from "@shared/dashboard/hooks"
 import { ColorChipList } from "@common/components/color-chip"
+import FormControl from "@/shared/@common/components/ui/form-control"
+import { DashboardData } from "@/shared/dashboard/types"
+import { Dashboard } from "@/shared/dashboard/logic"
 
 interface Props {
   isToggle: boolean
@@ -13,23 +12,18 @@ interface Props {
 }
 
 export default function CreateDashboardModal(props: Props) {
-  const currentPage = useDashboardPageStore.use.currentPage()
-  const inputStates = useInput(isNotEmptyValidation)
-  const colorChipStates = useSelect<ColorChipColor>("#7AC555")
+  const { fieldError, formStates, register, handleSelect, handleSubmit, handleSetError, resetForm } =
+    useForm<DashboardData>({
+      defaultValues: Dashboard.defaultValues,
+      validate: Dashboard.validate,
+    })
 
-  const createDashboardMutation = useCreateDashboard(currentPage)
-
-  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault()
-    await createDashboardMutation.trigger({ title: inputStates.inputValue, color: colorChipStates.selectedItem })
-    colorChipStates.onResetSelectedItem()
-    props.onCloseModal()
-  }
+  const onSubmit = useCreateDashboardForm({ setError: handleSetError, onCloseModal: props.onCloseModal })
 
   const modalValues = {
-    onSubmit,
-    isDisabled: !inputStates.isValid,
-    isLoading: createDashboardMutation.isMutating,
+    onSubmit: handleSubmit(onSubmit),
+    isDisabled: formStates.hasFormError,
+    isLoading: formStates.isSubmitting,
     title: "대시보드 생성하기",
     onCloseModal: props.onCloseModal,
   }
@@ -40,11 +34,12 @@ export default function CreateDashboardModal(props: Props) {
         <Modal.Backdrop />
         <Modal.Form>
           <Modal.Title />
-          <FormControlDashboardName {...inputStates} type="modal" id="dashboard-name" />
-          <ColorChipList
-            onSelectedColorChip={colorChipStates.onSelectedItem}
-            selectedColorChip={colorChipStates.selectedItem}
-          />
+          <FormControl type="modal" id="title" hasError={fieldError}>
+            <FormControl.Label>대시보드 이름</FormControl.Label>
+            <FormControl.Input type="text" placeholder="대시보드 이름을 입력해주세요" {...register("title")} />
+            <FormControl.ErrorMessage />
+          </FormControl>
+          <ColorChipList onChange={handleSelect("color")} value={formStates.formValues.color} />
           <Modal.ButtonLayout>
             <Modal.OutlineButton>취소</Modal.OutlineButton>
             <Modal.PrimaryButton>생성</Modal.PrimaryButton>

@@ -14,8 +14,8 @@ export default function Input(props: InputProps) {
       // value={formControlContext.inputValue}
       // onChange={formControlContext.handleInputValueChange || formControlContext.handleUpload}
       // onBlur={formControlContext.handleInputBlur}
-      onKeyDown={formControlContext.handleKeyDown}
-      onKeyUp={formControlContext.handleKeyUp}
+      // onKeyDown={formControlContext.handleKeyDown}
+      // onKeyUp={formControlContext.handleKeyUp}
       disabled={props.disabled || false}
     />
   )
