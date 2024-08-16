@@ -29,6 +29,8 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
   const handleSelect = (field: string) => (value: T[typeof field]) =>
     setFormValues((prevState) => ({ ...prevState, [field]: value }))
 
+  const setValue = (field: string, value: string) => setFormValues((prevState) => ({ ...prevState, [field]: value }))
+
   const register = (field: string) => {
     const value = formValues[field] as string
     return {
@@ -76,5 +78,6 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
     fieldError,
     handleSetError,
     handleSelect,
+    setValue,
   }
 }
