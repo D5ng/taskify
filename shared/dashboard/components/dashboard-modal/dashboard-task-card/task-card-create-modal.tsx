@@ -1,6 +1,6 @@
 import { useForm, useHashtag, useInput, useSelect, useUpload } from "@common/hooks"
 import useTaskCardForm from "@/features/dashboard/dashboard-task-card/hooks/use-task-card-form"
-import { Member } from "@shared/dashboard/types"
+import { Member, UploadResponse } from "@shared/dashboard/types"
 import { dateFormat, defaultDateTime } from "@common/utils/date"
 
 import {
@@ -15,6 +15,7 @@ import Modal from "@/shared/@common/components/ui/modal"
 import { useCreateTaskCard, useMemberStore } from "@/shared/dashboard/hooks"
 import { DASHBOARD_TASK_CARD_ERROR_MESSAGE, isNotEmptyValidation } from "@/shared/@common/utils/validation"
 import FormControl from "@/shared/@common/components/ui/form-control"
+import { TaskCardApiInstance } from "@/shared/dashboard/services"
 
 interface TaskCardModalProps {
   onCloseModal: () => void
@@ -27,6 +28,7 @@ export interface TaskCardDefaultValues {
   description: string
   dueDate: string
   tags: string[]
+  image: string | null
 }
 
 const date = new Date()
@@ -35,7 +37,7 @@ const dateOffset = new Date(date.getTime() - offset)
 
 export default function TaskCardCreateModal(props: TaskCardModalProps) {
   const members = useMemberStore.use.members()
-  const imageStates = useUpload(props.columnId)
+
   const selectStates = useSelect<Member>(members[0])
   // const hashtagStates = useHashtag()
   const titleStates = useInput((value) => isNotEmptyValidation(value))
@@ -63,6 +65,7 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
       description: "",
       dueDate: dateOffset.toISOString().slice(0, 16),
       tags: [],
+      image: "",
     },
     validate: (values: TaskCardDefaultValues) => {
       const error: { [key in keyof TaskCardDefaultValues]?: string } = {}
@@ -75,6 +78,18 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
     },
   })
 
+  const imageStates = useUpload<UploadResponse>({
+    onUpload: async (selectedImage: File) => {
+      const formData = new FormData()
+      formData.append("image", selectedImage)
+      return await TaskCardApiInstance.cardImageUpload(props.columnId, formData)
+    },
+    onSuccess: (result) => setValue("imgae", result.imageUrl),
+    onFailed: () => console.log("failed"),
+  })
+
+  // const imageStates = useUpload({ columnId: props.columnId, setValue })
+
   const modalValues = {
     ...formStates,
     title: "할 일 생성",
@@ -82,6 +97,12 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
   }
 
   console.log(formStates.formValues)
+
+  // onChange
+
+  // handleUpload
+
+  // Input
 
   return (
     <Modal value={modalValues}>
@@ -109,15 +130,13 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
           <FormControl.Input type="datetime-local" {...register("dueDate")} />
           <FormControl.ErrorMessage />
         </FormControl>
-        <FormControlHashtag
-          value={formStates.formValues.tags}
-          onChange={handleSelect("tags")}
-          // {...hashtagStates}
-          hasError={fieldError}
-          // register={register}
-          // handleSelect={handleSelect}
-          // onChange={handleSelect("tags")}
-        />
+        <FormControlHashtag value={formStates.formValues.tags} onChange={handleSelect("tags")} hasError={fieldError} />
+        <FormControl type="modal" id="image" hasError={fieldError}>
+          <FormControl.Label>이미지</FormControl.Label>
+          <FormControl.Upload isLoading={imageStates.isLoading} previewImageUrl={formStates.formValues.image || ""}>
+            <FormControl.Input type="file" onChange={imageStates.handleUpload} />
+          </FormControl.Upload>
+        </FormControl>
         {/* <FormControl type="modal" id="hashtag" hasError={fieldError}>
           <FormControl.Label>태그</FormControl.Label>
           <FormControl.Input
@@ -141,7 +160,7 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
         {/* <FormControlUpload {...imageStates} /> */}
         <Modal.ButtonLayout>
           <Modal.OutlineButton>취소</Modal.OutlineButton>
-          {/* <Modal.PrimaryButton>생성</Modal.PrimaryButton> */}
+          <Modal.PrimaryButton>생성</Modal.PrimaryButton>
         </Modal.ButtonLayout>
       </Modal.Form>
     </Modal>

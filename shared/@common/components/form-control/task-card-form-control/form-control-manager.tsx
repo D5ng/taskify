@@ -1,16 +1,12 @@
-import Avatar from "@/shared/@common/components/ui/avatar"
-import Dropdown from "@/shared/@common/components/ui/dropdown"
-import { SetError } from "@/shared/@common/types"
-import { TaskCardDefaultValues } from "@/shared/dashboard/components/dashboard-modal/dashboard-task-card/task-card-create-modal"
-import { Member } from "@/shared/dashboard/types"
+import Avatar from "@common/components/ui/avatar"
+import Dropdown from "@common/components/ui/dropdown"
 import FormControl from "@common/components/ui/form-control"
-import type { InputStates } from "@common/components/ui/form-control"
-import { useToggle } from "@common/hooks"
+import { Member } from "@/shared/dashboard/types"
 import { useMemberStore } from "@shared/dashboard/hooks"
 
 interface Props {
-  onChange: (value: Member) => void
   value: Member
+  onChange: (value: Member) => void
   hasError: (field: string) => string
 }
 

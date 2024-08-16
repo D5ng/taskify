@@ -5,7 +5,7 @@ import { HASHTAG_ALLOWED_COMMEND, HASHTAG_INPUT_LENGTH, HASHTAG_MAX_ARRAY_LENGTH
 interface Props {
   value: string[]
   defaultHashtags?: string[]
-  onChangeValue: (value: string | string[]) => void
+  onChangeValue: (value: string[]) => void
 }
 
 export default function useHashtag({ onChangeValue, value }: Props) {
