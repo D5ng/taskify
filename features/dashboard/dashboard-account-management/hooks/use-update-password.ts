@@ -1,10 +1,10 @@
 import { isAxiosError } from "axios"
 import { AuthApiInstance } from "@common/services"
 import { SetError } from "@common/types"
-import { DefaultValues } from "../types"
+import { PasswordDefaultValues } from "../types"
 
-export default function useUpdatePassword(setError: SetError<DefaultValues>) {
-  const onSubmit = async (values: DefaultValues) => {
+export default function useUpdatePassword(setError: SetError<PasswordDefaultValues>) {
+  const onSubmit = async (values: PasswordDefaultValues) => {
     try {
       await AuthApiInstance.updatePassword({
         password: values.currentPassword,
