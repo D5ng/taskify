@@ -2,8 +2,11 @@ import { ChangeEventHandler, useState } from "react"
 import { AuthApiInstance } from "@common/services"
 import { previewImage } from "@common/utils/upload"
 
-export default function useProfileUpload() {
-  const [uploadedImage, setUploadedImage] = useState("")
+interface Props {
+  setValue: (field: string, value: string) => void
+}
+
+export default function useProfileUpload(props: Props) {
   const [previewImageUrl, setPreviewImageUrl] = useState("")
   const [hasError, setHasError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -20,7 +23,7 @@ export default function useProfileUpload() {
     try {
       const result = await AuthApiInstance.profileImage(formData)
       previewImage(selectedImage, (data) => {
-        setUploadedImage(result.profileImageUrl)
+        props.setValue("profileImageUrl", result.profileImageUrl)
         setPreviewImageUrl(data.target?.result as string)
       })
       setIsLoading(false)
@@ -34,7 +37,6 @@ export default function useProfileUpload() {
   return {
     isLoading,
     hasError,
-    uploadedImage,
     previewImageUrl,
     handleUpload,
   }
