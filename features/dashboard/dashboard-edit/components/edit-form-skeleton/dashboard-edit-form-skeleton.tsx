@@ -1,5 +1,5 @@
-import classes from "./dashboard-edit-form-skeleton.module.css"
 import { Button } from "@/shared/@common/components/ui"
+import classes from "./dashboard-edit-form-skeleton.module.css"
 
 export default function DashboardEditformSkeleton() {
   return (
