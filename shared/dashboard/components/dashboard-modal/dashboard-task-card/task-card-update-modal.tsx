@@ -8,7 +8,7 @@ import {
   FormControlDeadline,
   FormControlUpload,
 } from "@common/components/form-control"
-import Modal from "@/shared/@common/components/ui/modal"
+import { Modal } from "@/shared/@common/components/ui"
 import { useHashtag, useInput, useSelect, useUpload } from "@/shared/@common/hooks"
 import { Member, TaskCard } from "@/shared/dashboard/types"
 import { useMemberStore, useUpdateTaskCard } from "@/shared/dashboard/hooks"

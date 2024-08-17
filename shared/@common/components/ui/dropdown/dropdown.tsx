@@ -1,8 +1,8 @@
 import React, { createContext, useContext } from "react"
 import * as Components from "./components"
 import { useOutside, useToggle } from "@common/hooks"
-import { DropdownContextType, DropdownProvider } from "./index.type"
-import classes from "./index.module.css"
+import { DropdownContextType, DropdownProvider } from "./dropdown.type"
+import classes from "./dropdown.module.css"
 
 export const DropdownContext = createContext<DropdownContextType>({
   isToggle: false,
@@ -16,7 +16,7 @@ export function useDropdownContext() {
   return dropdownContext
 }
 
-export default function Dropdown(props: DropdownProvider) {
+export function Dropdown(props: DropdownProvider) {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
   const ref = useOutside<HTMLDivElement>({ onCloseToggle, callback: props.callback })
 

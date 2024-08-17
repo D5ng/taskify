@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
-import classes from "../index.module.css"
-import { useAvatarContext } from ".."
+import { useAvatarContext } from "../avatar"
+import classes from "../avatar.module.css"
 
 interface AvatarImageProps {
   type?: "task" | "header"

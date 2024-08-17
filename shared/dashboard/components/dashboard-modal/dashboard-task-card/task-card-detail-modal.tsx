@@ -1,4 +1,4 @@
-import Modal from "@/shared/@common/components/ui/modal"
+import { Modal, Dropdown } from "@common/components/ui"
 import {
   TaskDetailChips,
   TaskDetailContents,
@@ -6,10 +6,8 @@ import {
   TaskDetailComment,
   TaskDetailInfo,
 } from "@features/dashboard/dashboard-task-detail/components"
-import { TaskCard } from "@/shared/dashboard/types"
+import { TaskCard } from "@shared/dashboard/types"
 import classes from "./task-card-detail-modal.module.css"
-import Dropdown from "@/shared/@common/components/ui/dropdown"
-import DropdownMenuItem from "@/shared/@common/components/ui/dropdown/components/dropdown-menu-item"
 
 interface TaskCardDetailModalProps extends TaskCard {
   onCloseModal: () => void
@@ -33,8 +31,8 @@ export default function TaskCardDetailModal(props: TaskCardDetailModalProps) {
               <Modal.Kebab />
             </Dropdown.Trigger>
             <Dropdown.Menu>
-              <DropdownMenuItem onClick={props.onUpdateModal}>수정하기</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => {}}>삭제하기</DropdownMenuItem>
+              <Dropdown.MenuItem onClick={props.onUpdateModal}>수정하기</Dropdown.MenuItem>
+              <Dropdown.MenuItem onClick={() => {}}>삭제하기</Dropdown.MenuItem>
             </Dropdown.Menu>
           </Dropdown>
           <Modal.Close />

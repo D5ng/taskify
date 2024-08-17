@@ -1,11 +1,9 @@
-import React from "react"
-import Modal from "@common/components/ui/modal"
+import { Modal, FormControl } from "@common/components/ui"
 import { useForm } from "@common/hooks"
+import { useFetchAllInvitaion } from "@shared/dashboard/hooks"
 import { useInviteForm } from "@features/dashboard/dashboard-invite/hooks"
-import FormControl from "@/shared/@common/components/ui/form-control"
-import { defaultValues, validate } from "@/features/dashboard/dashboard-invite/logic"
-import { DefaultValues } from "@/features/dashboard/dashboard-invite/types"
-import { useFetchAllInvitaion } from "@/shared/dashboard/hooks"
+import { defaultValues, validate } from "@features/dashboard/dashboard-invite/logic"
+import { DefaultValues } from "@features/dashboard/dashboard-invite/types"
 
 interface Props {
   onCloseModal: () => void

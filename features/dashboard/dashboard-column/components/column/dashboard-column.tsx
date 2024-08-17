@@ -1,6 +1,6 @@
-import { DashboardColumnList, DashboardColumnSkeleton } from "@features/dashboard/dashboard-column/components"
-import Suspensive from "@common/components/suspensive"
+import { Suspensive } from "@common/components"
 import { useFetchDashboardColumns } from "@shared/dashboard/hooks"
+import { DashboardColumnList, DashboardColumnSkeleton } from "@features/dashboard/dashboard-column/components"
 import classes from "./dashboard-column.module.css"
 
 export default function DashboardColumn() {

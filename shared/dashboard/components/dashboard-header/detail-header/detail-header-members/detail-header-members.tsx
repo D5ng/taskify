@@ -1,4 +1,4 @@
-import Avatar from "@common/components/ui/avatar"
+import { Avatar } from "@common/components/ui"
 import type { Member } from "@shared/dashboard/types"
 import classes from "./detail-header-members.module.css"
 

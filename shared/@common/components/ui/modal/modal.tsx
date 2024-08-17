@@ -1,8 +1,8 @@
 import { createPortal } from "react-dom"
 import { createContext, useContext } from "react"
-import { ModalContextStates, ModalContextValues } from "./index.type"
+import { ModalContextStates, ModalContextValues } from "./modal.type"
 import * as Components from "./components"
-import classes from "./index.module.css"
+import classes from "./modal.module.css"
 
 const initialModalContextState = {
   isLoading: false,
@@ -17,7 +17,7 @@ export function useModalContext() {
   return modalContext
 }
 
-export default function Modal(props: ModalContextValues) {
+export function Modal(props: ModalContextValues) {
   const modalElement = document.querySelector("#modal")!
   return createPortal(
     <ModalContext.Provider value={props.value}>

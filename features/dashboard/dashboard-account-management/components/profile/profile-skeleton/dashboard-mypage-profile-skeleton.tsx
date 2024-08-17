@@ -1,4 +1,3 @@
-import React from "react"
 import classes from "./dashboard-mypage-profile-skeleton.module.css"
 
 export default function DashboardMyPageProfileSkeleton() {

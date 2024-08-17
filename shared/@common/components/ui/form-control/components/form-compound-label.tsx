@@ -1,8 +1,8 @@
-import { PropsWithChildren } from "react"
-import { useFormControlContext } from ".."
-import classes from "../index.module.css"
+import { useFormControlContext } from "../form-control"
+import type { FormControlLabelProps } from "../form-control"
+import classes from "../form-control.module.css"
 
-export default function Label(props: PropsWithChildren<{ isRequired?: boolean }>) {
+export default function Label(props: FormControlLabelProps) {
   const formControlContext = useFormControlContext()
 
   return (

@@ -1,13 +1,11 @@
-import React from "react"
-import { useFetchDashboard } from "@/shared/dashboard/hooks"
-import { Button } from "@common/components/ui/button"
-import { ColorChipList } from "@common/components/color-chip"
+import { ColorChipList, FormControlDashboardEdit } from "@common/components"
+import { Button } from "@common/components/ui"
 import { useForm } from "@common/hooks"
+import { useFetchDashboard } from "@shared/dashboard/hooks"
+import { DashboardData } from "@shared/dashboard/types"
 import { validate } from "@features/dashboard/dashboard-edit/logic"
 import { useEditDashboardForm } from "@features/dashboard/dashboard-edit/hooks"
-import FormControl from "@common/components/ui/form-control"
 import classes from "./dashboard-edit-form.module.css"
-import { DashboardData } from "@/shared/dashboard/types"
 
 interface Props {
   dashboardId: number
@@ -31,11 +29,7 @@ export default function DashboardEditForm(props: Props) {
       <div className={classes["color-chips"]}>
         <ColorChipList onChange={handleSelect("color")} value={formStates.formValues.color} />
       </div>
-      <FormControl type="form" id="title" hasError={fieldError}>
-        <FormControl.Label>대시보드 이름</FormControl.Label>
-        <FormControl.Input type="text" placeholder="대시보드 이름을 입력해주세요" {...register("title")} />
-        <FormControl.ErrorMessage />
-      </FormControl>
+      <FormControlDashboardEdit hasError={fieldError} register={register} />
       <div className={classes["new-dashboard-button"]}>
         <Button
           isLoading={formStates.isSubmitting}

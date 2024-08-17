@@ -1,4 +1,4 @@
-import FormControl from "@common/components/ui/form-control"
+import { FormControl } from "@common/components/ui"
 import { HashtagList } from "@common/components/hashtag"
 import { useHashtag } from "@common/hooks"
 import { HASHTAG_MAX_ARRAY_LENGTH } from "@common/constants"

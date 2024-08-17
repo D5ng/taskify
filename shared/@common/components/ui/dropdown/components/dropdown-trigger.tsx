@@ -1,4 +1,4 @@
-import { useDropdownContext } from "@common/components/ui/dropdown"
+import { useDropdownContext } from "../dropdown"
 
 interface DropdownTriggerType {
   children: React.ReactNode

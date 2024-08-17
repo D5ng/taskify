@@ -1,4 +1,3 @@
-import React from "react"
 import classes from "./dashboard-column-skeleton.module.css"
 import { DashboardTaskCardSkeleton } from "@features/dashboard/dashboard-task-card/components"
 

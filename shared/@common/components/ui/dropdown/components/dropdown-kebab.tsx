@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { useDropdownContext } from "@common/components/ui/dropdown"
-import classes from "../index.module.css"
+import { useDropdownContext } from "../dropdown"
+import classes from "../dropdown.module.css"
 
 export default function DropdownKebab() {
   const dropdownContext = useDropdownContext()

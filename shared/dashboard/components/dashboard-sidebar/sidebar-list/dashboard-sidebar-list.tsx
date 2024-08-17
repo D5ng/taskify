@@ -1,4 +1,4 @@
-import Suspensive from "@common/components/suspensive"
+import { Suspensive } from "@common/components"
 import { useDashboardPageStore, useFetchDashboards } from "@shared/dashboard/hooks"
 import {
   DashboardListFetcherLayout,

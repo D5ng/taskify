@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
-import { useModalContext } from ".."
-import classes from "../index.module.css"
+import { useModalContext } from "../modal"
+import classes from "../modal.module.css"
 
 export default function Close() {
   const modalContext = useModalContext()

@@ -1,18 +1,15 @@
 import { createContext, useContext } from "react"
 import * as FormComponents from "./components"
-import type { FormControlContextValues, FormControlContextProps } from "./index.type"
-import classes from "./index.module.css"
+import type { FormControlContextType, FormControlProps } from "./form-control.type"
+import classes from "./form-control.module.css"
 
-const formControlContextInitialState: FormControlContextProps = {
+const formControlContextInitialState: FormControlContextType = {
   id: "",
-  isValid: false,
-  // inputValue: "",
   type: "form",
-  // handleInputValueChange: () => {},
-  // handleInputBlur: () => {},
+  hasError: "",
 }
 
-const FormControlContext = createContext<FormControlContextProps>(formControlContextInitialState)
+const FormControlContext = createContext<FormControlContextType>(formControlContextInitialState)
 
 export function useFormControlContext() {
   const formControlContext = useContext(FormControlContext)
@@ -20,12 +17,12 @@ export function useFormControlContext() {
   return formControlContext
 }
 
-export default function FormControl(props: FormControlContextValues) {
-  const errorMessage = props.hasError(props.id)
-  const className = errorMessage ? `${classes.formControl} ${classes.error}` : classes.formControl
+export function FormControl(props: FormControlProps) {
+  const hasError = props.hasError ? props.hasError(props.id) : ""
+  const className = hasError ? `${classes.formControl} ${classes.error}` : classes.formControl
 
   return (
-    <FormControlContext.Provider value={{ ...props, errorMessage }}>
+    <FormControlContext.Provider value={{ ...props, hasError }}>
       <div className={`${className} ${classes[props.type || "form"]}`}>{props.children}</div>
     </FormControlContext.Provider>
   )
@@ -37,4 +34,4 @@ FormControl.ErrorMessage = FormComponents.ErrorMessage
 FormControl.TextArea = FormComponents.TextArea
 FormControl.Upload = FormComponents.Upload
 
-export * from "./index.type"
+export * from "./form-control.type"

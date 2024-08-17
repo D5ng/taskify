@@ -1,10 +1,9 @@
-import Modal from "@common/components/ui/modal"
+import { ColorChipList } from "@common/components"
+import { Modal, FormControl } from "@common/components/ui"
 import { useForm } from "@common/hooks"
 import { useCreateDashboardForm } from "@shared/dashboard/hooks"
-import { ColorChipList } from "@common/components/color-chip"
-import FormControl from "@/shared/@common/components/ui/form-control"
-import { DashboardData } from "@/shared/dashboard/types"
-import { Dashboard } from "@/shared/dashboard/logic"
+import { DashboardData } from "@shared/dashboard/types"
+import { Dashboard } from "@shared/dashboard/logic"
 
 interface Props {
   isToggle: boolean

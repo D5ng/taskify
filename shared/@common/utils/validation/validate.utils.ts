@@ -4,6 +4,7 @@ import {
   NICKANME_ERROR_MESSAGE,
   PASSWORD_ERROR_MESSAGE,
   PASSWORD_CONFIRM_ERROR_MESSAGE,
+  DASHBOARD_TASK_CARD_ERROR_MESSAGE,
 } from "./validate.constant"
 
 export function emailValidation(value: string) {
@@ -33,4 +34,13 @@ export function passwordConfirmValidation(passwordValue: string, confirmValue: s
 
 export function isNotEmptyValidation(value: string) {
   return value.trim().length !== 0
+}
+
+export function isEmptyValidation(value: string) {
+  return value.trim().length === 0
+}
+
+export const taskCardValidation = {
+  email: (value: string) => (isEmptyValidation(value) ? DASHBOARD_TASK_CARD_ERROR_MESSAGE.TITLE_EMPTY : ""),
+  description: (value: string) => (isEmptyValidation(value) ? DASHBOARD_TASK_CARD_ERROR_MESSAGE.DESCRIPTION_EMPTY : ""),
 }

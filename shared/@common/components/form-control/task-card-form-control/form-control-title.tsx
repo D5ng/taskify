@@ -1,12 +1,17 @@
-import FormControl from "@common/components/ui/form-control"
-import type { InputStates } from "@common/components/ui/form-control"
+import { FormRegister } from "@/shared/@common/types"
+import { FormControl } from "@common/components/ui"
 
-export default function FormControlTitle(props: InputStates) {
+interface Props {
+  hasError: (field: string) => string
+  register: FormRegister
+}
+
+export default function FormControlTitle({ hasError, register }: Props) {
   return (
-    <FormControl value={{ ...props, type: "modal", id: "task-title" }}>
+    <FormControl type="modal" id="title" hasError={hasError}>
       <FormControl.Label isRequired>제목</FormControl.Label>
-      <FormControl.Input type="text" placeholder="제목을 입력해 주세요" />
-      <FormControl.ErrorMessage>제목을 입력해 주세요.</FormControl.ErrorMessage>
+      <FormControl.Input type="text" placeholder="제목을 입력해 주세요" {...register("title")} />
+      <FormControl.ErrorMessage />
     </FormControl>
   )
 }

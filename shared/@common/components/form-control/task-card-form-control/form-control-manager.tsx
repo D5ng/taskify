@@ -1,25 +1,21 @@
-import Avatar from "@common/components/ui/avatar"
-import Dropdown from "@common/components/ui/dropdown"
-import FormControl from "@common/components/ui/form-control"
+import { Avatar, FormControl, Dropdown } from "@common/components/ui"
 import { Member } from "@/shared/dashboard/types"
-import { useMemberStore } from "@shared/dashboard/hooks"
 
 interface Props {
   value: Member
   onChange: (value: Member) => void
   hasError: (field: string) => string
+  members: Member[]
 }
 
-export default function FormControlManager(props: Props) {
-  const members = useMemberStore.use.members()
-
+export default function FormControlManager({ members, value, onChange, hasError }: Props) {
   return (
-    <FormControl type="modal" id="task-manager" hasError={props.hasError}>
+    <FormControl type="modal" id="task-manager" hasError={hasError}>
       <FormControl.Label>담당자</FormControl.Label>
       <Dropdown className="dropdown-layout-medium">
         <Dropdown.Trigger>
           <Dropdown.Select>
-            <Avatar nickname={props.value.nickname} image={props.value.profileImageUrl}>
+            <Avatar nickname={value.nickname} image={value.profileImageUrl}>
               <Avatar.Image />
               <Avatar.Name />
             </Avatar>
@@ -27,7 +23,7 @@ export default function FormControlManager(props: Props) {
         </Dropdown.Trigger>
         <Dropdown.Menu size="inherit">
           {members.map((member) => (
-            <Dropdown.MenuItem key={member.id} onClick={() => props.onChange!(member)}>
+            <Dropdown.MenuItem key={member.id} onClick={() => onChange!(member)}>
               <Avatar nickname={member.nickname} image={member.profileImageUrl}>
                 <Avatar.Image />
                 <Avatar.Name />

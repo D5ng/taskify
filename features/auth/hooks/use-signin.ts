@@ -18,7 +18,7 @@ export default function useSignin(setError: SetError<SigninValues>) {
       router.push("/dashboard/my")
     } catch (error) {
       if (isAxiosError<ErrorResponse>(error) && error.response) {
-        if (error.response.status === 400) {
+        if (error.response.status === 404) {
           setError({ form: error.response.data.message })
         }
       }

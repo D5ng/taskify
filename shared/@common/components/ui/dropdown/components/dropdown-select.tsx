@@ -1,8 +1,8 @@
 import { PropsWithChildren } from "react"
 import Image from "next/image"
 import DropdownIcon from "@/public/images/icons/dropdown-icon.svg"
-import { useDropdownContext } from ".."
-import classes from "../index.module.css"
+import { useDropdownContext } from "../dropdown"
+import classes from "../dropdown.module.css"
 
 export default function Select(props: PropsWithChildren) {
   const dropdownContext = useDropdownContext()

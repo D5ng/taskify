@@ -1,6 +1,5 @@
-import React from "react"
 import classes from "./dashboard-edit-form-skeleton.module.css"
-import { Button } from "@/shared/@common/components/ui/button"
+import { Button } from "@/shared/@common/components/ui"
 
 export default function DashboardEditformSkeleton() {
   return (

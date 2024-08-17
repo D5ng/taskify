@@ -1,9 +1,8 @@
-import Modal from "@common/components/ui/modal"
+import { Modal, FormControl } from "@common/components/ui"
 import { useForm } from "@common/hooks"
 import { DashboardColumn, UpdateDashboardColumn } from "@shared/dashboard/types"
-import FormControl from "@/shared/@common/components/ui/form-control"
 import { DashboardColumnLogic } from "@shared/dashboard/logic"
-import useUpdateColumnForm from "@/shared/dashboard/hooks/use-update-column-form"
+import { useUpdateColumnForm } from "@shared/dashboard/hooks"
 
 interface Props extends Pick<DashboardColumn, "id" | "title"> {
   onCloseModal: () => void

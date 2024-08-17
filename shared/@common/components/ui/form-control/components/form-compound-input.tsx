@@ -1,8 +1,8 @@
-import { InputHTMLAttributes } from "react"
-import { InputProps, useFormControlContext } from ".."
-import classes from "../index.module.css"
+import { useFormControlContext } from "../form-control"
+import type { FormControlInputProps } from "../form-control"
+import classes from "../form-control.module.css"
 
-export default function Input(props: InputProps) {
+export default function Input(props: FormControlInputProps) {
   const formControlContext = useFormControlContext()
   const isInputFile = props.type === "file" ? classes["upload-input"] : ""
   return (
@@ -11,11 +11,6 @@ export default function Input(props: InputProps) {
       id={formControlContext.id}
       name={formControlContext.id}
       className={`${classes.input} ${isInputFile} ${props.className}`}
-      // value={formControlContext.inputValue}
-      // onChange={formControlContext.handleInputValueChange || formControlContext.handleUpload}
-      // onBlur={formControlContext.handleInputBlur}
-      // onKeyDown={formControlContext.handleKeyDown}
-      // onKeyUp={formControlContext.handleKeyUp}
       disabled={props.disabled || false}
     />
   )

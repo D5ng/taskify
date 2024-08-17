@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect } from "react"
-import type { PaginationContextProps, PaginationValues } from "./index.type"
-import classes from "./index.module.css"
+import { createContext, useContext } from "react"
+import type { PaginationContextProps, PaginationValues } from "./pagination.type"
 import * as Components from "./components"
+import classes from "./pagination.module.css"
 
 const PaginationContext = createContext<PaginationContextProps>({
   maxPage: 0,
@@ -16,7 +16,7 @@ export function usePaginationContext() {
   return paginationContext
 }
 
-export default function Pagination(props: PaginationValues) {
+export function Pagination(props: PaginationValues) {
   const { maxPage, setCurrentPage, currentPage } = props.value
 
   const handlePrevPage = () => setCurrentPage(currentPage === 1 ? 1 : currentPage - 1)

@@ -13,5 +13,7 @@ export const validate = (values: SigninValues) => {
   error.email = emailValidation(values.email)
   error.password = passwordValidation(values.password)
 
+  console.log(error)
+
   return error
 }

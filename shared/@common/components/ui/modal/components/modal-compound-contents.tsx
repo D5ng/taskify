@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react"
-import classes from "../index.module.css"
+import classes from "../modal.module.css"
 
 interface LayoutProps extends PropsWithChildren {
   size?: "small" | "medium"

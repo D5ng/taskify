@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react"
-import { Loading } from "@common/components/ui/loading"
+import { Loading } from "@common/components/ui"
 
 interface Props extends PropsWithChildren {
   fallback?: JSX.Element

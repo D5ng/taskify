@@ -1,7 +1,5 @@
-import React from "react"
 import { useAuthStore } from "@common/hooks"
-import Dropdown from "@common/components/ui/dropdown"
-import Avatar from "@common/components/ui/avatar"
+import { Avatar, Dropdown } from "@common/components/ui"
 import classes from "./dashboard-header-profile.module.css"
 import { useRouter } from "next/router"
 

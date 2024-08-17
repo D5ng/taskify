@@ -1,14 +1,13 @@
-import { TextareaHTMLAttributes } from "react"
-import { useFormControlContext } from ".."
-import classes from "../index.module.css"
+import { useFormControlContext } from "../form-control"
+import type { FormControlTextAreaProps } from "../form-control"
+import classes from "../form-control.module.css"
 
-export default function TextArea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
+export default function TextArea(props: FormControlTextAreaProps) {
   const formControlContext = useFormControlContext()
   return (
     <textarea
       {...props}
       className={classes.textarea}
-      placeholder={props.placeholder}
       id={formControlContext.id}
       name={formControlContext.id}
     ></textarea>

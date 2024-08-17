@@ -35,7 +35,7 @@
 // }
 
 import Image from "next/image"
-import classes from "../index.module.css"
+import classes from "../modal.module.css"
 
 export default function Kebab() {
   return (

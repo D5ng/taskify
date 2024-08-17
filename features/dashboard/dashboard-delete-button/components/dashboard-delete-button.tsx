@@ -1,7 +1,7 @@
-import { Button } from "@common/components/ui/button"
+import { Button } from "@common/components/ui"
 import { useToggle } from "@common/hooks"
+import { DeleteDashboardModal } from "@shared/dashboard/components"
 import classes from "./dashboard-delete-button.module.css"
-import { DeleteDashboardModal } from "@/shared/dashboard/components"
 
 export default function DashboardDeleteButton() {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()

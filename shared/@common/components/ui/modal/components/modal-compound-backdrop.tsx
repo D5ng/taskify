@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom"
-import { useModalContext } from ".."
-import classes from "../index.module.css"
+import { useModalContext } from "../modal"
+import classes from "../modal.module.css"
 
 export default function Backdrop() {
   const modalContext = useModalContext()

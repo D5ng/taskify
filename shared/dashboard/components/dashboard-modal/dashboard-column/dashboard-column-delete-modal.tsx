@@ -1,5 +1,5 @@
-import Modal from "@/shared/@common/components/ui/modal"
-import { useDeleteDashboardColumn } from "@/shared/dashboard/hooks"
+import { Modal } from "@common/components/ui"
+import { useDeleteDashboardColumn } from "@shared/dashboard/hooks"
 import { DashboardColumn } from "@shared/dashboard/types"
 import { FormEventHandler } from "react"
 

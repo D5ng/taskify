@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react"
-import { useModalContext } from ".."
-import { Button } from "@common/components/ui/button"
+import { useModalContext } from "../modal"
+import { Button } from "@common/components/ui"
 
 export default function PrimaryButton(props: PropsWithChildren) {
   const modalContext = useModalContext()

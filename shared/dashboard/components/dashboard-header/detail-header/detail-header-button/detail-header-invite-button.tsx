@@ -1,7 +1,6 @@
-import React from "react"
 import { useToggle } from "@common/hooks"
-import { Button } from "@common/components/ui/button"
-import { InviteModal } from "../../../dashboard-modal"
+import { Button } from "@common/components/ui"
+import { InviteModal } from "@shared/dashboard/components/dashboard-modal"
 
 export default function DetailHeaderInviteButton() {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()

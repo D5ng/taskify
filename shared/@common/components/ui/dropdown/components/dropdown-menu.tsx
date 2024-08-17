@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, PropsWithChildren, ReactNode } from "react"
-import { useDropdownContext } from "@common/components/ui/dropdown"
-import classes from "../index.module.css"
+import { useDropdownContext } from "../dropdown"
+import classes from "../dropdown.module.css"
 
 interface Props {
   children: ReactNode

@@ -46,14 +46,14 @@ import { TaskCardApiInstance } from "@shared/dashboard/services"
 
 interface Props<T> {
   defaultValue?: string
-  onUpload: (selectedImage: File) => Promise<T>
+  onUpload: (formData: FormData) => Promise<T>
   onSuccess: (result: T) => void
   onFailed: () => void
 }
 
 export default function useUpload<T>({ defaultValue, onUpload, onSuccess, onFailed }: Props<T>) {
   const [previewImageUrl, setPreviewImageUrl] = useState(defaultValue || "")
-  const [isLoading. setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleUpload: ChangeEventHandler<HTMLInputElement> = async (event) => {
     const selectedImage = event.target.files![0]
@@ -64,7 +64,7 @@ export default function useUpload<T>({ defaultValue, onUpload, onSuccess, onFail
     formData.append("image", selectedImage)
 
     try {
-      const result = await onUpload(selectedImage)
+      const result = await onUpload(formData)
       onSuccess(result)
       previewImage(selectedImage, (data) => setPreviewImageUrl(data.target?.result as string))
     } catch (error) {

@@ -1,17 +1,11 @@
-import { ReactNode } from "react"
 import Image from "next/image"
 import AddVioletIcon from "@/public/images/icons/add-violet-icon.svg"
-import { Loading } from "@common/components/ui/loading"
-import { useFormControlContext } from "@common/components/ui/form-control"
-import classes from "../index.module.css"
+import { Loading } from "@common/components/ui"
+import { useFormControlContext } from "../form-control"
+import type { FormControlUploadProps } from "../form-control"
+import classes from "../form-control.module.css"
 
-interface Props {
-  isLoading: boolean
-  previewImageUrl: string
-  children: ReactNode
-}
-
-export default function Upload(props: Props) {
+export default function Upload(props: FormControlUploadProps) {
   const formControlContext = useFormControlContext()
   const imageWrapperClassName = `${classes["upload-icon"]} ${props.previewImageUrl && classes["upload-preview"]}`
   return (

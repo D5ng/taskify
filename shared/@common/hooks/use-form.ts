@@ -1,7 +1,7 @@
 import { useState, FocusEventHandler, ChangeEventHandler, useEffect, useCallback, FormEvent } from "react"
 import { UseFormProps, FormFields, FieldElement, SubmitHandler } from "@common/types"
 
-export default function useForm<T extends FormFields>({ defaultValues, validate }: UseFormProps<T>) {
+export default function useForm<T extends FormFields>({ defaultValues, validate, options }: UseFormProps<T>) {
   const [formValues, setFormValues] = useState(defaultValues)
   const [touchedFields, setTouchedFields] = useState<Partial<T>>({})
   const [fieldErros, setFiledErrors] = useState<{ [key in keyof T]?: string }>({})
@@ -64,7 +64,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate 
       throw new Error("알 수 없는 에러가 발생했어요")
     } finally {
       setIsSubmitting(false)
-      resetForm()
+      options?.isFormReset && resetForm()
     }
   }
 
