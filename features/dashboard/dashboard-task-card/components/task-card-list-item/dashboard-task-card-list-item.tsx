@@ -7,6 +7,8 @@ import { dateFormat } from "@common/utils/date"
 import type { TaskCard } from "@shared/dashboard/types"
 import { TaskCardDetailModal, TaskCardUpdateModal } from "@shared/dashboard/components/dashboard-modal"
 import classes from "./dashboard-task-card-list-item.module.css"
+import { TaskCardApiInstance } from "@/shared/dashboard/services"
+import { useDeleteTaskCard } from "@/shared/dashboard/hooks"
 
 export default function DashboardTaskCardListItem(props: TaskCard) {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()

@@ -3,11 +3,14 @@ import { HashtagList } from "@common/components/hashtag"
 import { useHashtag } from "@common/hooks"
 import { HASHTAG_MAX_ARRAY_LENGTH } from "@common/constants"
 import classes from "./form-control-hashtag.module.css"
+import { SetError } from "@/shared/@common/types"
+import { TaskCardDefaultValues } from "@shared/dashboard/components/dashboard-modal/dashboard-task-card/task-card-create-modal"
 
 interface Props {
   value: string[]
   hasError: (field: string) => string
   onChange: (value: string[]) => void
+  handleSetError: SetError<TaskCardDefaultValues>
 }
 
 export default function FormControlHashtag(props: Props) {
@@ -21,12 +24,15 @@ export default function FormControlHashtag(props: Props) {
         type="text"
         placeholder={`${isDisabled ? "태그는 최대 4개까지만 가능합니다." : "태그를 입력해 주세요"}`}
         disabled={isDisabled}
-        {...hashtagStates}
+        value={hashtagStates.value}
+        onChange={hashtagStates.onChange}
+        onKeyDown={hashtagStates.onKeyDown}
+        onKeyUp={hashtagStates.onKeyUp}
       />
       <div className={classes.hashtag}>
         <HashtagList hashtags={props.value} isEdit onDelete={hashtagStates.handleDeleteHashtag} />
       </div>
-      <FormControl.ErrorMessage />
+      <FormControl.ErrorMessage errorMessage={hashtagStates.errorMessage} />
     </FormControl>
   )
 }

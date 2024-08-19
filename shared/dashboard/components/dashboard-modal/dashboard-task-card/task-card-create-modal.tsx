@@ -8,8 +8,8 @@ import {
 } from "@common/components"
 import { Modal } from "@common/components/ui"
 import { useForm } from "@common/hooks"
-import { Member } from "@shared/dashboard/types"
-import { useMemberStore } from "@shared/dashboard/hooks"
+import { TaskCardDefaultValues } from "@shared/dashboard/types"
+import { useCreateTaskCardForm, useMemberStore } from "@shared/dashboard/hooks"
 import { TaskCardLogic } from "@shared/dashboard/logic"
 
 interface TaskCardModalProps {
@@ -17,49 +17,47 @@ interface TaskCardModalProps {
   columnId: number
 }
 
-export interface TaskCardDefaultValues {
-  assignee: Member
-  title: string
-  description: string
-  dueDate: string
-  tags: string[]
-  image: string | null
-}
-
 export default function TaskCardCreateModal(props: TaskCardModalProps) {
   const members = useMemberStore.use.members()
 
-  const { register, handleSelect, formStates, fieldError, setValue } = useForm<TaskCardDefaultValues>({
-    defaultValues: TaskCardLogic.defaultValues(members[0]),
-    validate: TaskCardLogic.validate,
+  const { register, handleSelect, formStates, fieldError, setValue, handleSetError, handleSubmit } =
+    useForm<TaskCardDefaultValues>({
+      defaultValues: TaskCardLogic.defaultValues(members[0].userId),
+      validate: TaskCardLogic.validate,
+    })
+
+  const onSubmit = useCreateTaskCardForm({
+    columnId: props.columnId,
+    onCloseModal: props.onCloseModal,
+    setError: handleSetError,
   })
 
   const modalValues = {
-    ...formStates,
+    onSubmit: handleSubmit(onSubmit),
+    isLoading: formStates.isSubmitting,
+    isDisabled: formStates.hasFormError,
     title: "할 일 생성",
     onCloseModal: props.onCloseModal,
   }
-
-  console.log(formStates.formValues.image)
 
   return (
     <Modal value={modalValues}>
       <Modal.Backdrop />
       <Modal.Form>
         <Modal.Title />
-        <FormControlManager
-          onChange={handleSelect("assignee")}
-          value={formStates.formValues.assignee}
-          hasError={fieldError}
-          members={members}
-        />
+        <FormControlManager onChange={handleSelect("assignee")} hasError={fieldError} members={members} />
         <FormControlTitle register={register} hasError={fieldError} />
         <FormControlDescription register={register} hasError={fieldError} />
         <FormControlDeadline register={register} hasError={fieldError} />
-        <FormControlHashtag value={formStates.formValues.tags} onChange={handleSelect("tags")} hasError={fieldError} />
+        <FormControlHashtag
+          value={formStates.formValues.tags}
+          onChange={handleSelect("tags")}
+          hasError={fieldError}
+          handleSetError={handleSetError}
+        />
         <FormControlUpload
           hasError={fieldError}
-          previewImageUrl={formStates.formValues.image || ""}
+          previewImageUrl={formStates.formValues.imageUrl || ""}
           columnId={props.columnId}
           setValue={setValue}
         />
@@ -67,6 +65,7 @@ export default function TaskCardCreateModal(props: TaskCardModalProps) {
           <Modal.OutlineButton>취소</Modal.OutlineButton>
           <Modal.PrimaryButton>생성</Modal.PrimaryButton>
         </Modal.ButtonLayout>
+        {formStates.formValues.error && <Modal.ErrorMessage>{formStates.formValues.error}</Modal.ErrorMessage>}
       </Modal.Form>
     </Modal>
   )

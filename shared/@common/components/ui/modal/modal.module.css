@@ -11,6 +11,12 @@
   overflow-y: scroll;
 }
 
+.error-message {
+  font-size: 14px;
+  color: var(--red);
+  margin-top: 8px;
+}
+
 .modal-contents {
   position: relative;
 }
@@ -52,12 +58,6 @@
   position: relative;
   width: 32px;
   height: 32px;
-}
-
-.kebab {
-  position: relative;
-  width: 28px;
-  height: 28px;
 }
 
 .utils {

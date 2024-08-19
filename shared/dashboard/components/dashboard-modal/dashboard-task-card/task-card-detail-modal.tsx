@@ -1,4 +1,5 @@
-import { Modal, Dropdown } from "@common/components/ui"
+import { Modal, Dropdown, Kebab } from "@common/components/ui"
+import type { TaskCard } from "@shared/dashboard/types"
 import {
   TaskDetailChips,
   TaskDetailContents,
@@ -6,8 +7,8 @@ import {
   TaskDetailComment,
   TaskDetailInfo,
 } from "@features/dashboard/dashboard-task-detail/components"
-import { TaskCard } from "@shared/dashboard/types"
 import classes from "./task-card-detail-modal.module.css"
+import { useDeleteTaskCard } from "@/shared/dashboard/hooks"
 
 interface TaskCardDetailModalProps extends TaskCard {
   onCloseModal: () => void
@@ -20,6 +21,10 @@ export default function TaskCardDetailModal(props: TaskCardDetailModalProps) {
     onCloseModal: props.onCloseModal,
   }
 
+  const deleteTaskCardMutation = useDeleteTaskCard(props.columnId, props.id)
+
+  const handleDeleteCard = async () => await deleteTaskCardMutation.trigger()
+
   return (
     <Modal value={modalValues}>
       <Modal.Backdrop />
@@ -28,11 +33,11 @@ export default function TaskCardDetailModal(props: TaskCardDetailModalProps) {
         <Modal.Utils>
           <Dropdown>
             <Dropdown.Trigger>
-              <Modal.Kebab />
+              <Kebab />
             </Dropdown.Trigger>
             <Dropdown.Menu>
               <Dropdown.MenuItem onClick={props.onUpdateModal}>수정하기</Dropdown.MenuItem>
-              <Dropdown.MenuItem onClick={() => {}}>삭제하기</Dropdown.MenuItem>
+              <Dropdown.MenuItem onClick={handleDeleteCard}>삭제하기</Dropdown.MenuItem>
             </Dropdown.Menu>
           </Dropdown>
           <Modal.Close />

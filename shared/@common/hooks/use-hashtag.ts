@@ -29,6 +29,7 @@ export default function useHashtag({ onChangeValue, value }: Props) {
     const target = event.target as HTMLInputElement
 
     if (!target.value.trim().length) return
+    if (errorMessage) return
 
     if (value.includes(target.value)) {
       setErrorMessage("중복된 해시태그는 사용할 수 없어요.")
@@ -49,6 +50,7 @@ export default function useHashtag({ onChangeValue, value }: Props) {
   const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.code === "Enter") {
       event.preventDefault()
+      console.log("down")
       return
     }
   }
@@ -63,13 +65,11 @@ export default function useHashtag({ onChangeValue, value }: Props) {
 
   return {
     value: inputValue,
-    // hashtags,
     onChange,
     onKeyDown,
     onKeyUp,
     handleDeleteHashtag,
     errorMessage,
     hasError,
-    isValid: true,
   }
 }

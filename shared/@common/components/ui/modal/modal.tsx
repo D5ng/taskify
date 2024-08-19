@@ -38,4 +38,4 @@ Modal.PrimaryButton = Components.PrimaryButton
 Modal.DeleteButton = Components.DeleteButton
 Modal.Close = Components.Close
 Modal.Utils = Components.Utils
-Modal.Kebab = Components.Kebab
+Modal.ErrorMessage = Components.ErrorMessage

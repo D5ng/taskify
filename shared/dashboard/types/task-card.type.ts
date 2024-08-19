@@ -1,3 +1,15 @@
+import { Member } from "./member.type"
+
+export interface TaskCardDefaultValues {
+  error: string
+  assigneeUserId: number
+  title: string
+  description: string
+  dueDate: string
+  tags: string[]
+  imageUrl: string | null
+}
+
 export interface CreateTaskCard {
   assigneeUserId: number
   dashboardId: number

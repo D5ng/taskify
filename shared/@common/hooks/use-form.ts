@@ -42,14 +42,12 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
 
   const fieldError = (field: string) => ((touchedFields[field] && fieldErros[field]) || "") as string
 
-  const runValidator = useCallback(() => validate(formValues), [formValues])
-
   const resetForm = () => setFormValues(defaultValues)
 
   useEffect(() => {
-    const errors = runValidator()
+    const errors = validate(formValues)
     setFiledErrors(errors)
-  }, [runValidator, formValues])
+  }, [formValues, validate])
 
   const handleSubmit = (onSubmit: SubmitHandler<T>) => async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()

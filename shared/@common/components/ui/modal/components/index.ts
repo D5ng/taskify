@@ -9,7 +9,7 @@ import Contents from "./modal-compound-contents"
 import Description from "./modal-compound-description"
 import Close from "./modal-compound-close"
 import Utils from "./modal-compound-utils"
-import Kebab from "./modal-compound-kebab"
+import ErrorMessage from "./modal-error-message"
 
 export {
   Backdrop,
@@ -23,5 +23,5 @@ export {
   Description,
   Close,
   Utils,
-  Kebab,
+  ErrorMessage,
 }

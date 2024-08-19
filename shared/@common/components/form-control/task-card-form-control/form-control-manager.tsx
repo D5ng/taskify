@@ -1,21 +1,27 @@
 import { Avatar, FormControl, Dropdown } from "@common/components/ui"
 import { Member } from "@/shared/dashboard/types"
+import { useState } from "react"
 
 interface Props {
-  value: Member
-  onChange: (value: Member) => void
+  onChange: (assigneeUserId: number) => void
   hasError: (field: string) => string
   members: Member[]
 }
 
-export default function FormControlManager({ members, value, onChange, hasError }: Props) {
+export default function FormControlManager({ members, onChange, hasError }: Props) {
+  const [selectedMember, setSelectedMember] = useState<Member>(members[0])
+  const handleSelectedManager = (member: Member) => {
+    setSelectedMember(member)
+    onChange(member.userId)
+  }
+
   return (
     <FormControl type="modal" id="task-manager" hasError={hasError}>
       <FormControl.Label>담당자</FormControl.Label>
       <Dropdown className="dropdown-layout-medium">
         <Dropdown.Trigger>
           <Dropdown.Select>
-            <Avatar nickname={value.nickname} image={value.profileImageUrl}>
+            <Avatar nickname={selectedMember.nickname} image={selectedMember.profileImageUrl}>
               <Avatar.Image />
               <Avatar.Name />
             </Avatar>
@@ -23,7 +29,7 @@ export default function FormControlManager({ members, value, onChange, hasError 
         </Dropdown.Trigger>
         <Dropdown.Menu size="inherit">
           {members.map((member) => (
-            <Dropdown.MenuItem key={member.id} onClick={() => onChange!(member)}>
+            <Dropdown.MenuItem key={member.id} onClick={handleSelectedManager.bind(null, member)}>
               <Avatar nickname={member.nickname} image={member.profileImageUrl}>
                 <Avatar.Image />
                 <Avatar.Name />
