@@ -1,5 +1,5 @@
-import { DASHBOARD_TITLE_ERROR_MESSAGE, isNotEmptyValidation } from "@/shared/@common/utils/validation"
-import { DashboardData } from "@/shared/dashboard/types"
+import { DASHBOARD_TITLE_ERROR_MESSAGE, isNotEmptyValidation } from "@common/utils/validation"
+import { DashboardData } from "@shared/dashboard/types"
 
 export const validate = (values: DashboardData) => {
   const error: Partial<DashboardData> = {}
