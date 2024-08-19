@@ -1,12 +1,10 @@
-import React from "react"
-
+import { dateFormat } from "@common/utils"
+import { useToggle } from "@common/hooks"
+import { Avatar } from "@common/components/ui"
+import { useDeleteComment } from "@shared/dashboard/hooks"
+import type { Comment } from "@shared/dashboard/types"
+import { TaskDetailUpdateCommentForm } from "@features/dashboard/dashboard-task-detail/components"
 import classes from "./task-detail-comment-list-item.module.css"
-import { TaskDetailUpdateCommentForm } from "@/features/dashboard/dashboard-task-detail/components/detail-comment"
-import { dateFormat } from "@/shared/@common/utils/date"
-import { useToggle } from "@/shared/@common/hooks"
-import Avatar from "@/shared/@common/components/ui/avatar"
-import { useDeleteComment } from "@/shared/dashboard/hooks"
-import { Comment } from "@/shared/dashboard/types"
 
 export default function TaskDetailCommentListItem(props: Comment) {
   const { isToggle, onCloseToggle, onOpenToggle } = useToggle()

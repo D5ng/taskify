@@ -1,10 +1,9 @@
-import React from "react"
 // import useCommentForm from "@/features/dashboard/hooks/dashboard-task-card/use-comment-form"
-import TaskDetailCommentForm from "../comment-form/task-detail-comment-form"
+import { useInput, useRouterQuery } from "@common/hooks"
+import { isNotEmptyValidation } from "@common/utils/validation"
+import { useCreateComment } from "@shared/dashboard/hooks"
+import { TaskDetailCommentForm } from "@features/dashboard/dashboard-task-detail/components"
 import classes from "./task-detail-add-comment.module.css"
-import { useInput, useRouterQuery } from "@/shared/@common/hooks"
-import { isNotEmptyValidation } from "@/shared/@common/utils/validation"
-import { useCreateComment } from "@/shared/dashboard/hooks"
 
 interface Props {
   cardId: number

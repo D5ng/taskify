@@ -1,6 +1,4 @@
-import React from "react"
-import { Status } from "@/shared/@common/components/status-chip"
-import { HashtagList } from "@/shared/@common/components/hashtag"
+import { Status, HashtagList } from "@common/components"
 import classes from "./task-detail-chips.module.css"
 
 interface Props {

@@ -1,7 +1,5 @@
-import React from "react"
-
+import { AvatarImageSkeleton } from "@common/components/ui"
 import classes from "./task-detail-comment-skeleton.module.css"
-import { AvatarImageSkeleton } from "@/shared/@common/components/ui/avatar"
 
 export default function TaskDetailCommentSkeleton() {
   return (

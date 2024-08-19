@@ -1,9 +1,8 @@
-import React, { FormEvent } from "react"
-
-import classes from "./task-detail-comment-form.module.css"
-
+import { FormEvent } from "react"
 import { Button } from "@/shared/@common/components/ui/button"
-import FormControl, { InputStates } from "@/shared/@common/components/ui/form-control"
+import { FormControl } from "@common/components/ui"
+import type { InputStates } from "@common/components/ui"
+import classes from "./task-detail-comment-form.module.css"
 
 interface Props {
   id: string

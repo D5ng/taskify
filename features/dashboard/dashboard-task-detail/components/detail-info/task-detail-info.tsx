@@ -1,5 +1,5 @@
-import { TaskCard } from "@shared/dashboard/types"
-import Avatar from "@/shared/@common/components/ui/avatar"
+import { Avatar } from "@common/components/ui"
+import type { TaskCard } from "@shared/dashboard/types"
 import classes from "./task-detail-info.module.css"
 
 export default function TaskDetailInfo(props: Pick<TaskCard, "assignee" | "dueDate">) {

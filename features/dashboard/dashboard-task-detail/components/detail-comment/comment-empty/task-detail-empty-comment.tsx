@@ -1,4 +1,3 @@
-import React from "react"
 import Image from "next/image"
 import classes from "./task-detail-empty-comment.module.css"
 

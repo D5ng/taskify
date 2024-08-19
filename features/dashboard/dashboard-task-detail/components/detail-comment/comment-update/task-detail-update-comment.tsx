@@ -1,9 +1,9 @@
-import { TaskDetailCommentForm } from "@/features/dashboard/dashboard-task-detail/components"
+import { useInput } from "@common/hooks"
+import { isNotEmptyValidation } from "@common/utils"
+import { useUpdateComment } from "@shared/dashboard/hooks"
+import type { Comment } from "@shared/dashboard/types"
+import { TaskDetailCommentForm } from "@features/dashboard/dashboard-task-detail/components"
 import classes from "./task-detail-update-comment.module.css"
-import { useInput } from "@/shared/@common/hooks"
-import { useUpdateComment } from "@/shared/dashboard/hooks"
-import { isNotEmptyValidation } from "@/shared/@common/utils/validation"
-import { Comment } from "@/shared/dashboard/types"
 
 interface Props extends Pick<Comment, "content" | "cardId" | "id"> {
   onCloseToggle: () => void
