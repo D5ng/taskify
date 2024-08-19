@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
-import classes from "./dashboard-list-item.module.css"
 import { Dashboard } from "@shared/dashboard/types"
+import classes from "./dashboard-list-item.module.css"
 
 interface Props {
   dashboard: Dashboard

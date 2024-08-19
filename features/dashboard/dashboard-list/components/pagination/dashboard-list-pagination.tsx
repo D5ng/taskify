@@ -1,4 +1,4 @@
-import Pagination from "@common/components/ui/pagination"
+import { Pagination } from "@common/components/ui"
 import { useFetchDashboards, useDashboardPageStore } from "@shared/dashboard/hooks"
 import { DASHBAORD_POST_COUNT } from "@shared/dashboard/constants"
 
