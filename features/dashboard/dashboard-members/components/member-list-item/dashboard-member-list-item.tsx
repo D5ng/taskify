@@ -1,9 +1,8 @@
-import Avatar from "@/shared/@common/components/ui/avatar"
-import { Button } from "@/shared/@common/components/ui/button"
-import { Member } from "@/shared/dashboard/types"
+import { Avatar, Button } from "@common/components/ui"
+import type { Member } from "@shared/dashboard/types"
+import { useRouterQuery } from "@shared/@common/hooks"
+import { useDeleteMember, useMemberPageStore } from "@shared/dashboard/hooks"
 import classes from "./dashboard-member-list-item.module.css"
-import { useDeleteMember, useMemberPageStore } from "@/shared/dashboard/hooks"
-import { useRouterQuery } from "@/shared/@common/hooks"
 
 export default function DashboardMemberListItem(props: Member) {
   const dashboardId = +useRouterQuery("id")

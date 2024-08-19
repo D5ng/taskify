@@ -1,13 +1,12 @@
+import { Suspensive } from "@common/components"
+import { useRouterQuery } from "@common/hooks"
 import { DashboardEditLayout } from "@shared/dashboard/components"
+import { useFetchMembers, useMemberPageStore } from "@shared/dashboard/hooks"
 import {
   DashboardMemberList,
   DashboardMemberSkeleton,
   MemberPagination,
 } from "@features/dashboard/dashboard-members/components"
-
-import { useRouterQuery } from "@common/hooks"
-import Suspensive from "@common/components/suspensive"
-import { useFetchMembers, useMemberPageStore } from "@shared/dashboard/hooks"
 
 interface Props {
   dashboardId: number

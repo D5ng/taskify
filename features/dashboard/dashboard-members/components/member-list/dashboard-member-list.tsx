@@ -1,6 +1,6 @@
-import { DashboardMemberListItem } from "@/features/dashboard/dashboard-members/components"
 import { useRouterQuery } from "@common/hooks"
-import { useFetchMembers, useMemberPageStore } from "@/shared/dashboard/hooks"
+import { useFetchMembers, useMemberPageStore } from "@shared/dashboard/hooks"
+import { DashboardMemberListItem } from "@features/dashboard/dashboard-members/components"
 import classes from "./dashboard-member-list.module.css"
 
 export default function DashboardMemberList() {
