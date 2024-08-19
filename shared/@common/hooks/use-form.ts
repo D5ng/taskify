@@ -20,6 +20,8 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
     }))
   }
 
+  const handleTouchedReset = () => setTouchedFields({})
+
   const handleChange: ChangeEventHandler<FieldElement> = (event) =>
     setFormValues((prevState) => ({
       ...prevState,
@@ -49,11 +51,13 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
     setFiledErrors(errors)
   }, [formValues, validate])
 
-  const handleSubmit = (onSubmit: SubmitHandler<T>) => async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (onSubmit: SubmitHandler<T>) => async (event: FormEvent) => {
     event.preventDefault()
 
     if (hasFormError) return
     setIsSubmitting(true)
+
+    console.log("Submit")
 
     try {
       const result = await onSubmit(formValues)
@@ -62,6 +66,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
       throw new Error("알 수 없는 에러가 발생했어요")
     } finally {
       setIsSubmitting(false)
+      handleTouchedReset()
       options?.isFormReset && resetForm()
     }
   }

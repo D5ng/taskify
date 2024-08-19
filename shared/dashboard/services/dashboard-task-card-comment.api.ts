@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/config"
-import { Comments, CreateComment, UpdateCommnet } from "@shared/dashboard/types"
+import { Comments, CreateComment, CommentData } from "@shared/dashboard/types"
 
 class CommentAPI {
   async getComments(url: string) {
@@ -10,7 +10,7 @@ class CommentAPI {
     return await axiosInstance.post(url, arg)
   }
 
-  async updateComment(url: string, { arg }: { arg: UpdateCommnet }) {
+  async updateComment(url: string, { arg }: { arg: CommentData }) {
     return await axiosInstance.put(url, arg)
   }
 

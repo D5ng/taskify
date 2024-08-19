@@ -1,7 +1,17 @@
-.comment-form {
+.comment-form-area {
   margin-top: 24px;
 }
 
-.comment-form span {
+.comment-form-area span {
   font-weight: 500;
+}
+
+.comment-form {
+  position: relative;
+}
+
+.comment-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
 }

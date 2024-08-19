@@ -7,9 +7,21 @@ import useHashtag from "./use-hashtag"
 import useUpload from "./use-upload"
 import useGoBack from "./use-go-back"
 import useForm from "./use-form"
+import useComposing from "./use-composing"
 
 export * from "./store"
 export * from "./queries"
 export * from "./mutation"
 
-export { useInput, useToggle, useRouterQuery, useOutside, useSelect, useHashtag, useUpload, useGoBack, useForm }
+export {
+  useInput,
+  useToggle,
+  useRouterQuery,
+  useOutside,
+  useSelect,
+  useHashtag,
+  useUpload,
+  useGoBack,
+  useForm,
+  useComposing,
+}

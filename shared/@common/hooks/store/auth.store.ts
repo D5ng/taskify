@@ -10,7 +10,7 @@ export const useAuthStoreBase = create<AuthStore>()(
       email: "",
       id: 0,
       nickname: "",
-      profileImageUrl: null,
+      profileImageUrl: "",
 
       updateAuthState: ({ user, accessToken }) =>
         set(() => ({

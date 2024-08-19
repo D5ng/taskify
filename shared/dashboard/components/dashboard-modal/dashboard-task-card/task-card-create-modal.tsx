@@ -9,8 +9,8 @@ import {
 import { Modal } from "@common/components/ui"
 import { useForm } from "@common/hooks"
 import { TaskCardDefaultValues } from "@shared/dashboard/types"
-import { useCreateTaskCardForm, useMemberStore } from "@shared/dashboard/hooks"
-import { TaskCardLogic } from "@shared/dashboard/logic"
+import { useTaskCardForm, useMemberStore, useCreateTaskCard } from "@shared/dashboard/hooks"
+import { TaskCardCreateLogic } from "@shared/dashboard/logic"
 
 interface TaskCardModalProps {
   onCloseModal: () => void
@@ -19,17 +19,19 @@ interface TaskCardModalProps {
 
 export default function TaskCardCreateModal(props: TaskCardModalProps) {
   const members = useMemberStore.use.members()
+  const createTaskCardMutation = useCreateTaskCard(props.columnId)
 
   const { register, handleSelect, formStates, fieldError, setValue, handleSetError, handleSubmit } =
     useForm<TaskCardDefaultValues>({
-      defaultValues: TaskCardLogic.defaultValues(members[0].userId),
-      validate: TaskCardLogic.validate,
+      defaultValues: TaskCardCreateLogic.defaultValues(members[0].userId),
+      validate: TaskCardCreateLogic.validate,
     })
 
-  const onSubmit = useCreateTaskCardForm({
+  const onSubmit = useTaskCardForm({
     columnId: props.columnId,
     onCloseModal: props.onCloseModal,
     setError: handleSetError,
+    mutationFn: async (data) => await createTaskCardMutation.trigger(data),
   })
 
   const modalValues = {

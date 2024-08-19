@@ -1,10 +1,10 @@
 import { FormControl } from "@common/components/ui"
 import { HashtagList } from "@common/components/hashtag"
 import { useHashtag } from "@common/hooks"
+import type { SetError } from "@common/types"
 import { HASHTAG_MAX_ARRAY_LENGTH } from "@common/constants"
+import type { TaskCardDefaultValues } from "@shared/dashboard/types"
 import classes from "./form-control-hashtag.module.css"
-import { SetError } from "@/shared/@common/types"
-import { TaskCardDefaultValues } from "@shared/dashboard/components/dashboard-modal/dashboard-task-card/task-card-create-modal"
 
 interface Props {
   value: string[]

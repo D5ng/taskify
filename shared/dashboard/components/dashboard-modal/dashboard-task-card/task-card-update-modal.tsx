@@ -1,5 +1,3 @@
-import useTaskCardForm from "@/features/dashboard/dashboard-task-card/hooks/use-task-card-form"
-
 import {
   FormControlManager,
   FormControlHashtag,
@@ -7,13 +5,12 @@ import {
   FormControlDescription,
   FormControlDeadline,
   FormControlUpload,
-} from "@common/components/form-control"
-import { Modal } from "@/shared/@common/components/ui"
-import { useForm, useHashtag, useInput, useSelect, useUpload } from "@/shared/@common/hooks"
-import { Member, TaskCard, TaskCardDefaultValues } from "@/shared/dashboard/types"
-import { useMemberStore, useUpdateTaskCard } from "@/shared/dashboard/hooks"
-import { dateFormat, defaultDateTime } from "@/shared/@common/utils/date"
-import { isNotEmptyValidation } from "@/shared/@common/utils/validation"
+} from "@common/components"
+import { Modal } from "@common/components/ui"
+import { useForm } from "@common/hooks"
+import { TaskCard, TaskCardDefaultValues } from "@shared/dashboard/types"
+import { useMemberStore, useTaskCardForm, useUpdateTaskCard } from "@shared/dashboard/hooks"
+import { TaskCardUpdateLogic } from "@shared/dashboard/logic"
 
 interface TaskCardModalProps extends TaskCard {
   onCloseModal: () => void
@@ -22,43 +19,25 @@ interface TaskCardModalProps extends TaskCard {
 
 export default function TaskCardUpdateModal(props: TaskCardModalProps) {
   const members = useMemberStore.use.members()
-  // const imageStates = useUpload(props.columnId, props.imageUrl)
-  // const selectStates = useSelect<Member>(members[0])
-  // const hashtagStates = useHashtag(props.tags)
-  // const titleStates = useInput(isNotEmptyValidation, props.title)
-  // const deadlineStates = useInput((value) => !!value, props.dueDate)
-  // const descriptionStates = useInput(isNotEmptyValidation, props.description)
-
   const updateTaskCardMutation = useUpdateTaskCard(props.columnId, props.id)
 
   const { register, handleSelect, formStates, fieldError, setValue, handleSetError, handleSubmit } =
     useForm<TaskCardDefaultValues>({
-      defaultValues: {
-        error: "",
-        assigneeUserId: props.assignee.id,
-        title: props.title,
-        description: props.description,
-        dueDate: props.dueDate,
-        tags: props.tags,
-        imageUrl: props.imageUrl,
-      },
-      validate: TaskCardLogic.validate,
+      defaultValues: TaskCardUpdateLogic.defaultValues(props),
+      validate: TaskCardUpdateLogic.validate,
     })
 
-  // const formStates = useTaskCardForm({
-  //   columnId: props.columnId,
-  //   onCloseModal: props.onCloseModal,
-  //   manager: selectStates.selectedItem.userId,
-  //   title: titleStates.inputValue,
-  //   description: descriptionStates.inputValue,
-  //   deadline: dateFormat(deadlineStates.inputValue || defaultDateTime, "dashWithTime"),
-  //   hashtags: hashtagStates.hashtags || null,
-  //   image: imageStates.uploadedImage || null,
-  //   mutation: updateTaskCardMutation,
-  // })
+  const onSubmit = useTaskCardForm({
+    columnId: props.columnId,
+    onCloseModal: props.onCloseModal,
+    setError: handleSetError,
+    mutationFn: async (data) => await updateTaskCardMutation.trigger(data),
+  })
 
   const modalValues = {
-    ...formStates,
+    onSubmit: handleSubmit(onSubmit),
+    isDisabled: formStates.hasFormError,
+    isLoading: formStates.isSubmitting,
     title: "할 일 수정",
     onCloseModal: props.onCloseModal,
   }
@@ -68,15 +47,22 @@ export default function TaskCardUpdateModal(props: TaskCardModalProps) {
       <Modal.Backdrop />
       <Modal.Form>
         <Modal.Title />
-        <FormControlManager handleClick={selectStates.onSelectedItem} inputValue={selectStates.selectedItem} />
-        <FormControlTitle {...titleStates} />
-        <FormControlDescription {...descriptionStates} />
-        <FormControlDeadline
-          {...deadlineStates}
-          inputValue={dateFormat(deadlineStates.inputValue || defaultDateTime, "dashWithTime")}
+        <FormControlManager onChange={handleSelect("assignee")} hasError={fieldError} members={members} />
+        <FormControlTitle register={register} hasError={fieldError} />
+        <FormControlDescription register={register} hasError={fieldError} />
+        <FormControlDeadline register={register} hasError={fieldError} />
+        <FormControlHashtag
+          value={formStates.formValues.tags}
+          onChange={handleSelect("tags")}
+          hasError={fieldError}
+          handleSetError={handleSetError}
         />
-        <FormControlHashtag {...hashtagStates} />
-        <FormControlUpload {...imageStates} />
+        <FormControlUpload
+          hasError={fieldError}
+          previewImageUrl={formStates.formValues.imageUrl || ""}
+          columnId={props.columnId}
+          setValue={setValue}
+        />
         <Modal.ButtonLayout>
           <Modal.OutlineButton>취소</Modal.OutlineButton>
           <Modal.PrimaryButton>수정</Modal.PrimaryButton>

@@ -3,7 +3,7 @@ import type { TaskCard } from "@shared/dashboard/types"
 import {
   TaskDetailChips,
   TaskDetailContents,
-  TaskDetailAddComment,
+  TaskDetailAddCommentForm,
   TaskDetailComment,
   TaskDetailInfo,
 } from "@features/dashboard/dashboard-task-detail/components"
@@ -47,7 +47,7 @@ export default function TaskCardDetailModal(props: TaskCardDetailModalProps) {
           <div className={classes["contents-wrapper"]}>
             <TaskDetailChips tags={props.tags} />
             <TaskDetailContents description={props.description} imageUrl={props.imageUrl} />
-            <TaskDetailAddComment cardId={props.id} columnId={props.columnId} />
+            <TaskDetailAddCommentForm cardId={props.id} columnId={props.columnId} />
             <TaskDetailComment assignee={props.assignee} updatedAt={props.updatedAt} id={props.id} />
           </div>
           <TaskDetailInfo assignee={props.assignee} dueDate={props.dueDate} />

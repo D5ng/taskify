@@ -1,3 +1,5 @@
 export * as Dashboard from "./dashboard-modal.logic"
 export * as DashboardColumnLogic from "./dashboard-column-update.logic"
-export * as TaskCardLogic from "./dashboard-task-card.logic"
+export * as TaskCardCreateLogic from "./dashboard-task-card-create.logic"
+export * as TaskCardUpdateLogic from "./dashboard-task-card-update.logic"
+export * as TaskCardCommentLogic from "./dashboard-task-card-detail-comment.logic"

@@ -23,6 +23,10 @@ export interface CreateComment {
   dashboardId: number
 }
 
-export interface UpdateCommnet {
+// export interface UpdateCommnet {
+//   content: string
+// }
+
+export interface CommentData {
   content: string
 }

@@ -1,4 +1,4 @@
-import { FormRegister } from "@/shared/@common/types"
+import { FormRegister } from "@common/types"
 import { FormControl } from "@common/components/ui"
 
 interface Props {
