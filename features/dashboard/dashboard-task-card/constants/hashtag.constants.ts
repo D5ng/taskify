@@ -24,11 +24,3 @@ export const HASHTAG_COLORS_CONFIG: Record<Color, Colors> = Object.freeze({
 })
 
 export const HASHTAG_COLORS = Object.keys(HASHTAG_COLORS_CONFIG) as Color[]
-
-// export const backgroundColorConfig: Record<Color, string> = Object.freeze({
-//   green: "bg-green-50",
-//   purple: "bg-purple-50",
-//   orange: "bg-orange-50",
-//   blue: "bg-blue-50",
-//   pink: "bg-pink-50",
-// })

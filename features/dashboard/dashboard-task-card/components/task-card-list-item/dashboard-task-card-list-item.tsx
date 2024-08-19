@@ -1,10 +1,10 @@
 import Image from "next/image"
 import CalendarIcon from "@/public/images/icons/calendar-icon.svg"
+import { HashtagList } from "@common/components"
+import { Avatar } from "@common/components/ui"
 import { useToggle } from "@common/hooks"
-import { TaskCard } from "@shared/dashboard/types"
 import { dateFormat } from "@common/utils/date"
-import { HashtagList } from "@common/components/hashtag"
-import Avatar from "@/shared/@common/components/ui/avatar"
+import type { TaskCard } from "@shared/dashboard/types"
 import { TaskCardDetailModal, TaskCardUpdateModal } from "@shared/dashboard/components/dashboard-modal"
 import classes from "./dashboard-task-card-list-item.module.css"
 

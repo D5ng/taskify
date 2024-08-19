@@ -1,6 +1,5 @@
-import React from "react"
-import { HashtagSkeleton } from "@common/components/hashtag"
-import { AvatarImageSkeleton } from "@/shared/@common/components/ui/avatar"
+import { HashtagSkeleton } from "@common/components"
+import { AvatarImageSkeleton } from "@common/components/ui"
 import classes from "./dashboard-task-card-skeleton.module.css"
 
 export default function DashboardTaskCardSkeleton() {

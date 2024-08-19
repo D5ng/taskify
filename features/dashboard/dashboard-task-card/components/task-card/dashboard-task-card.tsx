@@ -1,4 +1,4 @@
-import Suspensive from "@common/components/suspensive"
+import { Suspensive } from "@common/components"
 import { useFetchTaskCard } from "@shared/dashboard/hooks"
 import { DashboardTaskCardList, DashboardTaskCardSkeleton } from "@features/dashboard/dashboard-task-card/components"
 
