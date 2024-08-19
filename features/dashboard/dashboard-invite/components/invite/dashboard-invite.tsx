@@ -1,21 +1,19 @@
-import DashboardEditTemplate from "@/shared/dashboard/components/dashboard-layout/dashboard-edit-layout"
-
+import { Suspensive } from "@common/components"
+import { DashboardEditLayout } from "@shared/dashboard/components/dashboard-layout"
+import { useFetchInvitation, useInvitePageStore } from "@shared/dashboard/hooks"
 import {
   DashboardInviteList,
   DashboardInviteSkeleton,
   DashboardInviteButton,
   InvitePagination,
-} from "@/features/dashboard/dashboard-invite/components"
-
-import Suspensive from "@/shared/@common/components/suspensive"
-import { useFetchInvitation, useInvitePageStore } from "@/shared/dashboard/hooks"
+} from "@features/dashboard/dashboard-invite/components"
 
 export default function DashboardInvite() {
   const currentPage = useInvitePageStore.use.currentPage()
   const invitationQuery = useFetchInvitation(currentPage)
 
   return (
-    <DashboardEditTemplate
+    <DashboardEditLayout
       title="초대 내역"
       name="이메일"
       renderList={

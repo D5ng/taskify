@@ -1,7 +1,7 @@
-import AddIcon from "@/public/images/icons/add-white-icon.svg"
-import { Button } from "@common/components/ui/button"
+import { Button } from "@common/components/ui"
 import { useToggle } from "@common/hooks"
 import { InviteModal } from "@shared/dashboard/components"
+import AddIcon from "@/public/images/icons/add-white-icon.svg"
 
 export default function DashboardInviteButton() {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()

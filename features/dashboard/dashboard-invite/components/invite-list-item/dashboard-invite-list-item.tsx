@@ -1,6 +1,6 @@
+import { Button } from "@common/components/ui/button"
 import { Invite } from "@shared/dashboard/types"
 import { useDeleteInvitation, useInvitePageStore } from "@shared/dashboard/hooks"
-import { Button } from "@common/components/ui/button"
 import classes from "./dashboard-invite-list-item.module.css"
 
 export default function DashboardInviteListItem(props: Invite) {

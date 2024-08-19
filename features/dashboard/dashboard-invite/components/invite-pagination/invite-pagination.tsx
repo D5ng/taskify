@@ -1,5 +1,5 @@
-import Pagination from "@/shared/@common/components/ui/pagination"
-import { useFetchInvitation, useInvitePageStore } from "@/shared/dashboard/hooks"
+import { Pagination } from "@common/components/ui"
+import { useFetchInvitation, useInvitePageStore } from "@shared/dashboard/hooks"
 import { INVITE_POST_COUNT } from "@features/dashboard/dashboard-invite/constants"
 
 export default function InvitePagination() {
