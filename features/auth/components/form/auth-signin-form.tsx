@@ -23,7 +23,7 @@ export default function AuthSignInForm() {
       <Button
         size="auth"
         buttonStyle="primary"
-        isDisabled={formStates.hasFormError}
+        disabled={formStates.hasFormError}
         isLoading={formStates.isSubmitting}
         type="submit"
       >

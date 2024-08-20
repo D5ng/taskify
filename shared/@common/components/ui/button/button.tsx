@@ -13,7 +13,7 @@ export default function Button(props: ButtonProps) {
     <button
       className={className}
       style={props.customStyle}
-      disabled={props.isDisabled || props.isLoading}
+      disabled={props.disabled || props.isLoading}
       type={props.type || "button"}
       onClick={props.onClick}
     >

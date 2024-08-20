@@ -1,3 +1,4 @@
-import DashboardDeleteButton from "./dashboard-delete-button"
+import DashboardDeleteButton from "./delete-button/dashboard-delete-button"
+import DashboardDeleteModal from "./delete-modal/dashboard-delete-modal"
 
-export { DashboardDeleteButton }
+export { DashboardDeleteButton, DashboardDeleteModal }

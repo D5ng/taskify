@@ -5,7 +5,7 @@ import { Button } from "@common/components/ui"
 export default function OutlineButton(props: PropsWithChildren) {
   const modalContext = useModalContext()
   return (
-    <Button isLoading={false} isDisabled={false} size="modal" buttonStyle="outline" onClick={modalContext.onCloseModal}>
+    <Button isLoading={false} disabled={false} size="modal" buttonStyle="outline" onClick={modalContext.onCloseModal}>
       {props.children}
     </Button>
   )

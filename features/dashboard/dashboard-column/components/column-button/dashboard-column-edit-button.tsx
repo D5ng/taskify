@@ -2,7 +2,7 @@ import Image from "next/image"
 import SettingIcon from "@/public/images/icons/setting-icon.svg"
 import { useToggle } from "@common/hooks"
 import { DashboardColumn } from "@shared/dashboard/types"
-import { DashboardColumnDeleteModal, DashboardColumnEditModal } from "@shared/dashboard/components"
+import { DashboardColumnDeleteModal, DashboardColumnEditModal } from "@features/dashboard/dashboard-column/components"
 import classes from "./dashboard-column-edit-button.module.css"
 
 export default function DashboardColumnEditButton(props: Pick<DashboardColumn, "id" | "title">) {

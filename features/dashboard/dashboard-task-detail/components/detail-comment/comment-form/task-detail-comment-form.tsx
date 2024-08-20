@@ -1,11 +1,11 @@
 import { KeyboardEventHandler } from "react"
-import { FormControlComment } from "@common/components"
 import { Button } from "@common/components/ui"
 import { useComposing } from "@common/hooks"
 import { useForm } from "@shared/@common/hooks"
 import type { CommentData } from "@shared/dashboard/types"
-import { TaskCardCommentLogic } from "@shared/dashboard/logic"
-import { useTaskCardCommentForm } from "@shared/dashboard/hooks"
+import { useTaskCardCommentForm } from "@features/dashboard/dashboard-task-detail/hooks"
+import { defaultValues, validate } from "@features/dashboard/dashboard-task-detail/logic"
+import { FormControlComment } from "@features/dashboard/dashboard-task-detail/components"
 import classes from "./task-detail-comment-form.module.css"
 
 interface Props {
@@ -16,8 +16,8 @@ interface Props {
 export default function TaskDetailCommentForm({ cardId, columnId }: Props) {
   const { isComposing, handleCompositionEnd, handleCompositionStart } = useComposing()
   const { formStates, register, fieldError, handleSubmit } = useForm<CommentData>({
-    defaultValues: TaskCardCommentLogic.defaultValues,
-    validate: TaskCardCommentLogic.validate,
+    defaultValues,
+    validate,
     options: { isFormReset: true },
   })
 
@@ -44,7 +44,7 @@ export default function TaskDetailCommentForm({ cardId, columnId }: Props) {
           size="small"
           type="submit"
           isLoading={formStates.isSubmitting}
-          isDisabled={formStates.hasFormError}
+          disabled={formStates.hasFormError}
         >
           입력
         </Button>

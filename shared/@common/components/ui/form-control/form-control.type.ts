@@ -30,6 +30,6 @@ export interface FormControlUploadProps {
 
 export interface FormControlComponentProps
   extends Pick<FormControlProps, "hasError">,
-    Pick<InputHTMLAttributes<HTMLInputElement>, "disabled"> {
+    Pick<InputHTMLAttributes<HTMLInputElement>, "disabled" | "value"> {
   register: FormRegister
 }

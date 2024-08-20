@@ -1,5 +1,5 @@
-import { passwordConfirmValidation, passwordValidation } from "@/shared/@common/utils/validation"
-import { PasswordDefaultValues } from "../types"
+import { passwordConfirmValidation, passwordValidation } from "@common/utils"
+import type { PasswordDefaultValues } from "@features/dashboard/dashboard-account-management/types"
 
 export const defaultValues: PasswordDefaultValues = {
   currentPassword: "",

@@ -1,5 +1,6 @@
-export * from "./common"
-export * from "./task-card-form-control"
-export * from "./account-management"
-export * from "./dashboard-edit/form-control-dashboard-edit"
-export * from "./dashboard-task-card-detail/form-control-comment"
+import FormControlEmail from "./form-control-email"
+import FormControlNickname from "./form-control-nickname"
+import FormControlPassword from "./form-control-password"
+import FormControlPasswordConfirm from "./form-control-password-confirm"
+
+export { FormControlEmail, FormControlNickname, FormControlPassword, FormControlPasswordConfirm }

@@ -26,7 +26,7 @@ export default function DashboardMemberListItem(props: Member) {
           buttonStyle="secondary"
           size="small"
           isLoading={deleteMemberMutation.isMutating}
-          isDisabled={deleteMemberMutation.isMutating}
+          disabled={deleteMemberMutation.isMutating}
           onClick={handleDeleteMember}
         >
           삭제

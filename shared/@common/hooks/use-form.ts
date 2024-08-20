@@ -1,4 +1,4 @@
-import { useState, FocusEventHandler, ChangeEventHandler, useEffect, useCallback, FormEvent } from "react"
+import { useState, FocusEventHandler, ChangeEventHandler, useEffect, FormEvent } from "react"
 import { UseFormProps, FormFields, FieldElement, SubmitHandler } from "@common/types"
 
 export default function useForm<T extends FormFields>({ defaultValues, validate, options }: UseFormProps<T>) {
@@ -56,8 +56,6 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
 
     if (hasFormError) return
     setIsSubmitting(true)
-
-    console.log("Submit")
 
     try {
       const result = await onSubmit(formValues)

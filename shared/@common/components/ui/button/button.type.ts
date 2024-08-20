@@ -5,7 +5,6 @@ export interface ButtonProps extends PropsWithChildren, ButtonHTMLAttributes<HTM
   buttonStyle: "outline" | "primary" | "secondary"
   customStyle?: CSSProperties
   fontColor?: "black"
-  isDisabled?: boolean
   isLoading?: boolean
   iconUrl?: string
   onClick?: () => void

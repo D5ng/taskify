@@ -7,6 +7,8 @@ import TaskDetailUpdateCommentForm from "./comment-update/task-detail-update-com
 import TaskDetailEmptyComment from "./comment-empty/task-detail-empty-comment"
 import TaskDetailAddCommentForm from "./comment-add/task-detail-add-comment"
 
+import FormControlComment from "./comment-form-control/form-control-comment"
+
 export {
   TaskDetailCommentList,
   TaskDetailCommentListItem,
@@ -16,4 +18,5 @@ export {
   TaskDetailUpdateCommentForm,
   TaskDetailEmptyComment,
   TaskDetailAddCommentForm,
+  FormControlComment,
 }

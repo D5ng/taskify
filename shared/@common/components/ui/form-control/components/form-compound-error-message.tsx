@@ -7,7 +7,6 @@ interface Props {
 
 export default function ErrorMessage(props: Props) {
   const formControlContext = useFormControlContext()
-  if (props.errorMessage) return <p className={classes.errorMessage}>{props.errorMessage}</p>
-  if (!formControlContext.hasError || !props.errorMessage) return null
+  if (!formControlContext.hasError) return null
   return <p className={classes.errorMessage}>{formControlContext.hasError}</p>
 }

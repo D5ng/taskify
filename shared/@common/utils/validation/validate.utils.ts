@@ -4,9 +4,8 @@ import {
   NICKANME_ERROR_MESSAGE,
   PASSWORD_ERROR_MESSAGE,
   PASSWORD_CONFIRM_ERROR_MESSAGE,
-  DASHBOARD_TASK_CARD_ERROR_MESSAGE,
-  DASHBOARD_TASK_CARD_COMMENT_ERROR_MESSAGE,
-} from "./validate.constant"
+  DASHBOARD_TITLE_ERROR_MESSAGE,
+} from "@common/constants"
 
 export function emailValidation(value: string) {
   if (isEmptyValidation(value)) return EMAIL_ERRROR_MESSAGE.EMPTY
@@ -41,12 +40,7 @@ export function isEmptyValidation(value: string) {
   return value.trim().length === 0
 }
 
-export const taskCardValidation = {
-  email: (value: string) => (isEmptyValidation(value) ? DASHBOARD_TASK_CARD_ERROR_MESSAGE.TITLE_EMPTY : ""),
-  description: (value: string) => (isEmptyValidation(value) ? DASHBOARD_TASK_CARD_ERROR_MESSAGE.DESCRIPTION_EMPTY : ""),
-}
-
-export function taskCardCommentValidation(value: string) {
-  if (isEmptyValidation(value)) return DASHBOARD_TASK_CARD_COMMENT_ERROR_MESSAGE.EMPTY
+export function dashboardValidation(value: string) {
+  if (isEmptyValidation(value)) return DASHBOARD_TITLE_ERROR_MESSAGE.EMPTY
   return ""
 }

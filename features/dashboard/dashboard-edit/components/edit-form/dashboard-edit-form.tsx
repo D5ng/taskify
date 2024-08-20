@@ -1,10 +1,11 @@
-import { ColorChipList, FormControlDashboardEdit } from "@common/components"
+import { ColorChipList } from "@common/components"
 import { Button } from "@common/components/ui"
 import { useForm } from "@common/hooks"
 import { useFetchDashboard } from "@shared/dashboard/hooks"
 import { DashboardData } from "@shared/dashboard/types"
-import { validate } from "@features/dashboard/dashboard-edit/logic"
+import { defaultValues, validate } from "@features/dashboard/dashboard-edit/logic"
 import { useEditDashboardForm } from "@features/dashboard/dashboard-edit/hooks"
+import { FormControlDashboardEdit } from "@features/dashboard/dashboard-edit/components"
 import classes from "./dashboard-edit-form.module.css"
 
 interface Props {
@@ -14,10 +15,7 @@ interface Props {
 export default function DashboardEditForm(props: Props) {
   const dashboardQuery = useFetchDashboard(props.dashboardId)
   const { register, handleSubmit, fieldError, formStates, handleSetError, handleSelect } = useForm<DashboardData>({
-    defaultValues: {
-      title: dashboardQuery.data!.title,
-      color: dashboardQuery.data!.color,
-    },
+    defaultValues: defaultValues({ title: dashboardQuery.data!.title, color: dashboardQuery.data!.color }),
     validate,
   })
 
@@ -33,7 +31,7 @@ export default function DashboardEditForm(props: Props) {
       <div className={classes["new-dashboard-button"]}>
         <Button
           isLoading={formStates.isSubmitting}
-          isDisabled={formStates.hasFormError}
+          disabled={formStates.hasFormError}
           size="small"
           buttonStyle="primary"
           type="submit"

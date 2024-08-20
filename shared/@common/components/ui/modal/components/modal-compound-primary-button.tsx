@@ -7,7 +7,7 @@ export default function PrimaryButton(props: PropsWithChildren) {
   return (
     <Button
       isLoading={modalContext.isLoading}
-      isDisabled={modalContext.isLoading || modalContext.isDisabled}
+      disabled={modalContext.isLoading || modalContext.isDisabled}
       size="modal"
       buttonStyle="primary"
       type="submit"

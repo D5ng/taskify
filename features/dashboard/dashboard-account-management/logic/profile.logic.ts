@@ -1,10 +1,12 @@
-import { nicknameValidation } from "@/shared/@common/utils/validation"
-import { ProfileDefaultValues } from "../types"
+import type { ProfileDefaultValues } from "@features/dashboard/dashboard-account-management/types"
+import { accountNicknameValidation } from "@features/dashboard/dashboard-account-management/utils"
 
-export const validate = (values: ProfileDefaultValues) => {
+export const defaultValues = (nickname: string, profileImageUrl: string) => ({ nickname, profileImageUrl })
+
+export const validate = (defaultValue: string, values: string) => {
   const error: Partial<ProfileDefaultValues> = {}
 
-  error.nickname = nicknameValidation(values.nickname)
+  error.nickname = accountNicknameValidation(defaultValue, values)
 
   return error
 }

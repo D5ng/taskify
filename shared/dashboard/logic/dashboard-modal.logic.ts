@@ -1,4 +1,4 @@
-import { DASHBOARD_TITLE_ERROR_MESSAGE, isNotEmptyValidation } from "@common/utils/validation"
+import { dashboardValidation } from "@common/utils/validation"
 import { COLOR_CHIPS } from "../constants"
 import { DashboardData } from "../types"
 
@@ -10,7 +10,7 @@ export const defaultValues: DashboardData = {
 export const validate = (values: DashboardData) => {
   const error: Partial<DashboardData> = {}
 
-  error.title = isNotEmptyValidation(values.title) ? "" : DASHBOARD_TITLE_ERROR_MESSAGE.EMPTY
+  error.title = dashboardValidation(values.title)
 
   return error
 }

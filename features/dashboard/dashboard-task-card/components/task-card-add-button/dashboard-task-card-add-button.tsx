@@ -1,7 +1,7 @@
 import Image from "next/image"
 import AddVioletIcon from "@/public/images/icons/add-violet-icon.svg"
 import { useToggle } from "@common/hooks"
-import { TaskCardCreateModal } from "@shared/dashboard/components"
+import { DashboardTaskCardCreateModal } from "@features/dashboard/dashboard-task-card/components"
 import classes from "./dashboard-task-card-add-button.module.css"
 
 interface Props {
@@ -13,7 +13,7 @@ export default function DashboardTaskCardAddButton(props: Props) {
 
   return (
     <>
-      {isToggle && <TaskCardCreateModal onCloseModal={onCloseToggle} columnId={props.columnId} />}
+      {isToggle && <DashboardTaskCardCreateModal onCloseModal={onCloseToggle} columnId={props.columnId} />}
       <button className={classes["task-card-add-button"]} onClick={onOpenToggle}>
         <div className={classes["task-card-add-button__icon"]}>
           <Image src={AddVioletIcon} alt="" fill />

@@ -1,2 +1,2 @@
-export * as Profile from "./profile.logic"
-export * as Password from "./password.logic"
+export * as ProfileLogic from "./profile.logic"
+export * as PasswordLogic from "./password.logic"

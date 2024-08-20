@@ -5,10 +5,10 @@ import { Avatar } from "@common/components/ui"
 import { useToggle } from "@common/hooks"
 import { dateFormat } from "@common/utils/date"
 import type { TaskCard } from "@shared/dashboard/types"
-import { TaskCardDetailModal, TaskCardUpdateModal } from "@shared/dashboard/components/dashboard-modal"
+
+import { DashboardTaskCardUpdateModal } from "@features/dashboard/dashboard-task-card/components"
+import { TaskDetailModal } from "@/features/dashboard/dashboard-task-detail/components"
 import classes from "./dashboard-task-card-list-item.module.css"
-import { TaskCardApiInstance } from "@/shared/dashboard/services"
-import { useDeleteTaskCard } from "@/shared/dashboard/hooks"
 
 export default function DashboardTaskCardListItem(props: TaskCard) {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
@@ -25,8 +25,8 @@ export default function DashboardTaskCardListItem(props: TaskCard) {
 
   return (
     <li>
-      {isOpenUpdateModal && <TaskCardUpdateModal {...props} onCloseModal={onUpdateCloseModal} />}
-      {isToggle && <TaskCardDetailModal onCloseModal={onCloseToggle} onUpdateModal={handleUpdateCard} {...props} />}
+      {isOpenUpdateModal && <DashboardTaskCardUpdateModal {...props} onCloseModal={onUpdateCloseModal} />}
+      {isToggle && <TaskDetailModal onCloseModal={onCloseToggle} onUpdateModal={handleUpdateCard} {...props} />}
       <div className={classes["task-card-layout"]} onClick={onOpenToggle}>
         {props.imageUrl && (
           <div className={classes["task-card-thumbnail"]}>

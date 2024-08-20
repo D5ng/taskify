@@ -28,7 +28,7 @@ export default function AuthSignUpForm() {
       <Button
         size="auth"
         buttonStyle="primary"
-        isDisabled={formStates.hasFormError}
+        disabled={formStates.hasFormError}
         isLoading={formStates.isSubmitting}
         type="submit"
       >

@@ -1,2 +1,2 @@
-export * from "./profile"
-export * from "./password"
+export * from "./profile-management"
+export * from "./password-management"
