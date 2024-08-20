@@ -1,5 +1,3 @@
-import { Member } from "./member.type"
-
 export interface TaskCardDefaultValues {
   error: string
   assigneeUserId: number
