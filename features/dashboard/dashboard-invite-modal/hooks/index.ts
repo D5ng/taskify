@@ -1,9 +1,9 @@
 import { isAxiosError } from "axios"
 import { SetError, ErrorResponse } from "@common/types"
 import { useInvite, useInvitePageStore } from "@/shared/dashboard/hooks"
-import { DefaultValues } from "@features/dashboard/dashboard-invite/types"
+import { DefaultValues } from "@features/dashboard/dashboard-invite-modal/types"
 
-export default function useInviteForm(onCloseModal: () => void, setError: SetError<DefaultValues>) {
+export function useInviteForm(onCloseModal: () => void, setError: SetError<DefaultValues>) {
   const currentPage = useInvitePageStore.use.currentPage()
   const inviteMutation = useInvite(currentPage)
 

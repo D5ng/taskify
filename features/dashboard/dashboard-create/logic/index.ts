@@ -1,6 +1,6 @@
-import { dashboardValidation } from "@common/utils/validation"
-import { COLOR_CHIPS } from "../constants"
-import { DashboardData } from "../types"
+import { dashboardValidation } from "@common/utils"
+import { COLOR_CHIPS } from "@common/constants"
+import type { DashboardData } from "@shared/dashboard/types"
 
 export const defaultValues: DashboardData = {
   title: "",

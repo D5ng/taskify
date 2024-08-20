@@ -1,5 +1,5 @@
 import { ColorChipColor } from "@common/types"
-import { COLOR_CHIPS_NAME } from "@shared/dashboard/constants"
+import { COLOR_CHIPS_NAME } from "@common/constants"
 import SelectedColorChip from "../selected/selected-color-chip"
 import classes from "./color-chip-item.module.css"
 

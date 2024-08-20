@@ -1,8 +1,8 @@
-.comments {
+.comment-form {
   position: relative;
 }
 
-.comments-button {
+.comment-button {
   position: absolute;
   right: 16px;
   bottom: 16px;

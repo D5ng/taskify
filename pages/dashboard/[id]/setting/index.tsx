@@ -10,7 +10,7 @@ import { GoBack } from "@common/components/go-back"
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
 import { DashboardEdit } from "@features/dashboard/dashboard-edit/components"
 import { DashboardMember } from "@features/dashboard/dashboard-members/components"
-import { DashboardDeleteButton } from "@features/dashboard/dashboard-delete-button/components"
+import { DashboardDeleteButton } from "@features/dashboard/dashboard-delete/components"
 import { DashboardInvite } from "@features/dashboard/dashboard-invite/components"
 
 export default function Edit(props: InferGetStaticPropsType<typeof getServerSideProps>) {

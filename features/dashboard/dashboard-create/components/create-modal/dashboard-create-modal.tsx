@@ -2,8 +2,8 @@ import { ColorChipList } from "@common/components"
 import { Modal, FormControl } from "@common/components/ui"
 import { useForm } from "@common/hooks"
 import { DashboardData } from "@shared/dashboard/types"
-import { Dashboard } from "@shared/dashboard/logic"
-import { useCreateDashboardForm } from "@features/dashboard/dashboard-create-button/hooks"
+import { defaultValues, validate } from "@features/dashboard/dashboard-create/logic"
+import { useCreateDashboardForm } from "@features/dashboard/dashboard-create/hooks"
 
 interface Props {
   isToggle: boolean
@@ -13,8 +13,8 @@ interface Props {
 export default function DashboardCreateModal(props: Props) {
   const { fieldError, formStates, register, handleSelect, handleSubmit, handleSetError, resetForm } =
     useForm<DashboardData>({
-      defaultValues: Dashboard.defaultValues,
-      validate: Dashboard.validate,
+      defaultValues,
+      validate,
     })
 
   const onSubmit = useCreateDashboardForm({ setError: handleSetError, onCloseModal: props.onCloseModal })

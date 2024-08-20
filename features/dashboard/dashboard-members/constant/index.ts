@@ -1,0 +1,1 @@
+export const DASHBAORD_PAGINATION_COUNT = 5

@@ -1,5 +1,5 @@
-import { COLOR_CHIPS } from "@shared/dashboard/constants"
-import { ColorChipColor } from "@common/types"
+import { COLOR_CHIPS } from "@common/constants"
+import type { ColorChipColor } from "@common/types"
 import ColorChipItem from "../list-item/color-chip-item"
 import classes from "./color-chip-list.module.css"
 

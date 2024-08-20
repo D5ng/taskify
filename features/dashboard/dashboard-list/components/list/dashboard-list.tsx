@@ -1,7 +1,7 @@
 import { Suspensive } from "@common/components"
 import { DashboardListFetcherLayout } from "@shared/dashboard/components"
 import { useFetchDashboards, useDashboardPageStore } from "@shared/dashboard/hooks"
-import { DashboardCreateButton } from "@features/dashboard/dashboard-create-button/components"
+import { DashboardCreateButton } from "@features/dashboard/dashboard-create/components"
 import {
   DashboardListSkeleton,
   DashboardListItem,

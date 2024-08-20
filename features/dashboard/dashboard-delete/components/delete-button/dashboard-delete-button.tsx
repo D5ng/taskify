@@ -1,6 +1,6 @@
 import { Button } from "@common/components/ui"
 import { useToggle } from "@common/hooks"
-import { DashboardDeleteModal } from "@features/dashboard/dashboard-delete-button/components"
+import { DashboardDeleteModal } from "@features/dashboard/dashboard-delete/components"
 import classes from "./dashboard-delete-button.module.css"
 
 export default function DashboardDeleteButton() {

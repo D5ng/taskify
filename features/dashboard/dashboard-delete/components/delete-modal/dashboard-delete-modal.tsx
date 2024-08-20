@@ -1,5 +1,5 @@
 import { Modal } from "@common/components/ui"
-import { useDashboardDeleteForm } from "@features/dashboard/dashboard-delete-button/hooks"
+import { useDashboardDeleteForm } from "@features/dashboard/dashboard-delete/hooks"
 
 interface Props {
   isToggle: boolean

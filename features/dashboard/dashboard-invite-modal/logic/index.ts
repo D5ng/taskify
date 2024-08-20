@@ -1,6 +1,6 @@
 import { Invite } from "@/shared/dashboard/types"
 import { emailValidation } from "@common/utils/validation"
-import { DefaultValues } from "@features/dashboard/dashboard-invite/types"
+import { DefaultValues } from "@features/dashboard/dashboard-invite-modal/types"
 
 export const defaultValues: DefaultValues = {
   email: "",

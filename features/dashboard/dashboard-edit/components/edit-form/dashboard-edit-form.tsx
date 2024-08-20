@@ -14,8 +14,9 @@ interface Props {
 
 export default function DashboardEditForm(props: Props) {
   const dashboardQuery = useFetchDashboard(props.dashboardId)
+  const { title, color } = dashboardQuery.data!
   const { register, handleSubmit, fieldError, formStates, handleSetError, handleSelect } = useForm<DashboardData>({
-    defaultValues: defaultValues({ title: dashboardQuery.data!.title, color: dashboardQuery.data!.color }),
+    defaultValues: defaultValues({ title, color }),
     validate,
   })
 

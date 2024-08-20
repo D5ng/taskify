@@ -1,6 +1,6 @@
 import { Pagination } from "@common/components/ui"
 import { useFetchDashboards, useDashboardPageStore } from "@shared/dashboard/hooks"
-import { DASHBAORD_POST_COUNT } from "@shared/dashboard/constants"
+import { DASHBAORD_POST_COUNT } from "@features/dashboard/dashboard-list/constants"
 
 export default function DashboardListPagination() {
   const currentPage = useDashboardPageStore.use.currentPage()

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useToggle } from "@common/hooks"
-import { DashboardCreateModal } from "@features/dashboard/dashboard-create-button/components"
+import { DashboardCreateModal } from "@features/dashboard/dashboard-create/components"
 import AddVioletIcon from "@/public/images/icons/add-violet-icon.svg"
 import classes from "./dashboard-create-button.module.css"
 

@@ -1,1 +1,1 @@
-export * from "./invite.constants"
+export const INVITE_POST_COUNT = 5
