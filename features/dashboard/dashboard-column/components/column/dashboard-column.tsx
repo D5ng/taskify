@@ -2,6 +2,7 @@ import { Suspensive } from "@common/components"
 import { useFetchDashboardColumns } from "@shared/dashboard/hooks"
 import { DashboardColumnList, DashboardColumnSkeleton } from "@features/dashboard/dashboard-column/components"
 import classes from "./dashboard-column.module.css"
+import { useRouterQuery } from "@/shared/@common/hooks"
 
 export default function DashboardColumn() {
   const dashboardColumnsQuery = useFetchDashboardColumns()

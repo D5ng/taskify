@@ -1,5 +1,6 @@
 export interface TaskCardDefaultValues {
   error: string
+  columnId: number
   assigneeUserId: number
   title: string
   description: string

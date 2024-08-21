@@ -19,7 +19,7 @@ export default function DashboardColumnListItem(props: DashboardColumn) {
       <div className={classes["column-add-button-layout"]}>
         <DashboardTaskCardAddButton columnId={props.id} />
       </div>
-      <DashboardTaskCard columnId={props.id} />
+      <DashboardTaskCard id={props.id} title={props.title} />
     </div>
   )
 }

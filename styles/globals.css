@@ -19,7 +19,8 @@ ul {
   list-style: none;
 }
 
-input {
+input,
+textarea {
   border: 0;
   outline: 0;
 }

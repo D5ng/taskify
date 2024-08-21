@@ -24,7 +24,7 @@ export default function DashboardTaskCardCreateModal(props: TaskCardModalProps) 
 
   const { register, handleSelect, formStates, fieldError, setValue, handleSetError, handleSubmit } =
     useForm<TaskCardDefaultValues>({
-      defaultValues: TaskCardCreateLogic.defaultValues(members[0].userId),
+      defaultValues: TaskCardCreateLogic.defaultValues(members[0].userId, props.columnId),
       validate: TaskCardCreateLogic.validate,
     })
 

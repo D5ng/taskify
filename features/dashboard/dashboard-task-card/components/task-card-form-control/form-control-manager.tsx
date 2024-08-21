@@ -6,9 +6,10 @@ interface Props {
   onChange: (assigneeUserId: number) => void
   hasError: (field: string) => string
   members: Member[]
+  className?: string
 }
 
-export default function FormControlManager({ members, onChange, hasError }: Props) {
+export default function FormControlManager({ members, onChange, hasError, ...props }: Props) {
   const [selectedMember, setSelectedMember] = useState<Member>(members[0])
   const handleSelectedManager = (member: Member) => {
     setSelectedMember(member)
@@ -16,7 +17,7 @@ export default function FormControlManager({ members, onChange, hasError }: Prop
   }
 
   return (
-    <FormControl type="modal" id="task-manager" hasError={hasError}>
+    <FormControl type="modal" id="task-manager" hasError={hasError} className={props.className}>
       <FormControl.Label>담당자</FormControl.Label>
       <Dropdown className="dropdown-layout-medium">
         <Dropdown.Trigger>

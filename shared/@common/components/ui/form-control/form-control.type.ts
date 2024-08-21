@@ -6,6 +6,7 @@ export interface FormControlProps {
   type: string
   hasError?: (field: string) => string
   children: ReactNode
+  className?: string
 }
 
 export type FormControlContextType = {

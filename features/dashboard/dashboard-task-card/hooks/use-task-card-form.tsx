@@ -8,7 +8,7 @@ interface Props {
   columnId: number
   onCloseModal: () => void
   setError: SetError<TaskCardDefaultValues>
-  mutationFn: (data: CreateTaskCard) => Promise<AxiosResponse<any, any>>
+  mutationFn: (data: CreateTaskCard) => Promise<AxiosResponse<any, any>> | Promise<void>
 }
 
 export default function useTaskCardForm(props: Props) {

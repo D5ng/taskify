@@ -1,6 +1,8 @@
+import { mutate as globalMutate } from "swr"
 import useSWRMutation from "swr/mutation"
 import { TaskCardApiInstance } from "@shared/dashboard/services"
-import { useFetchTaskCard } from "@shared/dashboard/hooks"
+import { useFetchDashboardColumns, useFetchTaskCard } from "@shared/dashboard/hooks"
+import { DashboardColumn } from "../../types"
 
 export function useCreateTaskCard(columnId: number) {
   const { mutate } = useFetchTaskCard(columnId)
@@ -18,14 +20,15 @@ export function useCreateTaskCard(columnId: number) {
 
 export function useUpdateTaskCard(columnId: number, cardId: number) {
   const { mutate } = useFetchTaskCard(columnId)
+  const dashboardColumnsQuery = useFetchDashboardColumns()
 
   return useSWRMutation(`cards/${cardId}`, TaskCardApiInstance.updateTaskCard, {
     onError(err, key, config) {
       console.log(err)
     },
-
-    onSuccess() {
+    async onSuccess() {
       mutate()
+      dashboardColumnsQuery.data!.data.forEach((column) => globalMutate(`cards?columnId=${column.id}`))
     },
   })
 }

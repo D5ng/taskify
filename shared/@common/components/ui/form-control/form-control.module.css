@@ -88,6 +88,11 @@
   color: var(--black-50);
 }
 
+.input:focus,
+.textarea:focus {
+  border: 1px solid var(--main-20);
+}
+
 /*=============================================
 =                    Textarea                 =
 =============================================*/

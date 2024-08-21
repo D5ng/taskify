@@ -23,7 +23,7 @@ export function FormControl(props: FormControlProps) {
 
   return (
     <FormControlContext.Provider value={{ ...props, hasError }}>
-      <div className={`${className} ${classes[props.type || "form"]}`}>{props.children}</div>
+      <div className={`${className} ${classes[props.type || "form"]} ${props.className}`}>{props.children}</div>
     </FormControlContext.Provider>
   )
 }

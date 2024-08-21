@@ -6,6 +6,7 @@ export type DefaultValues = (props: TaskCard) => TaskCardDefaultValues
 export const defaultValues: DefaultValues = (props: TaskCard) => {
   return {
     error: "",
+    columnId: props.columnId,
     assigneeUserId: props.assignee.id,
     title: props.title,
     description: props.description,

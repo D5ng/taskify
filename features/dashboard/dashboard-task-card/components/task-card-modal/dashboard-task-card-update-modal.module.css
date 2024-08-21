@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.dropdown {
+  width: auto !important;
+  margin: 0 !important;
+}

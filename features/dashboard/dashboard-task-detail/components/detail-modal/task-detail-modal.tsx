@@ -13,6 +13,7 @@ import classes from "./task-detail-modal.module.css"
 interface TaskCardDetailModalProps extends TaskCard {
   onCloseModal: () => void
   onUpdateModal: () => void
+  columnTitle: string
 }
 
 export default function TaskDetailModal(props: TaskCardDetailModalProps) {
@@ -45,7 +46,7 @@ export default function TaskDetailModal(props: TaskCardDetailModalProps) {
 
         <div className={classes.layout}>
           <div className={classes["contents-wrapper"]}>
-            <TaskDetailChips tags={props.tags} />
+            <TaskDetailChips tags={props.tags} columnTitle={props.columnTitle} />
             <TaskDetailContents description={props.description} imageUrl={props.imageUrl} />
             <TaskDetailAddCommentForm cardId={props.id} columnId={props.columnId} />
             <TaskDetailComment assignee={props.assignee} updatedAt={props.updatedAt} id={props.id} />

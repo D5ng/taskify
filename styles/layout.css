@@ -3,5 +3,17 @@
 }
 
 .dropdown-layout-medium {
-  width: 217px;
+  width: 237px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
 }

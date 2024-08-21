@@ -10,7 +10,11 @@ import { DashboardTaskCardUpdateModal } from "@features/dashboard/dashboard-task
 import { TaskDetailModal } from "@/features/dashboard/dashboard-task-detail/components"
 import classes from "./dashboard-task-card-list-item.module.css"
 
-export default function DashboardTaskCardListItem(props: TaskCard) {
+interface Props extends TaskCard {
+  columnTitle: string
+}
+
+export default function DashboardTaskCardListItem(props: Props) {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
   const {
     isToggle: isOpenUpdateModal,

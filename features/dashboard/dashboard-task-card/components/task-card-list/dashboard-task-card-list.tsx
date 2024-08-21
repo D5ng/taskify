@@ -4,6 +4,7 @@ import classes from "./dashboard-task-card-list.module.css"
 
 interface Props {
   columnId: number
+  columnTitle: string
 }
 
 export default function DashboardTaskCardList(props: Props) {
@@ -12,7 +13,7 @@ export default function DashboardTaskCardList(props: Props) {
   return (
     <ul className={classes["column-task-card-layout"]}>
       {taskCardQuery.data!.cards.map((card) => (
-        <DashboardTaskCardListItem key={card.id} {...card} />
+        <DashboardTaskCardListItem key={card.id} {...card} columnTitle={props.columnTitle} />
       ))}
     </ul>
   )
