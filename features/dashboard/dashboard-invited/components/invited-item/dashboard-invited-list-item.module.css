@@ -1,0 +1,14 @@
+.invite-list__item {
+  display: flex;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--black-30);
+}
+
+.invite-list__item span {
+  flex: 1;
+}
+
+.invite-list__button {
+  display: flex;
+  gap: 0 10px;
+}

@@ -39,4 +39,5 @@ export interface AuthStore extends User {
   accessToken: string
   updateAuthState: ({ accessToken, user }: AuthResposne) => void
   updateProfile: ({ nickname, profileImageUrl }: Pick<User, "nickname" | "profileImageUrl">) => void
+  logout: () => void
 }

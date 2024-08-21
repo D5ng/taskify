@@ -1,5 +1,6 @@
 import Loading from "./loading/loading"
 import Kebab from "./kebab/kebab"
+import SearchBar from "./search-bar/search-bar"
 
 // Compound Components
 export * from "./avatar/avatar"
@@ -19,4 +20,4 @@ export * from "./pagination/pagination.type"
 
 export * from "./button"
 
-export { Loading, Kebab }
+export { Loading, Kebab, SearchBar }

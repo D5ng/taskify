@@ -14,3 +14,7 @@ export const validate = (values: DashboardData) => {
 
   return error
 }
+
+export const options = {
+  isFormReset: true,
+}

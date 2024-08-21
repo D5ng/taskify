@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { AuthStore } from "@common/types"
-import { createSelectors } from "@common/utils/store"
+import { createSelectors } from "@common/utils"
 
 export const useAuthStoreBase = create<AuthStore>()(
   persist(
@@ -26,6 +26,16 @@ export const useAuthStoreBase = create<AuthStore>()(
           nickname,
           profileImageUrl,
         })),
+
+      logout: () => {
+        set(() => ({
+          accessToken: "",
+          email: "",
+          id: 0,
+          nickname: "",
+          profileImageUrl: "",
+        }))
+      },
     }),
     {
       name: "authStore",

@@ -1,9 +1,9 @@
-export interface MyReceivedInvitationResponse {
+export interface InvitedDashboardResponse {
   cursorId: number
-  invitations: MyReceivedInvitation[]
+  invitations: InvitedDashboard[]
 }
 
-export interface MyReceivedInvitation {
+export interface InvitedDashboard {
   id: number
   inviter: {
     nickname: string
