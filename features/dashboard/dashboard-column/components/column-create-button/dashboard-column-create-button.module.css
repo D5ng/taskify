@@ -1,0 +1,19 @@
+.button-wrapper {
+  padding: 68px 20px 0 20px;
+}
+
+.button {
+  width: 354px;
+  height: 70px;
+  gap: 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black-80);
+  flex-shrink: 0;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}

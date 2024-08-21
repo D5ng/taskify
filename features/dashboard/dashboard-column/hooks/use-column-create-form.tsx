@@ -1,20 +1,21 @@
 import { isAxiosError } from "axios"
 import type { ErrorResponse, SetError } from "@common/types"
 import type { UpdateDashboardColumn } from "@shared/dashboard/types"
-import { useUpdateDashboardColumn } from "@shared/dashboard/hooks"
+import { useCreateDashboardColumn } from "@shared/dashboard/hooks"
+import { useRouterQuery } from "@/shared/@common/hooks"
 
 interface Props {
-  columnId: number
   onCloseModal: () => void
   setError: SetError<UpdateDashboardColumn>
 }
 
-export default function useDashboardColumnEditForm(props: Props) {
-  const updateColumnMutation = useUpdateDashboardColumn(props.columnId)
+export default function useColumnCreateForm(props: Props) {
+  const dashboardId = +useRouterQuery("id")
+  const createColumnMutation = useCreateDashboardColumn()
 
   const onSubmit = async (values: UpdateDashboardColumn) => {
     try {
-      await updateColumnMutation.trigger({ title: values.title })
+      await createColumnMutation.trigger({ title: values.title, dashboardId })
       props.onCloseModal()
     } catch (error) {
       if (isAxiosError<ErrorResponse>(error) && error.response) {

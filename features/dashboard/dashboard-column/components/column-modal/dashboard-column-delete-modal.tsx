@@ -1,13 +1,13 @@
 import { Modal } from "@common/components/ui"
 import type { DashboardColumn } from "@shared/dashboard/types"
-import { useDashboardColumnDeleteForm } from "@features/dashboard/dashboard-column/hooks"
+import { useColumnDeleteForm } from "@features/dashboard/dashboard-column/hooks"
 
 interface Props extends Pick<DashboardColumn, "id"> {
   onCloseModal: () => void
 }
 
 export default function DashboardColumnDeleteModal({ onCloseModal, id }: Props) {
-  const { onSubmit, isLoading } = useDashboardColumnDeleteForm({ onCloseModal, id })
+  const { onSubmit, isLoading } = useColumnDeleteForm({ onCloseModal, id })
 
   const modalValues = {
     onSubmit,

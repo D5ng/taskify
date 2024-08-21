@@ -3,6 +3,7 @@
   padding: 20px;
   border-right: 1px solid var(--black-40);
   min-height: 100vh;
+  flex-shrink: 0;
 }
 
 .column-header {

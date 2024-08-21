@@ -14,3 +14,8 @@ export interface DashboardColumnResponse {
 export interface UpdateDashboardColumn {
   title: string
 }
+
+export interface CreateDashboardColumn {
+  title: string
+  dashboardId: number
+}

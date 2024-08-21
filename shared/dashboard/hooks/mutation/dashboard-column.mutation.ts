@@ -27,3 +27,16 @@ export function useDeleteDashboardColumn(columnId: number) {
     },
   })
 }
+
+export function useCreateDashboardColumn() {
+  const { mutate } = useFetchDashboardColumns()
+  return useSWRMutation(`columns`, DashboardColumnApiInstance.createColumn, {
+    onError(err, key, config) {
+      console.log(err)
+    },
+
+    onSuccess(data, key, config) {
+      mutate()
+    },
+  })
+}

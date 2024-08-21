@@ -6,7 +6,7 @@ interface Props {
   onCloseModal: () => void
 }
 
-export default function useDashboardColumnDeleteForm(props: Props) {
+export default function useColumnDeleteForm(props: Props) {
   const deleteColumnMutation = useDeleteDashboardColumn(props.id)
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {

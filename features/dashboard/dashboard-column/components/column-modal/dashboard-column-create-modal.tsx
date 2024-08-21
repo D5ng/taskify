@@ -1,32 +1,26 @@
 import { Modal, FormControl } from "@common/components/ui"
 import { useForm } from "@common/hooks"
 import type { DashboardColumn, UpdateDashboardColumn } from "@shared/dashboard/types"
-import { ColumnEditLogic } from "@features/dashboard/dashboard-column/logic"
-import { useColumnEditForm } from "@features/dashboard/dashboard-column/hooks"
+import { ColumnCreateLogic } from "@features/dashboard/dashboard-column/logic"
+import { useColumnCreateForm } from "@features/dashboard/dashboard-column/hooks"
 
-interface Props extends Pick<DashboardColumn, "id" | "title"> {
+interface Props {
   onCloseModal: () => void
-  onNextModal: () => void
 }
 
-export default function DashboardColumnEditModal({ onNextModal, onCloseModal, id, title }: Props) {
+export default function DashboardColumnCreateModal({ onCloseModal }: Props) {
   const { formStates, register, handleSubmit, handleSetError, fieldError } = useForm<UpdateDashboardColumn>({
-    defaultValues: ColumnEditLogic.defaultValues(title),
-    validate: ColumnEditLogic.validate,
+    defaultValues: ColumnCreateLogic.defaultValues,
+    validate: ColumnCreateLogic.validate,
   })
 
-  const onSubmit = useColumnEditForm({ columnId: id, onCloseModal, setError: handleSetError })
-
-  const handleDeleteClick = () => {
-    onCloseModal()
-    onNextModal()
-  }
+  const onSubmit = useColumnCreateForm({ onCloseModal, setError: handleSetError })
 
   const modalValues = {
     onSubmit: handleSubmit(onSubmit),
     isDisabled: formStates.hasFormError,
     isLoading: formStates.isSubmitting,
-    title: "컬럼 관리",
+    title: "새 컬럼 생성",
     onCloseModal,
   }
 
@@ -42,8 +36,7 @@ export default function DashboardColumnEditModal({ onNextModal, onCloseModal, id
         </FormControl>
         <Modal.ButtonLayout>
           <Modal.OutlineButton>취소</Modal.OutlineButton>
-          <Modal.PrimaryButton>변경</Modal.PrimaryButton>
-          <Modal.DeleteButton onClick={handleDeleteClick}>삭제하기</Modal.DeleteButton>
+          <Modal.PrimaryButton>생성</Modal.PrimaryButton>
         </Modal.ButtonLayout>
       </Modal.Form>
     </Modal>

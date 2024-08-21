@@ -1,6 +1,6 @@
 import { DashboardColumn } from "@shared/dashboard/types"
 import { useFetchTaskCard } from "@shared/dashboard/hooks"
-import DashboardColumnEditButton from "../column-button/dashboard-column-edit-button"
+import DashboardColumnEditButton from "../column-edit-button/dashboard-column-edit-button"
 import { DashboardTaskCard, DashboardTaskCardAddButton } from "@features/dashboard/dashboard-task-card/components"
 import classes from "./dashboard-column-list-item.module.css"
 
