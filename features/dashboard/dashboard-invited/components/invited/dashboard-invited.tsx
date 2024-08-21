@@ -1,6 +1,6 @@
 import { Suspensive } from "@common/components"
 import { DashboardInvitedList } from "@features/dashboard/dashboard-invited/components"
-import { useFetchInvitedDashboard, useInvitedPageStore } from "@shared/dashboard/hooks"
+import { useFetchInvitedDashboard } from "@shared/dashboard/hooks"
 import classes from "./dashboard-invited.module.css"
 
 export default function DashboardInvited() {

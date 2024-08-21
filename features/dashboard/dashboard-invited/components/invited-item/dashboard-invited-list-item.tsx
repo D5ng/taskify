@@ -1,11 +1,10 @@
 import { Button } from "@common/components/ui"
-import { useUpdateInvitedDashboard, useInvitedPageStore } from "@/shared/dashboard/hooks"
+import { useUpdateInvitedDashboard } from "@/shared/dashboard/hooks"
 import type { InvitedDashboard } from "@/shared/dashboard/types"
 import classes from "./dashboard-invited-list-item.module.css"
 
 export default function DashboardInvitedListItem(props: InvitedDashboard) {
-  const currentPage = useInvitedPageStore.use.currentPage()
-  const inviteMutation = useUpdateInvitedDashboard(currentPage, props.id)
+  const inviteMutation = useUpdateInvitedDashboard(props.id)
 
   const inviteAccept = () => inviteMutation.trigger({ inviteAccepted: true })
   const inviteRefuse = () => inviteMutation.trigger({ inviteAccepted: false })

@@ -1,0 +1,11 @@
+.loading {
+  position: relative;
+  height: 100px;
+}
+
+.message {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 30px;
+  color: var(--black-50);
+}
