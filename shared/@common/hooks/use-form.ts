@@ -4,10 +4,10 @@ import { UseFormProps, FormFields, FieldElement, SubmitHandler } from "@common/t
 export default function useForm<T extends FormFields>({ defaultValues, validate, options }: UseFormProps<T>) {
   const [formValues, setFormValues] = useState(defaultValues)
   const [touchedFields, setTouchedFields] = useState<Partial<T>>({})
-  const [fieldErros, setFiledErrors] = useState<{ [key in keyof T]?: string }>({})
+  const [fieldErrors, setFiledErrors] = useState<{ [key in keyof T]?: string }>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const hasFormError = Object.values(fieldErros).some((error) => !!error)
+  const hasFormError = Object.values(fieldErrors).some((error) => !!error)
 
   const handleSetError = (error: Partial<T>) => {
     setFiledErrors((prevState) => ({ ...prevState, ...error }))
@@ -42,7 +42,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
     }
   }
 
-  const fieldError = (field: string) => ((touchedFields[field] && fieldErros[field]) || "") as string
+  const fieldError = (field: string) => ((touchedFields[field] && fieldErrors[field]) || "") as string
 
   const resetForm = () => setFormValues(defaultValues)
 
@@ -59,13 +59,15 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
 
     try {
       const result = await onSubmit(formValues)
-      handleTouchedReset()
       return result
     } catch (error) {
       throw new Error("알 수 없는 에러가 발생했어요")
     } finally {
       setIsSubmitting(false)
-      options?.isFormReset && resetForm()
+      if (options?.isFormReset) {
+        resetForm()
+        handleTouchedReset()
+      }
     }
   }
 
@@ -75,7 +77,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
       isSubmitting,
       hasFormError,
       touchedFields,
-      fieldErros,
+      fieldErrors,
     },
     register,
     handleSubmit,

@@ -15,7 +15,7 @@ export default function DashboardInviteModal(props: Props) {
 
   const { register, formStates, handleSubmit, fieldError, handleSetError } = useForm<DefaultValues>({
     defaultValues,
-    validate: useCallback((values) => validate(values, inivteQuery.data?.invitations), []),
+    validate: useCallback((values) => validate(values, inivteQuery.data?.invitations), [inivteQuery.data?.invitations]),
   })
 
   const onSubmit = useInviteForm(props.onCloseModal, handleSetError)
