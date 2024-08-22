@@ -19,7 +19,7 @@ export default function AuthSignInForm() {
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
       <FormControlEmail hasError={fieldError} register={register} />
       <FormControlPassword hasError={fieldError} register={register} />
-      {formStates.fieldErros.form && <p className={classes["form-error"]}>{formStates.fieldErros.form}</p>}
+      {formStates.fieldErrors.form && <p className={classes["form-error"]}>{formStates.fieldErrors.form}</p>}
       <Button
         size="auth"
         buttonStyle="primary"
