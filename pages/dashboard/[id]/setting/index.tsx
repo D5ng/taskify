@@ -26,7 +26,7 @@ export default function Edit(props: InferGetStaticPropsType<typeof getServerSide
           <DashboardMember dashboardId={props.dashboard.id} />
         </DashboardSectionLayout>
         <DashboardSectionLayout layout="invitation">
-          <DashboardInvite />
+          <DashboardInvite dashboard={props.dashboard} />
         </DashboardSectionLayout>
         <DashboardDeleteButton />
       </DashboardLayout>

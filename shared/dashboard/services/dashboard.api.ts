@@ -1,6 +1,6 @@
 import { axiosInstance } from "@/config"
 import type { DashboardData, Dashboard, DashboardResponse, InviteData, InviteResponse } from "@shared/dashboard/types"
-import axios, { AxiosError } from "axios"
+import axios, { AxiosError, isAxiosError } from "axios"
 
 class DashboardAPI {
   async fetchDashboard(page: number) {
