@@ -59,12 +59,12 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
 
     try {
       const result = await onSubmit(formValues)
+      handleTouchedReset()
       return result
     } catch (error) {
       throw new Error("알 수 없는 에러가 발생했어요")
     } finally {
       setIsSubmitting(false)
-      handleTouchedReset()
       options?.isFormReset && resetForm()
     }
   }

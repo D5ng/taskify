@@ -18,11 +18,16 @@ export default function useSignin(setError: SetError<SigninValues>) {
       router.push("/dashboard/my")
     } catch (error) {
       if (isAxiosError<ErrorResponse>(error) && error.response) {
+        if (error.response.data.message.includes("비밀번호")) {
+          setError({ password: error.response.data.message })
+          return
+        }
+
         if (error.response.status === 404) {
           setError({ form: error.response.data.message })
+          return
         }
       }
-      console.log(error)
     }
   }
 
