@@ -28,7 +28,6 @@ export default function useSignin(setError: SetError<SigninValues>) {
           return
         }
       }
-      console.log(error)
     }
   }
 

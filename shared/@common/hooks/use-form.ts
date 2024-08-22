@@ -42,10 +42,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
     }
   }
 
-  const fieldError = (field: string) => {
-    console.log(fieldErros[field], touchedFields[field])
-    return ((touchedFields[field] && fieldErros[field]) || "") as string
-  }
+  const fieldError = (field: string) => ((touchedFields[field] && fieldErros[field]) || "") as string
 
   const resetForm = () => setFormValues(defaultValues)
 
