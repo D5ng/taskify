@@ -6,7 +6,7 @@ export const defaultValues: DefaultValues = {
   email: "",
 }
 
-export const validate = (values: DefaultValues, inviteData: Invite[] | undefined) => {
+export const validate = (values: DefaultValues) => {
   const error: Partial<DefaultValues> = {}
 
   error.email = emailValidation(values.email)

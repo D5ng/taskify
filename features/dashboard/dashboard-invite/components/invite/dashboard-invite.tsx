@@ -7,18 +7,26 @@ import {
   DashboardInviteButton,
   InvitePagination,
 } from "@features/dashboard/dashboard-invite/components"
+import { Dashboard } from "@/shared/dashboard/types"
+import { useAuthStore } from "@/shared/@common/hooks"
 
-export default function DashboardInvite() {
+interface Props {
+  dashboard: Dashboard
+}
+
+export default function DashboardInvite(props: Props) {
   const currentPage = useInvitePageStore.use.currentPage()
-  const invitationQuery = useFetchInvitation(currentPage)
+  const userId = useAuthStore.use.id()
+  const isInvitationPermission = props.dashboard.userId === userId
+  const invitationQuery = useFetchInvitation(currentPage, isInvitationPermission)
 
   return (
     <DashboardEditLayout
       title="초대 내역"
-      name="이메일"
+      name={isInvitationPermission ? "이메일" : ""}
       renderList={
         <Suspensive isLoading={invitationQuery.isLoading} fallback={<DashboardInviteSkeleton />}>
-          <DashboardInviteList />
+          <DashboardInviteList isPermission={isInvitationPermission} />
         </Suspensive>
       }
       renderPagination={<InvitePagination />}

@@ -10,3 +10,11 @@
 .list-item + .list-item {
   border-top: 1px solid var(--black-30);
 }
+
+.not-permission {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--black-50);
+}
