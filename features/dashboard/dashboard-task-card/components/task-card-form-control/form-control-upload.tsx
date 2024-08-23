@@ -14,7 +14,7 @@ export default function FormControlUpload(props: Props) {
   const { columnId, setValue, hasError, previewImageUrl } = props
   const imageStates = useUpload<UploadResponse>({
     onUpload: async (formData: FormData) => await TaskCardApiInstance.cardImageUpload(columnId, formData),
-    onSuccess: (result) => setValue("image", result.imageUrl),
+    onSuccess: (result) => setValue("imageUrl", result.imageUrl),
     onFailed: () => console.log("failed"),
   })
 
