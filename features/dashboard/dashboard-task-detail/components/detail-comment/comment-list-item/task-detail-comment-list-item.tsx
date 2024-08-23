@@ -11,9 +11,6 @@ export default function TaskDetailCommentListItem(props: Comment) {
 
   const deleteCommentMutation = useDeleteComment(props.cardId, props.id)
   const handleDeleteComment = async () => await deleteCommentMutation.trigger()
-
-  console.log(isToggle)
-
   return (
     <li className={classes["comment-list__item"]}>
       <Avatar image={props.author.profileImageUrl} nickname={props.author.nickname}>
