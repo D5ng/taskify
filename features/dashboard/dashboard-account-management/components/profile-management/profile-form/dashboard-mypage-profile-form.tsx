@@ -22,8 +22,6 @@ export default function DashboardMyPageProfileForm() {
 
   const onSubmit = useProfileForm()
 
-  console.log(profileImageUrl)
-
   return (
     <>
       <h2 className={classes.title}>프로필</h2>
