@@ -12,7 +12,7 @@ export function useFetchDashboard(dashboardId: number) {
   return useSWR(`dashboards/${dashboardId}`, fetcher)
 }
 
-export function useFetchInvitation(currentPage: number, isPermission: boolean) {
+export function useFetchInvitation(currentPage: number, isPermission?: boolean) {
   const dashboardId = useRouterQuery("id")
   const fetcher = (url: string) => DashboardApiInstance.fetchInvitation(url)
   const key = isPermission ? `dashboards/${dashboardId}/invitations?page=${currentPage}&size=5` : null
