@@ -13,7 +13,7 @@ export const EMAIL_ERRROR_MESSAGE = {
 export const NICKANME_ERROR_MESSAGE = {
   EMPTY: "닉네임을 입력해주세요.",
   INVALID: "닉네임은 특수문자를 제외한 10자 이하로 작성해주세요.",
-  NOT_SAME: "닉네임이 변경되지 않았습니다",
+  NOT_SAME: "프로필 이미지나 닉네임이 변경되지 않았습니다.",
 } as const
 
 export const PASSWORD_ERROR_MESSAGE = {

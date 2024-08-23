@@ -3,10 +3,14 @@ import { accountNicknameValidation } from "@features/dashboard/dashboard-account
 
 export const defaultValues = (nickname: string, profileImageUrl: string) => ({ nickname, profileImageUrl })
 
-export const validate = (defaultValue: string, values: string) => {
+export const validate = (
+  defaultValues: ProfileDefaultValues,
+  existingNickname: string,
+  existingImage: string | null
+) => {
   const error: Partial<ProfileDefaultValues> = {}
-
-  error.nickname = accountNicknameValidation(defaultValue, values)
+  const isUpdateImage = defaultValues.profileImageUrl !== existingImage
+  error.nickname = accountNicknameValidation(defaultValues, existingNickname, isUpdateImage)
 
   return error
 }
