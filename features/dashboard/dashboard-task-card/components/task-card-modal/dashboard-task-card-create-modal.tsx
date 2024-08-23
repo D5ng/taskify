@@ -73,5 +73,3 @@ export default function DashboardTaskCardCreateModal(props: TaskCardModalProps) 
     </Modal>
   )
 }
-
-// form-control-deadline => form-control-date-local
