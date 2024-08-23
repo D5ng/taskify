@@ -16,6 +16,7 @@
   align-items: center;
   position: relative;
   background-color: var(--black-30);
+  overflow: hidden;
 }
 
 .avatar-initial {
