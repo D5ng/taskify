@@ -18,4 +18,18 @@
 .member {
   color: #fff;
   font-size: 14px;
+  margin-left: -8px;
+}
+
+.member-count {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid white;
+  color: #d25b68;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #f4d7da;
 }
