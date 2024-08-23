@@ -5,9 +5,8 @@ import { Avatar } from "@common/components/ui"
 import { useToggle } from "@common/hooks"
 import { dateFormat } from "@common/utils/date"
 import type { TaskCard } from "@shared/dashboard/types"
-
 import { DashboardTaskCardUpdateModal } from "@features/dashboard/dashboard-task-card/components"
-import { TaskDetailModal } from "@/features/dashboard/dashboard-task-detail/components"
+import { TaskDetailModal } from "@features/dashboard/dashboard-task-detail/components"
 import classes from "./dashboard-task-card-list-item.module.css"
 
 interface Props extends TaskCard {

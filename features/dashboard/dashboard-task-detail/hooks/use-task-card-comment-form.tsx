@@ -12,7 +12,6 @@ export default function useTaskCardCommentForm(props: Props) {
   const createCommentMutation = useCreateComment(props.cardId)
 
   const onSubmit = async (values: CommentData) => {
-    console.log("Submit")
     await createCommentMutation.trigger({
       dashboardId,
       cardId: props.cardId,

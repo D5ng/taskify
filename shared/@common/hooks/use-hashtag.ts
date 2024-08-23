@@ -50,7 +50,6 @@ export default function useHashtag({ onChangeValue, value }: Props) {
   const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.code === "Enter") {
       event.preventDefault()
-      console.log("down")
       return
     }
   }
