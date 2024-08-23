@@ -12,6 +12,8 @@ export default function TaskDetailCommentListItem(props: Comment) {
   const deleteCommentMutation = useDeleteComment(props.cardId, props.id)
   const handleDeleteComment = async () => await deleteCommentMutation.trigger()
 
+  console.log(isToggle)
+
   return (
     <li className={classes["comment-list__item"]}>
       <Avatar image={props.author.profileImageUrl} nickname={props.author.nickname}>
@@ -32,7 +34,7 @@ export default function TaskDetailCommentListItem(props: Comment) {
         <div className={classes["comment-item__utils"]}>
           <button onClick={openUpdateForm}>수정</button>
           <button onClick={handleDeleteComment}>삭제</button>
-          {isToggle && <button onClick={closeUpdateForm}></button>}
+          {isToggle && <button onClick={closeUpdateForm}>취소</button>}
         </div>
       </div>
     </li>
