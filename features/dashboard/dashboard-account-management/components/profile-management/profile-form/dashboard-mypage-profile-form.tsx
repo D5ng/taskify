@@ -15,12 +15,14 @@ export default function DashboardMyPageProfileForm() {
   const { register, fieldError, formStates, setValue, handleSubmit } = useForm<ProfileDefaultValues>({
     defaultValues: ProfileLogic.defaultValues(nickname, profileImageUrl),
     validate: useCallback(
-      (values: ProfileDefaultValues) => ProfileLogic.validate(profileQuery.data!.nickname, values.nickname),
-      []
+      (values: ProfileDefaultValues) => ProfileLogic.validate(values, nickname, profileImageUrl),
+      [nickname, profileImageUrl]
     ),
   })
 
   const onSubmit = useProfileForm()
+
+  console.log(profileImageUrl)
 
   return (
     <>
