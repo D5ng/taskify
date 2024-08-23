@@ -7,21 +7,34 @@ interface Props {
 }
 
 export default function DetailHeaderMembers(props: Props) {
+  const greaterThanFiveMembers = props.members.length > 5
+  const members = props.members.slice(0, 4)
+  const diff = props.members.length - members.length
+
   return (
     <ul className={classes.members}>
-      {props.members.map((member, index) => (
-        <li
-          key={member.id}
-          className={classes.member}
-          style={{
-            transform: `translateX(-${index * 8}px)`,
-          }}
-        >
-          <Avatar nickname={member.nickname} image={member.profileImageUrl}>
-            <Avatar.Image />
-          </Avatar>
-        </li>
-      ))}
+      {greaterThanFiveMembers ? (
+        <>
+          {props.members.slice(0, 4).map((member, index) => (
+            <li key={member.id} className={classes.member}>
+              <Avatar nickname={member.nickname} image={member.profileImageUrl}>
+                <Avatar.Image />
+              </Avatar>
+            </li>
+          ))}
+          <li key={diff} className={classes.member}>
+            <div className={classes["member-count"]}>+{diff}</div>
+          </li>
+        </>
+      ) : (
+        props.members.map((member, index) => (
+          <li key={member.id} className={classes.member}>
+            <Avatar nickname={member.nickname} image={member.profileImageUrl}>
+              <Avatar.Image />
+            </Avatar>
+          </li>
+        ))
+      )}
     </ul>
   )
 }
