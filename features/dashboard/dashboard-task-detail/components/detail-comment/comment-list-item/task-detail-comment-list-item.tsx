@@ -7,7 +7,7 @@ import { TaskDetailUpdateCommentForm } from "@features/dashboard/dashboard-task-
 import classes from "./task-detail-comment-list-item.module.css"
 
 export default function TaskDetailCommentListItem(props: Comment) {
-  const { isToggle, onCloseToggle, onOpenToggle } = useToggle()
+  const { isToggle, onCloseToggle: closeUpdateForm, onOpenToggle: openUpdateForm } = useToggle()
 
   const deleteCommentMutation = useDeleteComment(props.cardId, props.id)
   const handleDeleteComment = async () => await deleteCommentMutation.trigger()
@@ -25,13 +25,14 @@ export default function TaskDetailCommentListItem(props: Comment) {
           </time>
         </div>
         {isToggle ? (
-          <TaskDetailUpdateCommentForm {...props} onCloseToggle={onCloseToggle} />
+          <TaskDetailUpdateCommentForm {...props} onCloseToggle={closeUpdateForm} />
         ) : (
           <p className={classes["comment-item__comment"]}>{props.content}</p>
         )}
         <div className={classes["comment-item__utils"]}>
-          <button onClick={onOpenToggle}>수정</button>
+          <button onClick={openUpdateForm}>수정</button>
           <button onClick={handleDeleteComment}>삭제</button>
+          {isToggle && <button onClick={closeUpdateForm}></button>}
         </div>
       </div>
     </li>
