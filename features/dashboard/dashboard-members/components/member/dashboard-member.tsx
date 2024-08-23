@@ -1,7 +1,7 @@
 import { Suspensive } from "@common/components"
-import { useRouterQuery } from "@common/hooks"
 import { DashboardEditLayout } from "@shared/dashboard/components"
 import { useFetchMembers, useMemberPageStore } from "@shared/dashboard/hooks"
+import type { Dashboard } from "@shared/dashboard/types"
 import {
   DashboardMemberList,
   DashboardMemberSkeleton,
@@ -9,13 +9,12 @@ import {
 } from "@features/dashboard/dashboard-members/components"
 
 interface Props {
-  dashboardId: number
+  dashboard: Dashboard
 }
 
 export default function DashboardMember(props: Props) {
-  const dashboardId = useRouterQuery("id")
   const currentPage = useMemberPageStore.use.currentPage()
-  const membersQuery = useFetchMembers(+dashboardId, currentPage)
+  const membersQuery = useFetchMembers(props.dashboard.id, currentPage)
 
   return (
     <DashboardEditLayout
@@ -23,7 +22,7 @@ export default function DashboardMember(props: Props) {
       name="이름"
       renderList={
         <Suspensive isLoading={membersQuery.isLoading} fallback={<DashboardMemberSkeleton />}>
-          <DashboardMemberList />
+          <DashboardMemberList {...props} />
         </Suspensive>
       }
       renderPagination={<MemberPagination />}
