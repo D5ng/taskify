@@ -3,7 +3,6 @@ import { Button } from "@common/components/ui"
 import { useComposing } from "@common/hooks"
 import { useForm } from "@shared/@common/hooks"
 import type { CommentData } from "@shared/dashboard/types"
-import { useTaskCardCommentForm } from "@features/dashboard/dashboard-task-detail/hooks"
 import { defaultValues, validate } from "@features/dashboard/dashboard-task-detail/logic"
 import { FormControlComment } from "@features/dashboard/dashboard-task-detail/components"
 import classes from "./task-detail-comment-form.module.css"
@@ -11,29 +10,29 @@ import classes from "./task-detail-comment-form.module.css"
 interface Props {
   cardId: number
   columnId: number
+  content?: string
+  onSubmit: (values: CommentData) => Promise<any>
 }
 
-export default function TaskDetailCommentForm({ cardId, columnId }: Props) {
+export default function TaskDetailCommentForm(props: Props) {
   const { isComposing, handleCompositionEnd, handleCompositionStart } = useComposing()
   const { formStates, register, fieldError, handleSubmit } = useForm<CommentData>({
-    defaultValues,
+    defaultValues: defaultValues(props.content),
     validate,
     options: { isFormReset: true },
   })
 
-  const onSubmit = useTaskCardCommentForm({ cardId, columnId })
-
   const handleKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (event) => {
     if (event.key === "Enter" && !event.shiftKey && !isComposing) {
       event.preventDefault()
-      handleSubmit(onSubmit)(event)
+      handleSubmit(props.onSubmit)(event)
     }
   }
 
   return (
     <form
       className={classes["comment-form"]}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(props.onSubmit)}
       onCompositionStart={handleCompositionStart}
       onCompositionEnd={handleCompositionEnd}
     >

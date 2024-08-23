@@ -1,3 +1,4 @@
-import useTaskCardCommentForm from "./use-task-card-comment-form"
+import useCommentCreateForm from "./use-comment-create-form"
+import useCommentUpdateForm from "./use-comment-update-form"
 
-export { useTaskCardCommentForm }
+export { useCommentCreateForm, useCommentUpdateForm }
