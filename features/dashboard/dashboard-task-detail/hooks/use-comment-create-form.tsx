@@ -7,7 +7,7 @@ interface Props {
   columnId: number
 }
 
-export default function useTaskCardCommentForm(props: Props) {
+export default function useCommentCreateForm(props: Props) {
   const dashboardId = +useRouterQuery("id")
   const createCommentMutation = useCreateComment(props.cardId)
 
