@@ -29,8 +29,11 @@ export const getServerSideProps = (async (context) => {
   axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`
 
   try {
-    const dashboard = await DashboardApiInstance.fetchDashboardDetail(+dashboardId!)
-    const members = await MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`)
+    const [dashboard, members] = await Promise.all([
+      DashboardApiInstance.fetchDashboardDetail(+dashboardId!),
+      MemberApiInstance.getMembers(`members?dashboardId=${dashboardId}`),
+    ])
+
     return {
       props: {
         dashboard: dashboard,
