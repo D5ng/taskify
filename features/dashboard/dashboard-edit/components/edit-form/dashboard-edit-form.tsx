@@ -4,7 +4,7 @@ import { Button } from "@common/components/ui"
 import { useForm } from "@common/hooks"
 import { useFetchDashboard } from "@shared/dashboard/hooks"
 import { DashboardData } from "@shared/dashboard/types"
-import { defaultValues, validate } from "@features/dashboard/dashboard-edit/logic"
+import { defaultValues, validate, options } from "@features/dashboard/dashboard-edit/logic"
 import { useEditDashboardForm } from "@features/dashboard/dashboard-edit/hooks"
 import { FormControlDashboardEdit } from "@features/dashboard/dashboard-edit/components"
 import classes from "./dashboard-edit-form.module.css"
@@ -19,6 +19,7 @@ export default function DashboardEditForm(props: Props) {
   const { register, handleSubmit, fieldError, formStates, handleSetError, handleSelect } = useForm<DashboardData>({
     defaultValues: defaultValues({ title, color }),
     validate: useCallback((values) => validate(values, title, color), [title, color]),
+    options,
   })
 
   const onSubmit = useEditDashboardForm(handleSetError)
