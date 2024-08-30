@@ -5,14 +5,14 @@ import { useDeleteMember, useMemberPageStore } from "@shared/dashboard/hooks"
 import classes from "./dashboard-member-list-item.module.css"
 
 interface Props extends Member {
-  dashboarUserId: number
+  dashboardUserId: number
 }
 
 export default function DashboardMemberListItem(props: Props) {
   const dashboardId = +useRouterQuery("id")
   const currentPage = useMemberPageStore.use.currentPage()
   const deleteMemberMutation = useDeleteMember(dashboardId, currentPage, props.id)
-  const isCreatedDashboardUser = props.userId === props.dashboarUserId
+  const isCreatedDashboardUser = props.userId === props.dashboardUserId
 
   const handleDeleteMember = async () => {
     if (isCreatedDashboardUser) return
@@ -27,17 +27,19 @@ export default function DashboardMemberListItem(props: Props) {
           <Avatar.Name />
         </Avatar>
       </div>
-      <div>
-        <Button
-          buttonStyle="secondary"
-          size="small"
-          isLoading={deleteMemberMutation.isMutating}
-          disabled={isCreatedDashboardUser}
-          onClick={handleDeleteMember}
-        >
-          {isCreatedDashboardUser ? "방장" : "삭제"}
-        </Button>
-      </div>
+      {isCreatedDashboardUser && (
+        <div>
+          <Button
+            buttonStyle="secondary"
+            size="small"
+            isLoading={deleteMemberMutation.isMutating}
+            disabled={isCreatedDashboardUser}
+            onClick={handleDeleteMember}
+          >
+            {isCreatedDashboardUser ? "방장" : "삭제"}
+          </Button>
+        </div>
+      )}
     </div>
   )
 }
