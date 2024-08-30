@@ -18,6 +18,7 @@ export default function DashboardMyPageProfileForm() {
       (values: ProfileDefaultValues) => ProfileLogic.validate(values, nickname, profileImageUrl),
       [nickname, profileImageUrl]
     ),
+    options: ProfileLogic.options,
   })
 
   const onSubmit = useProfileForm()

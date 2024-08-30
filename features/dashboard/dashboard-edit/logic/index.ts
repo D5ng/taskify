@@ -11,3 +11,7 @@ export const validate = (defaultValues: DashboardData, existingTitle: string, ex
 
   return error
 }
+
+export const options = {
+  isSuccessTouchedReset: true,
+}

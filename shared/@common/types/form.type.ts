@@ -2,6 +2,7 @@ import { ChangeEventHandler, FocusEventHandler } from "react"
 
 interface Options {
   isFormReset?: boolean
+  isSuccessTouchedReset?: boolean
 }
 
 export interface UseFormProps<T> {
