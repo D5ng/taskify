@@ -11,6 +11,5 @@ export const validate = (
   const error: Partial<ProfileDefaultValues> = {}
   const isUpdateImage = defaultValues.profileImageUrl !== existingImage
   error.nickname = accountNicknameValidation(defaultValues, existingNickname, isUpdateImage)
-
   return error
 }

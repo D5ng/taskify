@@ -29,4 +29,5 @@ export const PASSWORD_CONFIRM_ERROR_MESSAGE = {
 
 export const DASHBOARD_TITLE_ERROR_MESSAGE = {
   EMPTY: "대시보드 이름을 입력해주세요.",
+  NOT_SAME: "대시보드 이름이나 색상이 변경되지 않았습니다.",
 } as const
