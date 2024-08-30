@@ -17,7 +17,7 @@ export default function DashboardMemberList(props: Props) {
     <ul className={classes.list}>
       {memberQuery.data?.members.map((member) => (
         <li className={classes["list-item"]} key={member.id}>
-          <DashboardMemberListItem {...member} dashboarUserId={props.dashboard.userId} />
+          <DashboardMemberListItem {...member} dashboardUserId={props.dashboard.userId} />
         </li>
       ))}
     </ul>
