@@ -9,9 +9,7 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
 
   const hasFormError = Object.values(fieldErrors).some((error) => !!error)
 
-  const handleSetError = (error: Partial<T>) => {
-    setFiledErrors((prevState) => ({ ...prevState, ...error }))
-  }
+  const handleSetError = (error: Partial<T>) => setFiledErrors((prevState) => ({ ...prevState, ...error }))
 
   const handleBlur: FocusEventHandler<FieldElement> = (event) => {
     setTouchedFields((prevState) => ({
@@ -59,15 +57,13 @@ export default function useForm<T extends FormFields>({ defaultValues, validate,
 
     try {
       const result = await onSubmit(formValues)
+      handleTouchedReset()
       return result
     } catch (error) {
       throw new Error("알 수 없는 에러가 발생했어요")
     } finally {
       setIsSubmitting(false)
-      if (options?.isFormReset) {
-        resetForm()
-        handleTouchedReset()
-      }
+      if (options?.isFormReset) resetForm()
     }
   }
 
