@@ -46,3 +46,9 @@
 .avatar-name {
   font-weight: 500;
 }
+
+.avatar-name__skeleton {
+  width: 40px;
+  height: 16px;
+  background-color: var(--black-30);
+}
