@@ -1,6 +1,6 @@
 export * from "./dashboard.type"
 export * from "./dashboard-member.type"
-export * from "./dashboard-invited"
+export * from "./dashboard-invited.type"
 export * from "./dashboard-column.type"
 export * from "./dashboard-task-card.type"
 export * from "./dashboard-comments.type"
