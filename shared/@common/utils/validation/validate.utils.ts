@@ -40,7 +40,12 @@ export function isEmptyValidation(value: string) {
   return value.trim().length === 0
 }
 
-export function dashboardValidation(title: string, existingTitle: string, isUpdateColor: boolean) {
+export function dashboardValidation(value: string) {
+  if (isEmptyValidation(value)) return DASHBOARD_TITLE_ERROR_MESSAGE.EMPTY
+  return ""
+}
+
+export function dashboardEditValidation(title: string, existingTitle: string, isUpdateColor: boolean) {
   if (isEmptyValidation(title)) return DASHBOARD_TITLE_ERROR_MESSAGE.EMPTY
   if (!isUpdateColor && title === existingTitle) return DASHBOARD_TITLE_ERROR_MESSAGE.NOT_SAME
   return ""
