@@ -36,7 +36,3 @@ export default function DashboardDetailHeader(props: DashboardHeaderProps) {
     </header>
   )
 }
-
-// dashboard-header
-
-// dashboard-detail-header
