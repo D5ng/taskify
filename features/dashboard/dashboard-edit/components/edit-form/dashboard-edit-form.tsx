@@ -1,3 +1,4 @@
+import { useCallback } from "react"
 import { ColorChipList } from "@common/components"
 import { Button } from "@common/components/ui"
 import { useForm } from "@common/hooks"
@@ -17,7 +18,7 @@ export default function DashboardEditForm(props: Props) {
   const { title, color } = dashboardQuery.data!
   const { register, handleSubmit, fieldError, formStates, handleSetError, handleSelect } = useForm<DashboardData>({
     defaultValues: defaultValues({ title, color }),
-    validate,
+    validate: useCallback((values) => validate(values, title, color), [title, color]),
   })
 
   const onSubmit = useEditDashboardForm(handleSetError)
