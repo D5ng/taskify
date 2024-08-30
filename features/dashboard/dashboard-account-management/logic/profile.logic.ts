@@ -13,3 +13,7 @@ export const validate = (
   error.nickname = accountNicknameValidation(defaultValues, existingNickname, isUpdateImage)
   return error
 }
+
+export const options = {
+  isSuccessTouchedReset: true,
+}
