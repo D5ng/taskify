@@ -1,44 +1,85 @@
 # Taskify
 
-클린코드와 가독성 및 아키텍쳐 고려한 Taskify 프로젝트.
+이전 팀 프로젝트를 개선한 개인 프로젝트 입니다. 최대한 클린 코드의 원칙을 따라 만들었으며, FDD 방법을 사용해 명확한 폴더 구조를 만들었습니다.
 
-features // 기능 폴더
+## 개선 사항.
 
-    - dashboard
-    	- dashboard-invited
-    	- dashboard-list
+- 라이브러리 최소화 및 재사용 가능한 컴포넌트로 페이지 전반적인 리소스를 19% 줄였고, 초기 로딩 속도를 50% 개선.
+- Form 상태 관리가 힘들기 때문에 React Hook Form의 라이브러리를 분석하여 유사한 DX를 가질 수 있도록 직접 구현.
+- 공통 컴포넌트들을 Radix UI와 유사하게 만들었고 Compound Pattern으로 Props를 분산시켜 복잡도를 줄였으며 일관성 있는 코드로 개선했습니다.
+- UI 관련 디테일하게 작업해 사용자 경험 개선.
 
-shared // 공유 폴더
+## 아키텍쳐 비교.
 
-    - @common // App 자체에서 모두 사용하는 공통 폴더
-    	- hooks
-    	- services // auth.service
-    	- utils
-    	- types // auth.type
-    	- constants
-    	- components
+팀 프로젝트에서는 일반적인 폴더 구조로 작업 했었습니다. 프로젝트 자체가 규모가 크지않아 괜찮아 보입니다.
+그럼에도 이 폴더 구조는 좋지 않다라고 판단을 하게되었는데 그 이유는 다음과 같습니다.
 
-    - dashboard // 대시보드 내에서 모두 사용하는 공통 폴더
-    	- components
-    		- dashboard-header
-    		- dashboard-sidebar
-    		- dashboard-layout
-    		- dashboard-modal
-    	- hooks
-    	- modal
-    	- services // 대시보드 모든 훅
-    	- types // 대시보드 모든 타입.
+- 공부하는 사람으로써 큰 규모의 어플리케이션을 만들기 힘듭니다. 따라서 항상 고민없이 늘 해오던 폴더 구조를 잡게되는 점.
+- Components는 재사용 가능한 폴더지만 막상 재사용 가능한 파일들이 없다. 즉 재사용하는 파일이든, 특정 페이지에 있는 파일이든 Components에서 확인 해야하는 불편함이 리소스 찾는데 비용을 들임.
+- 계층이 단순화 되어있어, 같은 유형의 파일들이 몰려있다. 파일의 개수가 늘어날수록 찾기가 힘들어지는 문제가 발생.
 
-API 랜딩 페이지를 제외한 대시보드 내에서 사용.
+위에 3가지가 가장 큰 문제이지만 가장 중요한 핵심은 **파일의 위치를 명확하게 찾기 힘들다**라는 단점이 있습니다. 이러한 문제점을 해결하기 위해 FDD(Feature Driven Development)를 사용해 리소스 찾는데 들이는 비용을 줄일 수 있었습니다.
 
-// 모달의 대부분이 Form으로 이루어져있음.
-모달로 인해 shared가 너무 커져있는 문제가 발생.
+**FDD의 장점.**
 
-즉 공통적인 것을 제외한 후 나머지를 모달에서 관리하는 방법.
+- 기능별로 정의되어있어 명확한 폴더 구조를 가진다.
+- 기능에 필요한 파일들이 가까이 배치되어있어 쉽게 파일을 찾을 수 있다.
+- 프로젝트가 확장 되더라도 기존 기능에 큰 영향을 주지않아 유연하게 대처할 수 있다.
 
-features
+FDD를 사용한다고해서 무조건 장점만 있는건 아닙니다. 간단한 프로젝트에서는 FDD를 사용하면 오히려 폴더가 많아져 더 찾기 힘들어지는 문제가 발생할 수 있습니다.
 
-    - my-dashboard
-    - dashboard-detail
-    - dashboard-setting
-    - mypage
+### 팀 프로젝트 아키텍쳐. as-is
+
+```
+├── apis
+├── auth
+├── components
+├── constant
+├── hooks
+├── lib
+├── pages
+├── public
+├── store
+├── styles
+├── types
+└── util
+```
+
+### 개선한 아키텍쳐. to-be
+
+```
+config
+├── features
+│   ├── auth
+│   │   ├── components
+│   │   ├── hooks
+│   │   ├── logic
+│   │   └── types
+│   └── dashboard
+│       ├── components
+│       ├── hooks
+│       ├── logic
+│       └── types
+│
+├── pages
+│   ├── dashboard
+│   ├── signin
+│   └── signup
+│
+├── public
+│
+├── shared
+│   ├── @common
+│   │   ├── components
+│   │   ├── constants
+│   │   ├── hooks
+│   │   ├── services
+│   │   ├── types
+│   │   └── utils
+│   └── dashboard
+│   	├── components
+│   	├── hooks
+│   	├── services
+│   	└── types
+└── styles
+```
