@@ -1,10 +1,7 @@
-.dashboard-list {
-  padding: 40px 0;
-}
-
 .dashboard-layout {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-bottom: 12px;
+  padding: 40px 0;
 }

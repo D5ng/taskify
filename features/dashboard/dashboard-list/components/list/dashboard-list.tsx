@@ -14,8 +14,10 @@ export default function DashboardList() {
   const currentPage = useDashboardPageStore.use.currentPage()
   const dashboardsQuery = useFetchDashboards(currentPage)
 
+  if (dashboardsQuery.error) throw dashboardsQuery.error
+
   return (
-    <section className={`${classes["dashboard-list"]} dashboard-inner-layout`}>
+    <>
       <ul className={classes["dashboard-layout"]}>
         <DashboardCreateButton />
         <Suspensive isLoading={dashboardsQuery.isLoading} fallback={<DashboardListSkeleton />}>
@@ -25,6 +27,6 @@ export default function DashboardList() {
         </Suspensive>
       </ul>
       <DashboardListPagination />
-    </section>
+    </>
   )
 }
