@@ -3,9 +3,8 @@ import type { DashboardData, Dashboard, DashboardResponse, InviteData, InviteRes
 import axios, { AxiosError, isAxiosError } from "axios"
 
 class DashboardAPI {
-  async fetchDashboard(page: number) {
-    return (await axiosInstance.get<DashboardResponse>(`dashboards?navigationMethod=pagination&page=${page}&size=5`))
-      .data
+  async fetchDashboard(url: string) {
+    return (await axiosInstance.get<DashboardResponse>(url)).data
   }
 
   async createDashbaord(url: string, { arg }: { arg: DashboardData }) {
