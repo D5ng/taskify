@@ -1,5 +1,9 @@
 import { DashboardLayout, DashboardHeader, DashboardSideBar, ErrorBoundary } from "@shared/dashboard/components"
-import { DashboardErrorFallback, DashboardList } from "@features/dashboard/dashboard-list/components"
+import {
+  DashboardErrorFallback,
+  DashboardList,
+  DashboardListPagination,
+} from "@features/dashboard/dashboard-list/components"
 import { DashboardInvited } from "@features/dashboard/dashboard-invited/components"
 import { useDashboardPageStore, useFetchDashboards } from "@shared/dashboard/hooks"
 
@@ -16,6 +20,7 @@ export default function MyDashboard() {
           <ErrorBoundary onReset={handleRefetch} fallback={DashboardErrorFallback}>
             <DashboardList />
           </ErrorBoundary>
+          <DashboardListPagination />
         </section>
         <DashboardInvited />
       </DashboardLayout>
