@@ -33,3 +33,9 @@
   position: relative;
   background-color: #f4d7da;
 }
+
+@media (max-width: 767px) {
+  .members {
+    display: none;
+  }
+}

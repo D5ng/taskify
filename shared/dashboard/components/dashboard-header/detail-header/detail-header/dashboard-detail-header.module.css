@@ -40,3 +40,34 @@
   align-items: center;
   gap: 0 16px;
 }
+
+@media (max-width: 1400px) {
+  .header {
+    margin-left: 160px;
+    width: calc(100% - 160px);
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    margin-left: 67px;
+    width: calc(100% - 67px);
+  }
+
+  .header-layout {
+    padding-right: 8px;
+    padding-left: 20px;
+  }
+
+  .header-title {
+    font-size: 16px;
+  }
+
+  .button-layout {
+    gap: 0 6px;
+  }
+
+  .flex-layout {
+    gap: 20px;
+  }
+}

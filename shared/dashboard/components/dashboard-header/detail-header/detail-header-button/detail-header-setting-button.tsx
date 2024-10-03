@@ -1,17 +1,17 @@
 import { ButtonLink } from "@common/components/ui/button"
+import classes from "./detail-header-button.module.css"
 
 interface LinkWithIconProps {
   dashboardId: number
 }
 
 export default function DetailHeaderSettingButton(props: LinkWithIconProps) {
-  const style = { padding: "10px 16px" }
   return (
     <ButtonLink
       href={`/dashboard/${props.dashboardId}/setting`}
       buttonStyle="outline"
       iconUrl="/images/icons/setting-icon.svg"
-      customStyle={style}
+      className={classes.padding}
     >
       관리
     </ButtonLink>
