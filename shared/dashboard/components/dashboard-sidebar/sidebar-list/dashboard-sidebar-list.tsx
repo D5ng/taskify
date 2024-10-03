@@ -13,11 +13,12 @@ export default function DashboardSideBarList() {
 
   return (
     <ul className={classes["list"]}>
-      <Suspensive isLoading={dashboardsQuery.isLoading} fallback={<DashboardSidebarSkeleton />}>
+      <DashboardSidebarSkeleton />
+      {/* <Suspensive isLoading={dashboardsQuery.isLoading} fallback={<DashboardSidebarSkeleton />}>
         <DashboardListFetcherLayout
           renderComponents={(dashboard) => <DashboardSidebarListItem dashboard={dashboard} key={dashboard.id} />}
         />
-      </Suspensive>
+      </Suspensive> */}
     </ul>
   )
 }
