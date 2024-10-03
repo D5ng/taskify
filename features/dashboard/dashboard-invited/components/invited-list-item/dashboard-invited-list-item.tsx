@@ -2,6 +2,7 @@ import { Button } from "@common/components/ui"
 import { useAcceptInvite, useRefuseInvite } from "@/shared/dashboard/hooks"
 import type { InvitedDashboard } from "@/shared/dashboard/types"
 import classes from "./dashboard-invited-list-item.module.css"
+import { useResize } from "@/shared/@common/hooks"
 
 export default function DashboardInvitedListItem(props: InvitedDashboard) {
   const acceptInviteMutation = useAcceptInvite(props.id)
@@ -12,16 +13,22 @@ export default function DashboardInvitedListItem(props: InvitedDashboard) {
 
   return (
     <li className={classes["invite-list__item"]}>
-      <span>{props.dashboard.title}</span>
-      <span>{props.inviter.nickname}</span>
-      <span className={classes["invite-list__button"]}>
+      <div>
+        <span className={classes["title-placeholder"]}>이름</span>
+        <span>{props.dashboard.title}</span>
+      </div>
+      <div>
+        <span className={classes["nickname-placeholder"]}>초대자</span>
+        <span>{props.inviter.nickname}</span>
+      </div>
+      <div className={classes["invite-list__button"]}>
         <Button isLoading={acceptInviteMutation.isMutating} buttonStyle="primary" size="small" onClick={inviteAccept}>
           수락
         </Button>
         <Button isLoading={refuseInviteMutation.isMutating} buttonStyle="outline" size="small" onClick={inviteRefuse}>
           거절
         </Button>
-      </span>
+      </div>
     </li>
   )
 }

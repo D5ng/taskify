@@ -7,7 +7,7 @@
   width: 237px;
 }
 
-.flex {
+/* .flex {
   display: flex;
 }
 
@@ -17,4 +17,10 @@
 
 .justify-between {
   justify-content: space-between;
+} */
+
+@media (max-width: 1400px) {
+  .dashboard-inner-layout {
+    width: 100%;
+  }
 }

@@ -1,3 +1,9 @@
 .header-profile {
   left: 32px;
 }
+
+@media (max-width: 767px) {
+  .header-profile {
+    left: auto;
+  }
+}

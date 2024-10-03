@@ -10,3 +10,13 @@
   font-size: 12px;
   font-weight: bold;
 }
+
+@media (max-width: 767px) {
+  .side-header-title {
+    display: none;
+  }
+
+  .side-header {
+    margin-top: 40px;
+  }
+}

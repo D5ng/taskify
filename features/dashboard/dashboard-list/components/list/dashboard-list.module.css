@@ -4,3 +4,9 @@
   gap: 12px;
   margin-bottom: 12px;
 }
+
+@media (max-width: 767px) {
+  .dashboard-layout {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
