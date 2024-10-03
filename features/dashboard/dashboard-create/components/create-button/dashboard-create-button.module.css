@@ -13,3 +13,13 @@
 .button span {
   font-weight: 700;
 }
+
+@media (max-width: 767px) {
+  .button {
+    height: 58px;
+  }
+
+  .dashboard-list-item__title {
+    font-size: 14px;
+  }
+}

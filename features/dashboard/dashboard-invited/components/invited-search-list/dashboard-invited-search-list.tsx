@@ -10,7 +10,7 @@ export default function InvitedSearchList({ searchValue }: Props) {
   const { searchInviteData, isSearchResult, searchInviteLoading, searchEmptyResult } = useSearchInvited(searchValue)
 
   return (
-    <>
+    <div className={classes.list}>
       <ul>
         {isSearchResult &&
           searchInviteData!.invitations.map((invite) => <DashboardInvitedListItem key={invite.id} {...invite} />)}
@@ -19,6 +19,6 @@ export default function InvitedSearchList({ searchValue }: Props) {
       {searchEmptyResult && (
         <p className={classes.message}>검색된 &quot;{searchValue}&quot; 결과를 찾을 수 없습니다.</p>
       )}
-    </>
+    </div>
   )
 }

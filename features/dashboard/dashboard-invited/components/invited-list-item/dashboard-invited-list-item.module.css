@@ -4,11 +4,40 @@
   border-bottom: 1px solid var(--black-30);
 }
 
-.invite-list__item span {
+.invite-list__item div {
   flex: 1;
 }
 
 .invite-list__button {
   display: flex;
   gap: 0 10px;
+}
+
+.title-placeholder,
+.nickname-placeholder {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .title-placeholder,
+  .nickname-placeholder {
+    display: block;
+    width: 53px;
+    color: var(--black-50);
+  }
+
+  .invite-list__item {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    padding: 20px 0;
+  }
+
+  .invite-list__item > div {
+    display: flex;
+  }
+
+  .invite-list__button button {
+    flex: 1;
+  }
 }

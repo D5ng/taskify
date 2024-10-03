@@ -44,3 +44,9 @@
   background-color: var(--black-40);
   border-radius: 4px;
 }
+
+@media (max-width: 767px) {
+  .dashboard-list-item {
+    height: 58px;
+  }
+}
