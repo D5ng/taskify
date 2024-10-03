@@ -12,7 +12,6 @@ export default function Button(props: ButtonProps) {
   return (
     <button
       className={`${className} ${props.className}`}
-      style={props.customStyle}
       disabled={props.disabled || props.isLoading}
       type={props.type || "button"}
       onClick={props.onClick}
