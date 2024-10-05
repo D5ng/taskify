@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 16px 0;
 }
+
+@media (max-width: 767px) {
+  .column-task-card-layout {
+    gap: 10px;
+  }
+}

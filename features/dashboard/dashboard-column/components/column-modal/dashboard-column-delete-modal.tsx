@@ -17,7 +17,7 @@ export default function DashboardColumnDeleteModal({ onCloseModal, id }: Props) 
   }
 
   return (
-    <Modal value={modalValues}>
+    <Modal value={modalValues} defaultSize>
       <Modal.Backdrop />
       <Modal.Form>
         <Modal.Title />

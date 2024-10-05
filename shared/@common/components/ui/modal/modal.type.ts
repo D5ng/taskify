@@ -13,4 +13,5 @@ export type ModalContextProps = {}
 
 export interface ModalContextValues extends PropsWithChildren {
   value: ModalContextStates
+  defaultSize?: boolean
 }

@@ -1,3 +1,9 @@
 .column-layout {
   display: flex;
 }
+
+@media (max-width: 767px) {
+  .column-layout {
+    flex-direction: column;
+  }
+}

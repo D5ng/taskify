@@ -19,9 +19,10 @@ export function useModalContext() {
 
 export function Modal(props: ModalContextValues) {
   const modalElement = document.querySelector("#modal")!
+  const className = `${classes["modal-root"]} ${props.defaultSize ? classes["default-size"] : ""}`
   return createPortal(
     <ModalContext.Provider value={props.value}>
-      <div className={classes["modal-root"]}>{props.children}</div>
+      <div className={className}>{props.children}</div>
     </ModalContext.Provider>,
     modalElement
   )
