@@ -7,3 +7,13 @@
 .contents-wrapper {
   width: 450px;
 }
+
+@media (max-width: 767px) {
+  .layout {
+    flex-direction: column-reverse;
+  }
+
+  .contents-wrapper {
+    width: 100%;
+  }
+}

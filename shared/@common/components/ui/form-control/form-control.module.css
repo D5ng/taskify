@@ -62,6 +62,17 @@
   color: var(--black-80);
 }
 
+@media (max-width: 767px) {
+  .modal.formControl {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .modal.formControl + .formControl {
+    margin-top: 24px;
+  }
+}
+
 /*=============================================
 =                     Error                   =
 =============================================*/

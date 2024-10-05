@@ -30,3 +30,22 @@
   align-items: center;
   gap: 0 8px;
 }
+
+@media (max-width: 767px) {
+  .task-assignee {
+    width: 100%;
+    display: flex;
+  }
+
+  .task-assignee-layout {
+    flex: 1;
+  }
+
+  .task-assignee-layout + .task-assignee-layout {
+    margin-top: 0;
+  }
+
+  .task-assignee-layout time {
+    margin-top: 10px;
+  }
+}

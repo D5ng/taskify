@@ -36,6 +36,6 @@
 
 @media (max-width: 767px) {
   .members {
-    display: none;
+    padding: 0 24px 0 4px;
   }
 }

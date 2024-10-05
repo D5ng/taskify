@@ -19,7 +19,7 @@ export default function DashboardColumnDeleteModal({ onCloseModal, id }: Props) 
   return (
     <Modal value={modalValues}>
       <Modal.Backdrop />
-      <Modal.Form size="small">
+      <Modal.Form>
         <Modal.Title />
         <Modal.Description>
           컬럼의 모든 카드가 삭제됩니다.

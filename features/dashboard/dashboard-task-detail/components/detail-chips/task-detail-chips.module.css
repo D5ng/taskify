@@ -11,3 +11,9 @@
   height: 20px;
   background-color: var(--black-40);
 }
+
+@media (max-width: 767px) {
+  .chips {
+    margin-top: 16px;
+  }
+}
