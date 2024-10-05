@@ -1,5 +1,6 @@
 .layout {
-  width: 620px;
+  max-width: 620px;
+  width: 100%;
   border-radius: 8px;
   background-color: white;
   padding: 26px 28px;
@@ -19,4 +20,7 @@
 .invitation {
   height: 442px;
   padding-bottom: 0;
+}
+
+@media (max-width: 1400px) {
 }

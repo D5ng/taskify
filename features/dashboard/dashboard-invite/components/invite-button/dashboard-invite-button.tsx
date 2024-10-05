@@ -6,7 +6,6 @@ import classes from "./dashboard-invite-button.module.css"
 
 export default function DashboardInviteButton() {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()
-  const style = { width: "105px", height: "32px", borderRadius: "4px" }
   return (
     <>
       {isToggle && <DashboardInviteModal onCloseModal={onCloseToggle} />}
