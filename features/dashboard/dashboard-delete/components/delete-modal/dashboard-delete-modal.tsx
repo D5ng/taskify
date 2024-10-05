@@ -20,7 +20,7 @@ export default function DashboardDeleteModal(props: Props) {
     props.isToggle && (
       <Modal value={modalValues}>
         <Modal.Backdrop />
-        <Modal.Form size="small">
+        <Modal.Form>
           <Modal.Title />
           <Modal.Description>
             대시보드를 지우면 복구할 수 없습니다.
