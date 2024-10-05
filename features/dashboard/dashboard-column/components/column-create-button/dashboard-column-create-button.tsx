@@ -2,8 +2,8 @@ import Image from "next/image"
 import { Button } from "@common/components/ui"
 import { useToggle } from "@common/hooks"
 import AddVioletIcon from "@/public/images/icons/add-violet-icon.svg"
-import classes from "./dashboard-column-create-button.module.css"
 import DashboardColumnCreateModal from "../column-modal/dashboard-column-create-modal"
+import classes from "./dashboard-column-create-button.module.css"
 
 export default function DashboardColumnCreateButton() {
   const { isToggle, onOpenToggle, onCloseToggle } = useToggle()

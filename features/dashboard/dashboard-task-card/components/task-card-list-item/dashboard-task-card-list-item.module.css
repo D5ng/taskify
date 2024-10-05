@@ -60,3 +60,17 @@
   font-weight: 500;
   color: var(--black-60);
 }
+
+@media (max-width: 767px) {
+  .task-card-layout {
+    padding: 12px;
+  }
+
+  .task-card-title {
+    font-size: 14px;
+  }
+
+  .task-card-hashtag-list {
+    margin: 6px 0;
+  }
+}

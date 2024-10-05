@@ -11,6 +11,10 @@
   overflow-y: scroll;
 }
 
+.default-size {
+  width: 540px;
+}
+
 .error-message {
   font-size: 14px;
   color: var(--red);
@@ -19,10 +23,6 @@
 
 .modal-contents {
   position: relative;
-}
-
-.small {
-  width: 540px;
 }
 
 .backdrop {
