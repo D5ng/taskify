@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0 16px;
+  gap: 16px;
 }
 
 .pagination-info {
@@ -35,4 +35,19 @@
 
 .pagination-prev {
   transform: scaleX(-1);
+}
+
+@media (max-width: 767px) {
+  .pagination {
+    gap: 7px;
+  }
+
+  .pagination-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pagination-info {
+    font-size: 12px;
+  }
 }
