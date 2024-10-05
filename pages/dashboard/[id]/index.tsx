@@ -4,8 +4,11 @@ import { DashboardLayout, DashboardSideBar, DashboardDetailHeader } from "@share
 
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
 import { DashboardColumn } from "@features/dashboard/dashboard-column/components"
+import { useMemberStore } from "@/shared/dashboard/hooks"
 
 export default function DashboardDetailPage(props: InferGetStaticPropsType<typeof getServerSideProps>) {
+  const setMembers = useMemberStore.use.setMembers()
+  setMembers(props.members)
   return (
     <>
       <DashboardDetailHeader dashboard={props.dashboard} members={props.members} />

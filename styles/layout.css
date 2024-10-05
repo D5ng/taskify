@@ -7,20 +7,14 @@
   width: 237px;
 }
 
-/* .flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.justify-between {
-  justify-content: space-between;
-} */
-
 @media (max-width: 1400px) {
   .dashboard-inner-layout {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .dropdown-layout-medium {
     width: 100%;
   }
 }

@@ -90,4 +90,23 @@
   .title {
     font-size: 20px;
   }
+
+  .modal-root {
+    padding: 40px 20px;
+  }
+
+  .modal-contents {
+    position: static;
+  }
+
+  .close {
+    width: 24px;
+    height: 24px;
+  }
+
+  .utils {
+    top: 12px;
+    right: 12px;
+    gap: 12px;
+  }
 }

@@ -74,3 +74,17 @@
   transform: translateY(-50%) rotate(0);
   transition: 0.3s;
 }
+
+.status-active .status-icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+@media (max-width: 767px) {
+  .dropdown-menu {
+    right: 0;
+  }
+
+  .status {
+    width: 100%;
+  }
+}

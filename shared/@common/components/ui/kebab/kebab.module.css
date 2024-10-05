@@ -3,3 +3,10 @@
   width: 28px;
   height: 28px;
 }
+
+@media (max-width: 767px) {
+  .kebab {
+    width: 20px;
+    height: 20px;
+  }
+}

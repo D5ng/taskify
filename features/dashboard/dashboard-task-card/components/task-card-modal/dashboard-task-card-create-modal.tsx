@@ -22,6 +22,8 @@ export default function DashboardTaskCardCreateModal(props: TaskCardModalProps) 
   const members = useMemberStore.use.members()
   const createTaskCardMutation = useCreateTaskCard(props.columnId)
 
+  console.log(members)
+
   const { register, handleSelect, formStates, fieldError, setValue, handleSetError, handleSubmit } =
     useForm<TaskCardDefaultValues>({
       defaultValues: TaskCardCreateLogic.defaultValues(members[0].userId, props.columnId),

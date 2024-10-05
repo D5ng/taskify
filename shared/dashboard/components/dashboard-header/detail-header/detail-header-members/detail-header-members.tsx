@@ -11,8 +11,6 @@ export default function DetailHeaderMembers(props: Props) {
   const members = props.members.slice(0, 4)
   const diff = props.members.length - members.length
 
-  console.log("??")
-
   return (
     <ul className={classes.members}>
       {greaterThanFiveMembers ? (
