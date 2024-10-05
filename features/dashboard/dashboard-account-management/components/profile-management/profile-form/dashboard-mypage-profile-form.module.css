@@ -10,7 +10,7 @@
 .profile-form__layout {
   display: flex;
   align-items: center;
-  gap: 0 16px;
+  gap: 16px;
 }
 
 .profile-image {
@@ -40,4 +40,15 @@
 
 .profile-form__submit button {
   margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .profile-form__layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-inputs {
+    width: 100%;
+  }
 }
