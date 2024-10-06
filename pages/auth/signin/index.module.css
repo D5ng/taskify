@@ -7,15 +7,17 @@
   align-items: center;
 }
 
-.form {
-  width: 520px;
-  margin: 0 auto;
-}
-
 .pathTo {
   margin-top: 26px;
 }
 
 .pathTo a {
   color: var(--main-20);
+}
+
+@media (max-width: 767px) {
+  .section {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
 }
