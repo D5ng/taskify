@@ -21,6 +21,8 @@ ul {
 
 img {
   display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 input,

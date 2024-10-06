@@ -1,0 +1,24 @@
+.footer {
+  width: 90%;
+  max-width: 1640px;
+  margin: 200px auto 0 auto;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copyright {
+  color: var(--black-50);
+}
+
+.footer-menu {
+  display: flex;
+  gap: 32px;
+  color: var(--black-50);
+}
+
+.footer-sns {
+  display: flex;
+  gap: 14px;
+}
