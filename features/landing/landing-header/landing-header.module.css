@@ -1,0 +1,26 @@
+.header {
+  background-color: var(--black-100);
+  color: var(--white);
+}
+
+.header-logo {
+  position: relative;
+  width: 121px;
+  height: 39px;
+}
+
+.header-inner {
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-inner nav ul {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
