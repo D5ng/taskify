@@ -7,8 +7,8 @@ import VisualImage from "public/images/landing/visual.png"
 export default function LandingVisual() {
   return (
     <div className={classes.visual}>
-      <div className={classes["visual-image"]}>
-        <Image src={VisualImage} alt="테스키파이 이미지" fill />
+      <div>
+        <Image src={VisualImage} alt="테스키파이 이미지" width="0" height="0" className={classes["visual-image"]} />
       </div>
       <h2 className={classes["visual-title"]}>
         새로운 일정 관리<span>Taskify</span>

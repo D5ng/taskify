@@ -6,8 +6,14 @@ export default function LandingHeader() {
   return (
     <header className={classes.header}>
       <div className={classes["header-inner"]}>
-        <h1 className={classes["header-logo"]}>
-          <Image src="/images/logo/logo-with-title-big-white.svg" alt="로고" fill />
+        <h1>
+          <Image
+            src="/images/logo/logo-with-title-big-white.svg"
+            alt="로고"
+            width={0}
+            height={0}
+            className={classes["header-logo"]}
+          />
         </h1>
         <nav>
           <ul>

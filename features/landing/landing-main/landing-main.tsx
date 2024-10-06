@@ -1,14 +1,15 @@
-import PointFirst from "public/images/landing/section-first.png"
-import classes from "./landing-main.module.css"
 import Image from "next/image"
+import PointFirstImage from "public/images/landing/section-first.png"
+import PointSecondImage from "public/images/landing/section-second.png"
 import SettingFirstImage from "public/images/landing/setting-1.jpg"
 import SettingSecondImage from "public/images/landing/setting-2.jpg"
 import SettingThirdImage from "public/images/landing/setting-3.jpg"
+import classes from "./landing-main.module.css"
 
 export default function LandingMain() {
   return (
     <main className={classes.main}>
-      <section className={`${classes.first} ${classes.section}`}>
+      <section className={classes.section}>
         <div className={classes["section-info"]}>
           <span>Point 1</span>
           <h3>
@@ -18,10 +19,10 @@ export default function LandingMain() {
           </h3>
         </div>
         <div>
-          <Image src={PointFirst} alt="" width={594} height={498} className={classes["first-image"]} />
+          <Image src={PointFirstImage} alt="" width={594} height={498} className={classes["first-image"]} />
         </div>
       </section>
-      <section className={`${classes.second} ${classes.section}`}>
+      <section className={classes.section}>
         <div className={classes["section-info"]}>
           <span>Point 2</span>
           <h3>
@@ -31,7 +32,7 @@ export default function LandingMain() {
           </h3>
         </div>
         <div>
-          <Image src={PointFirst} alt="" width={436} height={502} className={classes["second-image"]} />
+          <Image src={PointSecondImage} alt="" width={436} height={502} className={classes["second-image"]} />
         </div>
       </section>
       <section className={classes.setting}>
