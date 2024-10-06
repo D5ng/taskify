@@ -16,7 +16,7 @@ export default function LandingVisual() {
       <p className={classes["visual-desc"]}>
         사용자들이 태스크를 생성, 수정, 삭제하며 팀 내에서 진행 상황을 공유할 수 있는 서비스
       </p>
-      <ButtonLink buttonStyle="primary" href="/signin" className={classes.link}>
+      <ButtonLink buttonStyle="primary" href="/auth/signin" className={classes.link}>
         로그인 하기
       </ButtonLink>
     </div>

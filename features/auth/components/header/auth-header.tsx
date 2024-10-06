@@ -5,7 +5,7 @@ export default function AuthHeader() {
   return (
     <>
       <Image
-        src="images/logo/logo-with-title-big.svg"
+        src="/images/logo/logo-with-title-big.svg"
         alt="테스키파이"
         width="0"
         height="0"

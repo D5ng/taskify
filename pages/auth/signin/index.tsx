@@ -9,7 +9,7 @@ export default function SignUpPage() {
       <AuthHeader />
       <SignInForm />
       <p className={classes.pathTo}>
-        회원이 아니신가요? <Link href="/signup">회원가입하기</Link>
+        회원이 아니신가요? <Link href="/auth/signup">회원가입하기</Link>
       </p>
     </section>
   )
