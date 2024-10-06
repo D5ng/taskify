@@ -1,9 +1,15 @@
 .image-wrapper {
   position: relative;
   width: 200px;
-  height: 200px;
+  height: auto;
 }
 
 .form-info {
   margin: 10px 0 40px 0;
+}
+
+@media (max-width: 767px) {
+  .image-wrapper {
+    width: 120px;
+  }
 }

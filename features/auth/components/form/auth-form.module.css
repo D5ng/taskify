@@ -8,3 +8,9 @@
   color: var(--red);
   margin-top: 8px;
 }
+
+@media (max-width: 767px) {
+  .form {
+    width: 100%;
+  }
+}
