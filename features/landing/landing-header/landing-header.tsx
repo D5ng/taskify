@@ -18,10 +18,10 @@ export default function LandingHeader() {
         <nav>
           <ul>
             <li>
-              <Link href="/signin">로그인</Link>
+              <Link href="/auth/signin">로그인</Link>
             </li>
             <li>
-              <Link href="/signup">회원가입</Link>
+              <Link href="/auth/signup">회원가입</Link>
             </li>
           </ul>
         </nav>

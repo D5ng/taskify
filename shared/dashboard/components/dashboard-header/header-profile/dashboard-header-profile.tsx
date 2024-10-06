@@ -16,7 +16,7 @@ export default function DashboardHeaderProfile() {
   const handleLogout = () => {
     logout()
     deleteCookie("token")
-    router.push("/signin")
+    router.push("/auth/signin")
   }
 
   const { isMobile } = useResize()
