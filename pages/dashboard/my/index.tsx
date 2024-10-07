@@ -1,3 +1,4 @@
+import { Meta } from "@common/components"
 import { DashboardLayout, DashboardHeader, DashboardSideBar, ErrorBoundary } from "@shared/dashboard/components"
 import {
   DashboardErrorFallback,
@@ -14,6 +15,7 @@ export default function MyDashboard() {
 
   return (
     <>
+      <Meta title="내 대시보드" />
       <DashboardHeader />
       <DashboardLayout>
         <section className="dashboard-inner-layout">
