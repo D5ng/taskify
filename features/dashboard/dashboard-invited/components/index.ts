@@ -6,6 +6,7 @@ import DashboardInvitedListHeader from "./invited-list/dashboard-invited-list-he
 import InviteLoading from "./invite-loading/dashboard-invite-loading"
 import InvitedSearchList from "./invited-search-list/dashboard-invited-search-list"
 import InvitedFetchList from "./invited-fetch-list/dashboard-invited-fetch-list"
+import InviteErrorFallback from "./error/invite-error-fallback"
 
 export {
   DashboardInvited,
@@ -16,4 +17,5 @@ export {
   InviteLoading,
   InvitedSearchList,
   InvitedFetchList,
+  InviteErrorFallback,
 }

@@ -7,7 +7,7 @@ import {
 } from "@shared/dashboard/components"
 
 import classes from "./dashboard-sidebar.module.css"
-import { useDashboardPageStore, useFetchDashboards } from "@shared/dashboard/hooks"
+import { useDashboardPageStore, useFetchDashboards } from "@/shared/dashboard/hooks"
 
 export default function DashboardSideBar() {
   const currentPage = useDashboardPageStore.use.currentPage()
@@ -22,7 +22,7 @@ export default function DashboardSideBar() {
       <div className={classes["sidebar-wrapper"]}>
         <DashboardSideBarHeader />
       </div>
-      <ErrorBoundary fallback={SidebarErrorFallback} onReset={handleRefetch}>
+      <ErrorBoundary fallback={SidebarErrorFallback} onReset={() => {}}>
         <DashboardSideBarList />
       </ErrorBoundary>
     </aside>
