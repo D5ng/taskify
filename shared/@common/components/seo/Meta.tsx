@@ -14,7 +14,7 @@ export default function Meta({ title, description }: MetaProps) {
       <meta property="og:title" content={description || "스마트하게 나의 일정을 관리해보자!"} />
       <meta property="og:description" content={description || "스마트하게 나의 일정을 관리해보자!"} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="" />
+      <meta property="og:url" content="https://taskify-swart-xi.vercel.app/" />
       <meta property="og:image" content="/images/landing/section-first.png" />
       <meta property="og:image:alt" content={description || "스마트하게 나의 일정을 관리해보자!"} />
       <meta property="og:locale" content="ko_KR" />
