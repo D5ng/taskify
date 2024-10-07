@@ -10,6 +10,8 @@ import classes from "./dashboard-column.module.css"
 export default function DashboardColumn() {
   const dashboardColumnsQuery = useFetchDashboardColumns()
 
+  if (dashboardColumnsQuery.error) throw dashboardColumnsQuery.error
+
   return (
     <div className={classes["column-layout"]}>
       <Suspensive isLoading={dashboardColumnsQuery.isLoading} fallback={<DashboardColumnSkeleton />}>

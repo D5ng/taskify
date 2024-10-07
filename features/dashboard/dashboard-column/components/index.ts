@@ -6,6 +6,7 @@ import DashboardColumnSkeleton from "./column-skeleton/dashboard-column-skeleton
 import DashboardColumnDeleteModal from "./column-modal/dashboard-column-delete-modal"
 import DashboardColumnEditModal from "./column-modal/dashboard-column-edit-modal"
 import DashboardColumnCreateButton from "./column-create-button/dashboard-column-create-button"
+import ColumnErrorFallback from "./error/column-error-fallback"
 
 export {
   DashboardColumn,
@@ -16,4 +17,5 @@ export {
   DashboardColumnDeleteModal,
   DashboardColumnEditModal,
   DashboardColumnCreateButton,
+  ColumnErrorFallback,
 }

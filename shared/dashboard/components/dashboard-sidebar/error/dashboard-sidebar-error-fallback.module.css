@@ -1,0 +1,33 @@
+.error-wrapper {
+  margin-top: 100px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.error-title {
+  font-size: 18px;
+}
+
+.error-desc {
+  font-size: 14px;
+  color: var(--black-60);
+}
+
+.button {
+  width: 100%;
+  height: 48px;
+}
+
+@media (max-width: 1400px) {
+  .error-desc {
+    display: none;
+  }
+
+  .button {
+    display: none;
+  }
+}
