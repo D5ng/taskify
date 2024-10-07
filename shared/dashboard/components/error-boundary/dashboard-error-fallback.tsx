@@ -1,5 +1,5 @@
 import { Button } from "@common/components/ui"
-import classes from "./dashboard-error-fallback.module.css"
+import classes from "./dashboard-error-boundary.module.css"
 
 interface ErrorFallbackProps {
   onRefetch: () => void

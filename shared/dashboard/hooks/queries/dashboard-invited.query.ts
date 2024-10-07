@@ -5,7 +5,7 @@ import { InvitedDashboardResponse } from "@shared/dashboard/types"
 
 const getKey = (pageIndex: number, previousPageData: InvitedDashboardResponse) => {
   if (previousPageData && !previousPageData.cursorId) return null
-  if (pageIndex === 0) return `invitations123?size=5`
+  if (pageIndex === 0) return `invitations?size=5`
   return `invitations?size=5&cursorId=${previousPageData.cursorId}`
 }
 

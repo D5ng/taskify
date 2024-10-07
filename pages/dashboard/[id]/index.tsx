@@ -1,10 +1,10 @@
 import { GetServerSideProps, InferGetStaticPropsType } from "next"
 import { axiosInstance } from "@/config"
 import { Meta } from "@common/components"
-import { DashboardLayout, DashboardSideBar, DashboardDetailHeader } from "@shared/dashboard/components"
+import { DashboardLayout, DashboardSideBar, DashboardDetailHeader, ErrorBoundary } from "@shared/dashboard/components"
 
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
-import { DashboardColumn } from "@features/dashboard/dashboard-column/components"
+import { ColumnErrorFallback, DashboardColumn } from "@features/dashboard/dashboard-column/components"
 import { useMemberStore } from "@/shared/dashboard/hooks"
 
 export default function DashboardDetailPage(props: InferGetStaticPropsType<typeof getServerSideProps>) {
@@ -15,7 +15,9 @@ export default function DashboardDetailPage(props: InferGetStaticPropsType<typeo
       <Meta title={`${props.dashboard.title} - 대시보드`} />
       <DashboardDetailHeader dashboard={props.dashboard} members={props.members} />
       <DashboardLayout>
-        <DashboardColumn />
+        <ErrorBoundary fallback={ColumnErrorFallback} onReset={() => {}}>
+          <DashboardColumn />
+        </ErrorBoundary>
       </DashboardLayout>
       <DashboardSideBar />
     </>
