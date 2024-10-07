@@ -1,3 +1,4 @@
+import { Meta } from "@common/components"
 import {
   DashboardMyPagePassword,
   DashboardMyPageProfile,
@@ -13,6 +14,7 @@ import {
 export default function MyPage() {
   return (
     <>
+      <Meta title="마이 페이지" />
       <DashboardHeader />
       <DashboardLayout>
         <GoBack />

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://taskify-swart-xi.vercel.app/
+
+# Sitemaps
+Sitemap: https://taskify-swart-xi.vercel.app/sitemap.xml
