@@ -21,6 +21,13 @@
 - Suspense와 Hydration의 문제로 Suspensive라는 props.children을 사용해 비슷하게 구현 및 로딩 UX 개선
 - 에러바운더리로 UI와 다시 시도 버튼으로 UX 개선
 
+## 에러바운더리로 UX 개선
+
+<img width="1625" alt="스크린샷 2024-10-08 오전 12 41 20" src="https://github.com/user-attachments/assets/e0c30b66-ca25-484b-acf8-48a9bd6b2eb6">
+<img width="1626" alt="스크린샷 2024-10-08 오전 12 42 08" src="https://github.com/user-attachments/assets/8a66c644-716d-4808-823c-70f778d5ea99">
+<img width="1627" alt="스크린샷 2024-10-08 오전 12 40 42" src="https://github.com/user-attachments/assets/aa403317-b9db-4c28-af4e-0866e3237b00">
+
+
 ## 아키텍쳐 비교.
 
 팀 프로젝트에서는 일반적인 폴더 구조로 작업 했었습니다. 프로젝트 자체가 규모가 크지않아 괜찮아 보입니다.
