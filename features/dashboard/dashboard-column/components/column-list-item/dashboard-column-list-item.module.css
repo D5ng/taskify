@@ -61,6 +61,7 @@
     border-right: 0;
     min-height: auto;
     position: relative;
+    padding: 20px 0;
   }
 
   .column + .column:after {
