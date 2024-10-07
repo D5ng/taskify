@@ -5,6 +5,7 @@ import DashboardSidebarSkeleton from "./sidebar-skeleton/dashboard-sidebar-skele
 import DashboardSidebarAddButton from "./sidebar-button/dashboard-sidebar-add-button"
 import DashboardSideBarHeader from "./sidebar-header/dashboard-sidebar-header"
 import DashboardSideBarLogo from "./sidebar-header/dashboard-sidebar-logo"
+import SidebarErrorFallback from "./error/dashboard-sidebar-error-fallback"
 
 export {
   DashboardSideBar,
@@ -14,4 +15,5 @@ export {
   DashboardSidebarAddButton,
   DashboardSideBarHeader,
   DashboardSideBarLogo,
+  SidebarErrorFallback,
 }

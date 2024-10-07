@@ -21,3 +21,9 @@
   width: 150px;
   height: 48px;
 }
+
+@media (max-width: 767px) {
+  .error-desc br {
+    display: none;
+  }
+}

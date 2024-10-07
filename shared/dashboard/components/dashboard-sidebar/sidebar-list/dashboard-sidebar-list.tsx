@@ -11,6 +11,8 @@ export default function DashboardSideBarList() {
   const currentPage = useDashboardPageStore.use.currentPage()
   const dashboardsQuery = useFetchDashboards(currentPage)
 
+  if (dashboardsQuery.error) throw dashboardsQuery.error
+
   return (
     <ul className={classes["list"]}>
       <Suspensive isLoading={dashboardsQuery.isLoading} fallback={<DashboardSidebarSkeleton />}>

@@ -6,6 +6,8 @@ import classes from "./dashboard-column-list-item.module.css"
 
 export default function DashboardColumnListItem(props: DashboardColumn) {
   const taskCardQuery = useFetchTaskCard(props.id)
+  if (taskCardQuery.error) throw taskCardQuery.error
+
   return (
     <div className={classes.column}>
       <div className={classes["column-header"]}>

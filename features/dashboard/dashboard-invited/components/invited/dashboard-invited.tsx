@@ -1,17 +1,18 @@
-import { Suspensive } from "@common/components"
 import { DashboardInvitedList } from "@features/dashboard/dashboard-invited/components"
-import { useFetchInvitedDashboard } from "@shared/dashboard/hooks"
+import { DashboardErrorFallback, ErrorBoundary } from "@shared/dashboard/components"
 import classes from "./dashboard-invited.module.css"
+import { useFetchInvitedDashboard } from "@shared/dashboard/hooks"
 
 export default function DashboardInvited() {
   const invitesQuery = useFetchInvitedDashboard()
+  const handleRefetch = () => invitesQuery.mutate()
 
   return (
     <section className={`${classes.invite} dashboard-inner-layout`}>
       <h2 className={classes["invite-title"]}>초대받은 대시보드</h2>
-      <Suspensive isLoading={invitesQuery.isLoading}>
+      <ErrorBoundary fallback={DashboardErrorFallback} onReset={handleRefetch}>
         <DashboardInvitedList />
-      </Suspensive>
+      </ErrorBoundary>
     </section>
   )
 }
