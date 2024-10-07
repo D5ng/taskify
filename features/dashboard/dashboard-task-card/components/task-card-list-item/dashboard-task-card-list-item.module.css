@@ -73,4 +73,8 @@
   .task-card-hashtag-list {
     margin: 6px 0;
   }
+
+  .task-card-thumbnail {
+    height: 40vw;
+  }
 }
