@@ -1,5 +1,6 @@
 import { GetServerSideProps, InferGetStaticPropsType } from "next"
 import { axiosInstance } from "@/config"
+import { Meta } from "@common/components"
 import { DashboardLayout, DashboardSideBar, DashboardDetailHeader } from "@shared/dashboard/components"
 
 import { DashboardApiInstance, MemberApiInstance } from "@shared/dashboard/services"
@@ -11,6 +12,7 @@ export default function DashboardDetailPage(props: InferGetStaticPropsType<typeo
   setMembers(props.members)
   return (
     <>
+      <Meta title={`${props.dashboard.title} - 대시보드`} />
       <DashboardDetailHeader dashboard={props.dashboard} members={props.members} />
       <DashboardLayout>
         <DashboardColumn />

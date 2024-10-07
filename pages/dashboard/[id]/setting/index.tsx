@@ -1,5 +1,6 @@
 import { GetServerSideProps, InferGetStaticPropsType } from "next"
 import { axiosInstance } from "@/config"
+import { Meta } from "@common/components"
 import {
   DashboardSideBar,
   DashboardLayout,
@@ -16,6 +17,7 @@ import { DashboardInvite } from "@features/dashboard/dashboard-invite/components
 export default function Edit(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <>
+      <Meta title={`${props.dashboard.title} - 대시보드 설정`} />
       <DashboardDetailHeader dashboard={props.dashboard} members={props.members} />
       <DashboardLayout>
         <GoBack />
