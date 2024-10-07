@@ -3,7 +3,7 @@ import { DashboardApiInstance } from "@shared/dashboard/services"
 import { useRouterQuery } from "@common/hooks"
 
 export function useFetchDashboards(page: number) {
-  return useSWR(`dashboards?navigationMethod=pagination&page=${page}&size=5`, DashboardApiInstance.fetchDashboard)
+  return useSWR(`dashboards123?navigationMethod=pagination&page=${page}&size=5`, DashboardApiInstance.fetchDashboard)
 }
 
 export function useFetchDashboard(dashboardId: number) {
