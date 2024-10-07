@@ -8,7 +8,7 @@ interface Props {
 
 export default function InvitedSearchList({ searchValue }: Props) {
   const { searchInviteData, isSearchResult, searchInviteLoading, searchEmptyResult } = useSearchInvited(searchValue)
-
+  console.log(searchEmptyResult)
   return (
     <div className={classes.list}>
       <ul>
