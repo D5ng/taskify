@@ -9,3 +9,8 @@
   margin-top: 30px;
   color: var(--black-50);
 }
+
+.list {
+  height: 400px;
+  overflow-y: scroll;
+}

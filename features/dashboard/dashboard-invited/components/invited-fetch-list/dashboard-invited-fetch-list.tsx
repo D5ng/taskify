@@ -19,7 +19,7 @@ export default function InvitedFetchList() {
   if (data!.length === 0) return <DashboardInvitedEmpty />
 
   return (
-    <>
+    <div className={classes.list}>
       <ul>
         {data!.map((invite) =>
           invite.invitations.map((invite) => <DashboardInvitedListItem key={invite.id} {...invite} />)
@@ -29,6 +29,6 @@ export default function InvitedFetchList() {
       {!lastPage!.cursorId && <p className={classes.message}>더 이상 초대받은 대시보드가 없습니다.</p>}
 
       <div ref={ref} style={{ width: "1px", height: "1px", marginTop: "10px" }}></div>
-    </>
+    </div>
   )
 }

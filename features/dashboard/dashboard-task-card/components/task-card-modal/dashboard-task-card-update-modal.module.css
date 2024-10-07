@@ -10,3 +10,16 @@
   width: auto !important;
   margin: 0 !important;
 }
+
+@media (max-width: 767px) {
+  .layout {
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+  }
+
+  .dropdown,
+  .dropdown button {
+    width: 100% !important;
+  }
+}

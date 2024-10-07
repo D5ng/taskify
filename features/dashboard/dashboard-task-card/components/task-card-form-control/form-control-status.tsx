@@ -21,7 +21,6 @@ export default function FormControlStatus({ columns, onChange, hasError, columnI
   const handleSelectedManager = (column: DashboardColumn) => {
     setSelectedStatus(column)
     onChange(column.id)
-    console.log(column.id)
   }
 
   return (

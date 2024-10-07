@@ -1,19 +1,20 @@
 .dashboard-inner-layout {
   width: 1022px;
+  padding: 40px 0;
 }
 
 .dropdown-layout-medium {
   width: 237px;
 }
 
-.flex {
-  display: flex;
+@media (max-width: 1400px) {
+  .dashboard-inner-layout {
+    width: 100%;
+  }
 }
 
-.flex-col {
-  flex-direction: column;
-}
-
-.justify-between {
-  justify-content: space-between;
+@media (max-width: 767px) {
+  .dropdown-layout-medium {
+    width: 100%;
+  }
 }

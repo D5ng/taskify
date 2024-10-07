@@ -11,7 +11,7 @@
 .utils {
   display: flex;
   align-items: center;
-  gap: 0 8px;
+  gap: 8px;
 }
 
 .lists {
@@ -22,4 +22,15 @@
   display: block;
   color: var(--black-50);
   margin-bottom: 8px;
+}
+
+@media (max-width: 767px) {
+  .utils {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .title {
+    font-size: 20px;
+  }
 }

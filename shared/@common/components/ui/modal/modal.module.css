@@ -11,6 +11,10 @@
   overflow-y: scroll;
 }
 
+.default-size {
+  width: 540px;
+}
+
 .error-message {
   font-size: 14px;
   color: var(--red);
@@ -19,10 +23,6 @@
 
 .modal-contents {
   position: relative;
-}
-
-.small {
-  width: 540px;
 }
 
 .backdrop {
@@ -76,4 +76,37 @@
   position: absolute;
   left: 28px;
   bottom: 32px;
+}
+
+@media (max-width: 767px) {
+  .modal-root {
+    width: calc(100% - 40px);
+  }
+
+  .button-layout button {
+    flex: 1;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .modal-root {
+    padding: 40px 20px;
+  }
+
+  .modal-contents {
+    position: static;
+  }
+
+  .close {
+    width: 24px;
+    height: 24px;
+  }
+
+  .utils {
+    top: 12px;
+    right: 12px;
+    gap: 12px;
+  }
 }

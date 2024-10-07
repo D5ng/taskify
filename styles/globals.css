@@ -19,6 +19,12 @@ ul {
   list-style: none;
 }
 
+img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
 input,
 textarea {
   border: 0;

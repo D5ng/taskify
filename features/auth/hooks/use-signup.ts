@@ -14,7 +14,7 @@ export default function useSignup(setError: SetError<SignupValues>) {
         password: values.password,
       })
 
-      router.push("/signin")
+      router.push("/auth/signin")
     } catch (error) {
       if (isAxiosError<ErrorResponse>(error) && error.response) {
         setError({ email: error.response.data.message })

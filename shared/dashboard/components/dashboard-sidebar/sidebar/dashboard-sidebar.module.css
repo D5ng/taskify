@@ -11,3 +11,15 @@
 .sidebar-wrapper {
   padding: 0 12px;
 }
+
+@media (max-width: 1400px) {
+  .sidebar {
+    width: 160px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    width: 67px;
+  }
+}

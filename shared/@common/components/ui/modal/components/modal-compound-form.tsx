@@ -1,17 +1,11 @@
-import { PropsWithChildren } from "react"
+import { ReactNode } from "react"
 import { useModalContext } from "../modal"
-import classes from "../modal.module.css"
 
-interface FormProps extends PropsWithChildren {
-  size?: "small"
+interface FormProps {
+  children: ReactNode
 }
 
 export default function Form(props: FormProps) {
   const modalContext = useModalContext()
-  const className = `${classes["modal-layout"]} ${props.size && classes[props.size]}`
-  return (
-    <form className={className} onSubmit={modalContext.onSubmit}>
-      {props.children}
-    </form>
-  )
+  return <form onSubmit={modalContext.onSubmit}>{props.children}</form>
 }

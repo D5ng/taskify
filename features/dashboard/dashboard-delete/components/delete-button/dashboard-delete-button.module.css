@@ -8,3 +8,9 @@
   font-size: 18px;
   height: 100%;
 }
+
+@media (max-width: 767px) {
+  .button-wrapper {
+    width: 100%;
+  }
+}

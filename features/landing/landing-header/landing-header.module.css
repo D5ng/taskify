@@ -1,0 +1,40 @@
+.header {
+  background-color: var(--black-100);
+  color: var(--white);
+}
+
+.header-inner {
+  max-width: 1400px;
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  width: 121px;
+  height: auto;
+}
+
+.header-inner nav ul {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+@media (max-width: 767px) {
+  .header-logo {
+    width: 80px;
+  }
+
+  .header-inner {
+    width: calc(100% - 40px);
+  }
+
+  .header-inner nav ul {
+    font-size: 14px;
+    gap: 20px;
+  }
+}

@@ -6,3 +6,9 @@
   flex: 1;
   color: var(--black-50);
 }
+
+@media (max-width: 767px) {
+  .list-header {
+    display: none;
+  }
+}

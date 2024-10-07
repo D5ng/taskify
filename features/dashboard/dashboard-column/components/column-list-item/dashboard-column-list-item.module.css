@@ -54,3 +54,23 @@
 .column-add-button-layout {
   margin: 24px 0 16px;
 }
+
+@media (max-width: 767px) {
+  .column {
+    width: 100%;
+    border-right: 0;
+    min-height: auto;
+    position: relative;
+  }
+
+  .column + .column:after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 48px);
+    height: 1px;
+    background-color: var(--black-40);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -24,3 +24,19 @@
   font-weight: 500;
   color: var(--black-60);
 }
+
+@media (max-width: 1400px) {
+  .title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    display: none;
+  }
+
+  .sidebar-list-item a {
+    justify-content: center;
+  }
+}

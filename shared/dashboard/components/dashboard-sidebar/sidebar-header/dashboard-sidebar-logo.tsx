@@ -7,7 +7,10 @@ export default function DashboardSideBarLogo() {
     <div className={classes.logo}>
       <Link href="/dashboard/my">
         <h1>
-          <Image src="/images/logo/logo-side-bar.svg" alt="내 대시보드로 이동하기" fill priority />
+          <picture>
+            <source media="(max-width: 767px)" srcSet="/images/logo/logo-side-bar-small.svg" />
+            <Image src="/images/logo/logo-side-bar.svg" alt="내 대시보드로 이동하기" fill priority />
+          </picture>
         </h1>
       </Link>
     </div>

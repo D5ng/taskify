@@ -1,8 +1,13 @@
-import Image from "next/image"
-import { Inter } from "next/font/google"
-
-const inter = Inter({ subsets: ["latin"] })
+import { LandingFooter, LandingHeader, LandingMain, LandingVisual } from "@features/landing"
+import classes from "./index.module.css"
 
 export default function Home() {
-  return <div></div>
+  return (
+    <div className={classes.wrapper}>
+      <LandingHeader />
+      <LandingVisual />
+      <LandingMain />
+      <LandingFooter />
+    </div>
+  )
 }
