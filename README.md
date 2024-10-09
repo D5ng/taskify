@@ -67,7 +67,8 @@ FDD를 사용한다고해서 무조건 장점만 있는건 아닙니다. 간단�
 ### 개선한 아키텍쳐. to-be
 
 ```
-config
+├──config
+│
 ├── features
 │   ├── auth
 │   │   ├── components
