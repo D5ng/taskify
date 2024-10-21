@@ -1,9 +1,8 @@
 import { useRouter } from "next/router"
 import { deleteCookie } from "cookies-next"
-import { useAuthStore, useResize } from "@common/hooks"
+import { useAuthStore, useDeviceResize } from "@common/hooks"
 import { Avatar, Dropdown } from "@common/components/ui"
 import classes from "./dashboard-header-profile.module.css"
-import { useEffect, useState } from "react"
 
 export default function DashboardHeaderProfile() {
   const router = useRouter()
@@ -19,7 +18,7 @@ export default function DashboardHeaderProfile() {
     router.push("/auth/signin")
   }
 
-  const { isMobile } = useResize()
+  const { isMobile } = useDeviceResize()
 
   return (
     <Dropdown callback={targetValidation} className={classes["header-profile"]}>

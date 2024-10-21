@@ -2,7 +2,6 @@ import { Button } from "@common/components/ui"
 import { useAcceptInvite, useRefuseInvite } from "@/shared/dashboard/hooks"
 import type { InvitedDashboard } from "@/shared/dashboard/types"
 import classes from "./dashboard-invited-list-item.module.css"
-import { useResize } from "@/shared/@common/hooks"
 
 export default function DashboardInvitedListItem(props: InvitedDashboard) {
   const acceptInviteMutation = useAcceptInvite(props.id)

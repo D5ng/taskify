@@ -8,8 +8,8 @@ import useForm from "./use-form"
 import useComposing from "./use-composing"
 import useIntersect from "./use-intersect"
 import useDebounce from "./use-debounce"
-import useResize from "./useResize"
-import useClient from "./useClient"
+import useDeviceResize from "./use-device-resize"
+import useClient from "./use-client"
 
 export * from "./store"
 export * from "./queries"
@@ -26,6 +26,6 @@ export {
   useComposing,
   useIntersect,
   useDebounce,
-  useResize,
+  useDeviceResize,
   useClient,
 }

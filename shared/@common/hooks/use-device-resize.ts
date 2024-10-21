@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
-import useClient from "./useClient"
+import { useEffect, useState } from "react"
+import useClient from "./use-client"
 
-export default function useResize() {
+export default function useDeviceResize() {
   const isClient = useClient()
   const [width, setWidth] = useState(isClient ? window.innerWidth : 1920)
 
