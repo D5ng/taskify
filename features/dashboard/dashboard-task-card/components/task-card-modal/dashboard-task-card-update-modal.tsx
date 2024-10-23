@@ -64,6 +64,7 @@ export default function DashboardTaskCardUpdateModal(props: TaskCardModalProps) 
             hasError={fieldError}
             members={members}
             className={classes.dropdown}
+            isAssigneeUserId={formStates.formValues.assigneeUserId}
           />
         </div>
         <FormControlTitle register={register} hasError={fieldError} />

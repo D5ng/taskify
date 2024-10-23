@@ -7,10 +7,14 @@ interface Props {
   hasError: (field: string) => string
   members: Member[]
   className?: string
+  isAssigneeUserId?: number
 }
 
 export default function FormControlManager({ members, onChange, hasError, ...props }: Props) {
-  const [selectedMember, setSelectedMember] = useState<Member>(members[0])
+  const existingMember = props.isAssigneeUserId
+    ? members.find((member) => member.userId === props.isAssigneeUserId) || members[0]
+    : members[0]
+  const [selectedMember, setSelectedMember] = useState<Member>(existingMember)
   const handleSelectedManager = (member: Member) => {
     setSelectedMember(member)
     onChange(member.userId)
