@@ -11,12 +11,11 @@ interface Props {
 }
 
 export default function DashboardCreateModal(props: Props) {
-  const { fieldError, formStates, register, handleSelect, handleSubmit, handleSetError, resetForm } =
-    useForm<DashboardData>({
-      defaultValues,
-      validate,
-      options,
-    })
+  const { fieldError, formStates, register, handleSelect, handleSubmit, handleSetError } = useForm<DashboardData>({
+    defaultValues,
+    validate,
+    options,
+  })
 
   const onSubmit = useCreateDashboardForm({ setError: handleSetError, onCloseModal: props.onCloseModal })
 
@@ -36,7 +35,12 @@ export default function DashboardCreateModal(props: Props) {
           <Modal.Title />
           <FormControl type="modal" id="title" hasError={fieldError}>
             <FormControl.Label>대시보드 이름</FormControl.Label>
-            <FormControl.Input type="text" placeholder="대시보드 이름을 입력해주세요" {...register("title")} />
+            <FormControl.Input
+              type="text"
+              placeholder="대시보드 이름을 입력해주세요"
+              {...register("title")}
+              autoFocus
+            />
             <FormControl.ErrorMessage />
           </FormControl>
           <ColorChipList onChange={handleSelect("color")} value={formStates.formValues.color} />
