@@ -60,7 +60,7 @@ export default function DashboardTaskCardUpdateModal(props: TaskCardModalProps) 
             className={classes.dropdown}
           />
           <FormControlManager
-            onChange={handleSelect("assignee")}
+            onChange={handleSelect("assigneeUserId")}
             hasError={fieldError}
             members={members}
             className={classes.dropdown}

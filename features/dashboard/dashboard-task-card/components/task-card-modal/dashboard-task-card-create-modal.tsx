@@ -48,7 +48,7 @@ export default function DashboardTaskCardCreateModal(props: TaskCardModalProps) 
       <Modal.Backdrop />
       <Modal.Form>
         <Modal.Title />
-        <FormControlManager onChange={handleSelect("assignee")} hasError={fieldError} members={members} />
+        <FormControlManager onChange={handleSelect("assigneeUserId")} hasError={fieldError} members={members} />
         <FormControlTitle register={register} hasError={fieldError} />
         <FormControlDescription register={register} hasError={fieldError} />
         <FormControlDeadline register={register} hasError={fieldError} />
