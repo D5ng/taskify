@@ -29,7 +29,7 @@ export default function DashboardInvite(props: Props) {
           <DashboardInviteList isPermission={isInvitationPermission} />
         </Suspensive>
       }
-      renderPagination={<InvitePagination />}
+      renderPagination={<InvitePagination isPermission={isInvitationPermission} />}
       renderInviteButton={<DashboardInviteButton />}
     />
   )
