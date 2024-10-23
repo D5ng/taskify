@@ -49,7 +49,7 @@ export function useDeleteDashboard(dashboardId: number, currentPage: number) {
 
 export function useInvite(currentPage: number) {
   const dashboardId = useRouterQuery("id")
-  const { mutate, error } = useFetchInvitation(currentPage)
+  const { mutate, error } = useFetchInvitation(currentPage, true)
 
   return useSWRMutation(`dashboards/${dashboardId}/invitations`, DashboardApiInstance.dashboardInvite, {
     onError(err, key, config) {
@@ -64,7 +64,7 @@ export function useInvite(currentPage: number) {
 
 export function useDeleteInvitation(currentPage: number, invitationId: number) {
   const dashboardId = useRouterQuery("id")
-  const { mutate, data: invitationData } = useFetchInvitation(currentPage)
+  const { mutate, data: invitationData } = useFetchInvitation(currentPage, true)
   const currentPagination = useInvitePageStore.use.currentPage()
   const setCurrentPage = useInvitePageStore.use.setCurrentPage()
 
@@ -73,7 +73,7 @@ export function useDeleteInvitation(currentPage: number, invitationId: number) {
     DashboardApiInstance.deleteInvitation,
     {
       onError(err, key, config) {
-        console.log("Mutation Error", Error)
+        console.log(Error)
       },
 
       onSuccess(data, key) {
