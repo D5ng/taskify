@@ -25,6 +25,15 @@ class AuthAPI {
   async updatePassword(data: UpdatePassword) {
     return (await axiosInstance.put("auth/password", data)).data
   }
+
+  async guestSignin() {
+    return (
+      await axiosInstance.post<AuthResposne>("auth/login", {
+        email: "ehdgus123456@test.com",
+        password: "ehdgus1234!",
+      })
+    ).data
+  }
 }
 
 const AuthApiInstance = new AuthAPI()
