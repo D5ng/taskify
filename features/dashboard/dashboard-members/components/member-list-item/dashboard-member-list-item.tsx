@@ -6,16 +6,17 @@ import classes from "./dashboard-member-list-item.module.css"
 
 interface Props extends Member {
   dashboardUserId: number
+  isCreatedDashboardUser: boolean
 }
 
 export default function DashboardMemberListItem(props: Props) {
   const dashboardId = +useRouterQuery("id")
   const currentPage = useMemberPageStore.use.currentPage()
   const deleteMemberMutation = useDeleteMember(dashboardId, currentPage, props.id)
-  const isCreatedDashboardUser = props.userId === props.dashboardUserId
+  const isAdmin = props.userId === props.dashboardUserId
 
   const handleDeleteMember = async () => {
-    if (isCreatedDashboardUser) return
+    if (isAdmin) return
     await deleteMemberMutation.trigger()
   }
 
@@ -27,16 +28,16 @@ export default function DashboardMemberListItem(props: Props) {
           <Avatar.Name />
         </Avatar>
       </div>
-      {isCreatedDashboardUser && (
+      {props.isCreatedDashboardUser && (
         <div>
           <Button
             buttonStyle="secondary"
             size="small"
             isLoading={deleteMemberMutation.isMutating}
-            disabled={isCreatedDashboardUser}
+            disabled={isAdmin}
             onClick={handleDeleteMember}
           >
-            {isCreatedDashboardUser ? "방장" : "삭제"}
+            {isAdmin ? "방장" : "삭제"}
           </Button>
         </div>
       )}
