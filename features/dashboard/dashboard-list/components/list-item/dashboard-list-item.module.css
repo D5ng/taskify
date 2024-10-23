@@ -19,6 +19,9 @@
 .dashboard-list-item__title {
   font-weight: 700;
   margin-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .dashboard-list-item__image {
