@@ -1,4 +1,4 @@
-import { useRouterQuery } from "@common/hooks"
+import { useAuthStore, useRouterQuery } from "@common/hooks"
 import { useFetchMembers, useMemberPageStore } from "@shared/dashboard/hooks"
 import { DashboardMemberListItem } from "@features/dashboard/dashboard-members/components"
 import type { Dashboard } from "@shared/dashboard/types"
@@ -12,12 +12,18 @@ export default function DashboardMemberList(props: Props) {
   const dashboardId = useRouterQuery("id")
   const currentPage = useMemberPageStore.use.currentPage()
   const memberQuery = useFetchMembers(+dashboardId, currentPage)
+  const myUserId = useAuthStore.use.id()
+  const isCreatedDashboardUser = props.dashboard.userId === myUserId
 
   return (
     <ul className={classes.list}>
       {memberQuery.data?.members.map((member) => (
         <li className={classes["list-item"]} key={member.id}>
-          <DashboardMemberListItem {...member} dashboardUserId={props.dashboard.userId} />
+          <DashboardMemberListItem
+            {...member}
+            dashboardUserId={props.dashboard.userId}
+            isCreatedDashboardUser={isCreatedDashboardUser}
+          />
         </li>
       ))}
     </ul>
