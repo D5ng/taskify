@@ -2,7 +2,6 @@ import { mutate as globalMutate } from "swr"
 import useSWRMutation from "swr/mutation"
 import { TaskCardApiInstance } from "@shared/dashboard/services"
 import { useFetchDashboardColumns, useFetchTaskCard } from "@shared/dashboard/hooks"
-import { DashboardColumn } from "../../types"
 
 export function useCreateTaskCard(columnId: number) {
   const { mutate } = useFetchTaskCard(columnId)

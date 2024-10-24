@@ -2,8 +2,6 @@ import useSWRMutation from "swr/mutation"
 import { useFetchDashboards, useFetchInvitation, useInvitePageStore } from "@shared/dashboard/hooks"
 import { DashboardApiInstance } from "@shared/dashboard/services"
 import { useRouterQuery } from "@common/hooks"
-import { INVITE_POST_COUNT } from "@/features/dashboard/dashboard-invite/constants"
-import { AxiosError } from "axios"
 
 export function useCreateDashboard(currentPage: number) {
   const { mutate } = useFetchDashboards(currentPage)
